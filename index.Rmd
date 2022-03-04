@@ -1,9 +1,8 @@
 --- 
-title: "Data Mining and Data Visualization for the Social Sciences"
-subtitle: "MACS 24000/34000"
+title: "Data Visualization"
+subtitle: "MACS 20700/40700"
 author:
   - Benjamin Soltoff
-  - Philip Waggoner
 date: "`r lubridate::today()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
@@ -11,49 +10,32 @@ documentclass: krantz
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: css-data-mining-viz/course-notes
-description: "Contains notes for the 2020 summer session compressed course."
+github-repo: uc-dataviz/course-notes
+description: "Contains notes for the spring 2022 course."
 ---
 
 # Syllabus {-}
 
 ## Contact information {-}
 
-|  | [Dr. Benjamin Soltoff](http://www.bensoltoff.com/) | [Dr. Philip Waggoner](https://pdwaggoner.github.io/) |
-|-|-|-|
-| Email | soltoffbc@uchicago.edu | pdwaggoner@uchicago.edu |
-| GitHub | [bensoltoff](https://github.com/bensoltoff) | [pdwaggoner](https://github.com/pdwaggoner) |
-| Office hours | TBD | TBD |
+|  | [Dr. Benjamin Soltoff](http://www.bensoltoff.com/) |
+|---|---|
+| Email | soltoffbc@uchicago.edu |
+| GitHub | [bensoltoff](https://github.com/bensoltoff) |
+| Office | Room 219, [1155 E 60th St](1155 E 60th St) |
+| Office hours | TBD |
 
 ## Course description {-}
 
-This course introduces students to techniques for extracting and communicating knowledge from data. In the first half, students study visualizations as a method for summarizing information and reporting analysis and conclusions in a compelling format. This introduces the ideas and methods of data visualization, with emphasis on both why you are doing something as well as how to produce optimal visualizations. In the second half, students are introduced to the rapidly developing world of data mining. Focus will be on knowledge discovery and pattern recognition in the context of social science problem solving. From partitioning and anomaly detection to text clustering, high-dimensional mining, and deep learning, students will be given a thorough introduction to prominent techniques for exploring and discovering patterns in data. Throughout the course, class sessions will combine lecture, coding challenges, and computational problem solving to encourage wide engagement with the techniques using the R programming language.
+Social scientists frequently wish to convey information to a broader audience in a cohesive and interpretable manner. Visualizations are an excellent method to summarize information and report analysis and conclusions in a compelling format. This course introduces the theory and applications of data visualization. Students will learn techniques and methods for developing rich, informative and interactive, web-facing visualizations based on principles from graphic design and perceptual psychology. Students will practice these techniques on many types of social science data, including multivariate, temporal, geospatial, text, hierarchical, and network data. These techniques will be developed using a variety of software implementations such as R, ggplot2, D3, and Tableau.
 
 ## Prerequisites {-}
 
-MACS 20500, CS 10121, or a similar introductory programming course. Experience in R is required. STAT 23400 or similar introductory statistics course is expected. Experience with machine learning is helpful but not required.
+MACS 30500 or equivalent programming course in R. Prior experience with `ggplot2` is expected.
 
 ## Course schedule {-}
 
-### Week 1 (Data visualization with Dr. Soltoff) {-}
-
-| Date | Topic |
-|-|-|
-| 27-Jul | Introduction to data visualization |
-| 28-Jul | Showing the right numbers |
-| 29-Jul | Making plots pretty and clean |
-| 30-Jul | Geospatial visualizations |
-| 31-Jul | Interactive Shiny applications |
-
-### Week 2 (Data mining with Dr. Waggoner) {-}
-
-| Date | Topic |
-|-|-|
-| 3-Aug | Foundations of Data Mining |
-| 4-Aug | Patterns & Associations |
-| 5-Aug | Unsupervised Machine Learning |
-| 6-Aug | Mining Labeled Data & Text |
-| 7-Aug | Deep Learning |
+TBD
 
 ## What do I need for this course? {-}
 
@@ -69,7 +51,7 @@ All readings (e.g., papers, book chapters) will be open source, with either link
 
 ## How will I be evaluated? {-}
 
-Students will submit daily problem sets each worth 100 points. Each assignment is due prior to the start of class (10 am CDT) the following day. There is no final exam or project in the course. Assignments will be submitted via GitHub Classroom.
+TBD
 
 ## Statement on Disabilities {-}
 
