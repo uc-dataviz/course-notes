@@ -35,7 +35,24 @@ MACS 30500 or equivalent programming course in R. Prior experience with `ggplot2
 
 ## Course schedule {-}
 
-TBD
+1. Welcome to the course
+1. Grammar of graphics
+1. Looking at data
+1. Deep dive: geoms
+1. Deep dive: stats + scales + guides
+1. Deep dive: coordinate systems + faceting + themes
+1. Optimizing color spaces?
+1. Deep dive: axes and annotation
+1. Presentation ready plots
+1. Visualizing time series data
+1. Visualizing geospatial data I
+1. Visualizing geospatial data II
+1. Visualizing text and network data?
+1. Animation
+1. Shiny I
+1. Shiny II
+1. Tables
+1. Accessibility
 
 ## What do I need for this course? {-}
 
