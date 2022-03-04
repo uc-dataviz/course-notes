@@ -1,0 +1,8 @@
+book_filename: "lecture-notes"
+language:
+  ui:
+    chapter_name: "Day "
+delete_merged_file: true
+new_session: yes
+before_chapter_script: "_common.R"
+output_dir: "docs"

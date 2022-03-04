@@ -1,0 +1,8165 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Showing the right numbers</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="MACS 24000   University of Chicago" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
+    <link href="libs/remark-css/lucy-fonts.css" rel="stylesheet" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Showing the right numbers
+### MACS 24000 <br /> University of Chicago
+
+---
+
+
+
+
+
+
+# Grammar of graphics
+
+The **grammar of graphics** is a set of rules for how to produce graphics from data, taking **pieces of data** and **mapping** them to **geometric objects** (like points and lines) that have **aesthetic attributes** (like position, color, and size), together with further rules for **transforming the data if needed**, adjusting **scales**, or projecting the results onto a **coordinate system**.
+
+---
+
+# Grouped data and the `group` aesthetic
+
+.pull-left[
+
+
+```r
+ggplot(
+  data = gapminder,
+  mapping = aes(
+    x = year,
+    y = gdpPercap
+  )
+) +
+  geom_line()
+```
+
+]
+
+.pull-right[
+
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-out-1.png" width="504" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Grouped data and the `group` aesthetic
+
+
+```r
+gapminder
+```
+
+```
+## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.
+##  8 Afghanistan Asia       1987    40.8 13867957      852.
+##  9 Afghanistan Asia       1992    41.7 16317921      649.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.
+## # … with 1,694 more rows
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-gapminder-group-auto[
+
+```r
+*ggplot(data = gapminder, mapping = aes(
+* x = year,
+* y = gdpPercap
+*))
+```
+]
+ 
+.right-panel-gapminder-group-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-group_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-gapminder-group-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+* geom_line(mapping = aes(group = country))
+```
+]
+ 
+.right-panel-gapminder-group-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-group_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-gapminder-group-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-gapminder-group-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-gapminder-group-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-gapminder-facet-auto[
+
+```r
+*ggplot(data = gapminder, mapping = aes(
+* x = year,
+* y = gdpPercap
+*))
+```
+]
+ 
+.right-panel-gapminder-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-facet_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-gapminder-facet-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+* geom_line(
+*   mapping = aes(group = country)
+* )
+```
+]
+ 
+.right-panel-gapminder-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-facet_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-gapminder-facet-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+  geom_line(  
+    mapping = aes(group = country)  
+  ) +  
+* facet_wrap(~continent)
+```
+]
+ 
+.right-panel-gapminder-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-facet_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-gapminder-facet-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-gapminder-facet-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-gapminder-facet-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+
+count: false
+ 
+
+.left-panel-labs-auto[
+
+```r
+*ggplot(data = gapminder, mapping = aes(
+* x = year,
+* y = gdpPercap
+*))
+```
+]
+ 
+.right-panel-labs-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+* geom_line(
+* color = "gray70",
+* mapping = aes(group = country)
+*) 
+```
+]
+ 
+.right-panel-labs-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+  geom_line(  
+  color = "gray70",  
+  mapping = aes(group = country)  
+) +  
+* geom_smooth(
+*   size = 1.1,
+*   method = "loess",
+*   se = FALSE
+* )
+```
+]
+ 
+.right-panel-labs-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+  geom_line(  
+  color = "gray70",  
+  mapping = aes(group = country)  
+) +  
+  geom_smooth(  
+    size = 1.1,  
+    method = "loess",  
+    se = FALSE  
+  ) +  
+* scale_y_log10(labels = scales::dollar)
+```
+]
+ 
+.right-panel-labs-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+  geom_line(  
+  color = "gray70",  
+  mapping = aes(group = country)  
+) +  
+  geom_smooth(  
+    size = 1.1,  
+    method = "loess",  
+    se = FALSE  
+  ) +  
+  scale_y_log10(labels = scales::dollar) +  
+* facet_wrap(~continent, ncol = 5)
+```
+]
+ 
+.right-panel-labs-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-auto[
+
+```r
+ggplot(data = gapminder, mapping = aes(  
+  x = year,  
+  y = gdpPercap  
+)) +  
+  geom_line(  
+  color = "gray70",  
+  mapping = aes(group = country)  
+) +  
+  geom_smooth(  
+    size = 1.1,  
+    method = "loess",  
+    se = FALSE  
+  ) +  
+  scale_y_log10(labels = scales::dollar) +  
+  facet_wrap(~continent, ncol = 5) +  
+* labs(
+*   x = "Year",
+*   y = "GDP per capita",
+*   title = "GDP per capita on Five Continents"
+* )
+```
+]
+ 
+.right-panel-labs-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-labs-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 60%
+}
+.right-panel-labs-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 60%
+}
+.middle-panel-labs-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 60%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Geoms can transform data
+
+
+```r
+gss_sm
+```
+
+```
+## # A tibble: 2,867 x 32
+##     year    id ballot   age childs sibs  degree race  sex   region income16
+##    &lt;dbl&gt; &lt;dbl&gt; &lt;labe&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;lab&gt; &lt;fct&gt;  &lt;fct&gt; &lt;fct&gt; &lt;fct&gt;  &lt;fct&gt;   
+##  1  2016     1 1         47      3 2     Bache… White Male  New E… $170000…
+##  2  2016     2 2         61      0 3     High … White Male  New E… $50000 …
+##  3  2016     3 3         72      2 3     Bache… White Male  New E… $75000 …
+##  4  2016     4 1         43      4 3     High … White Fema… New E… $170000…
+##  5  2016     5 3         55      2 2     Gradu… White Fema… New E… $170000…
+##  6  2016     6 2         53      2 2     Junio… White Fema… New E… $60000 …
+##  7  2016     7 1         50      2 2     High … White Male  New E… $170000…
+##  8  2016     8 3         23      3 6     High … Other Fema… Middl… $30000 …
+##  9  2016     9 1         45      3 5     High … Black Male  Middl… $60000 …
+## 10  2016    10 3         71      4 1     Junio… White Male  Middl… $60000 …
+## # … with 2,857 more rows, and 21 more variables: relig &lt;fct&gt;, marital &lt;fct&gt;,
+## #   padeg &lt;fct&gt;, madeg &lt;fct&gt;, partyid &lt;fct&gt;, polviews &lt;fct&gt;, happy &lt;fct&gt;,
+## #   partners &lt;fct&gt;, grass &lt;fct&gt;, zodiac &lt;fct&gt;, pres12 &lt;labelled&gt;,
+## #   wtssall &lt;dbl&gt;, income_rc &lt;fct&gt;, agegrp &lt;fct&gt;, ageq &lt;fct&gt;, siblings &lt;fct&gt;,
+## #   kids &lt;fct&gt;, religion &lt;fct&gt;, bigregion &lt;fct&gt;, partners_rc &lt;fct&gt;, obama &lt;dbl&gt;
+```
+
+---
+
+# Geoms can transform data
+
+
+```r
+count(x = gss_sm, religion)
+```
+
+```
+## # A tibble: 6 x 2
+##   religion       n
+##   &lt;fct&gt;      &lt;int&gt;
+## 1 Protestant  1371
+## 2 Catholic     649
+## 3 Jewish        51
+## 4 None         619
+## 5 Other        159
+## 6 &lt;NA&gt;          18
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-obtain-count-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(x = bigregion)
+*) 
+```
+]
+ 
+.right-panel-obtain-count-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/obtain-count_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-obtain-count-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(x = bigregion)  
+) +  
+* geom_bar()
+```
+]
+ 
+.right-panel-obtain-count-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/obtain-count_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-obtain-count-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-obtain-count-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-obtain-count-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-prop-wrong-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(x = bigregion)
+*) 
+```
+]
+ 
+.right-panel-prop-wrong-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/prop-wrong_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-prop-wrong-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(x = bigregion)  
+) +  
+* geom_bar(mapping = aes(
+*   y = stat(prop))
+* )
+```
+]
+ 
+.right-panel-prop-wrong-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/prop-wrong_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-prop-wrong-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-prop-wrong-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-prop-wrong-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-prop-right-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(x = bigregion)
+*) 
+```
+]
+ 
+.right-panel-prop-right-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/prop-right_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-prop-right-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(x = bigregion)  
+) +  
+* geom_bar(mapping = aes(
+*   y = stat(prop),
+*   group = 1)
+* )
+```
+]
+ 
+.right-panel-prop-right-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/prop-right_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-prop-right-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-prop-right-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-prop-right-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# `geom_*() &lt;=&gt; stat_*()`
+
+```r
+p + geom_bar()
+
+p + stat_count()
+```
+
+---
+
+# Color in a bar chart
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-bar-chart-color-rotate[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(x = religion)  
+  ) +  
+  geom_bar()  
+```
+]
+ 
+.right-panel-bar-chart-color-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bar-chart-color_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bar-chart-color-rotate[
+
+```r
+ggplot(  
+  data = gss_sm,  
+* mapping = aes(x = religion, color = religion) #ROTATE
+  ) +  
+  geom_bar()  
+```
+]
+ 
+.right-panel-bar-chart-color-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bar-chart-color_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bar-chart-color-rotate[
+
+```r
+ggplot(  
+  data = gss_sm,  
+* mapping = aes(x = religion, fill = religion) #ROTATE
+  ) +  
+  geom_bar()  
+```
+]
+ 
+.right-panel-bar-chart-color-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bar-chart-color_rotate_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-bar-chart-color-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-bar-chart-color-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-bar-chart-color-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Histograms and kernel densities
+
+
+```r
+midwest
+```
+
+```
+## # A tibble: 437 x 28
+##      PID county state  area poptotal popdensity popwhite popblack popamerindian
+##    &lt;int&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;    &lt;int&gt;      &lt;dbl&gt;    &lt;int&gt;    &lt;int&gt;         &lt;int&gt;
+##  1   561 ADAMS  IL    0.052    66090      1271.    63917     1702            98
+##  2   562 ALEXA… IL    0.014    10626       759      7054     3496            19
+##  3   563 BOND   IL    0.022    14991       681.    14477      429            35
+##  4   564 BOONE  IL    0.017    30806      1812.    29344      127            46
+##  5   565 BROWN  IL    0.018     5836       324.     5264      547            14
+##  6   566 BUREAU IL    0.05     35688       714.    35157       50            65
+##  7   567 CALHO… IL    0.017     5322       313.     5298        1             8
+##  8   568 CARRO… IL    0.027    16805       622.    16519      111            30
+##  9   569 CASS   IL    0.024    13437       560.    13384       16             8
+## 10   570 CHAMP… IL    0.058   173025      2983.   146506    16559           331
+## # … with 427 more rows, and 19 more variables: popasian &lt;int&gt;, popother &lt;int&gt;,
+## #   percwhite &lt;dbl&gt;, percblack &lt;dbl&gt;, percamerindan &lt;dbl&gt;, percasian &lt;dbl&gt;,
+## #   percother &lt;dbl&gt;, popadults &lt;int&gt;, perchsd &lt;dbl&gt;, percollege &lt;dbl&gt;,
+## #   percprof &lt;dbl&gt;, poppovertyknown &lt;int&gt;, percpovertyknown &lt;dbl&gt;,
+## #   percbelowpoverty &lt;dbl&gt;, percchildbelowpovert &lt;dbl&gt;, percadultpoverty &lt;dbl&gt;,
+## #   percelderlypoverty &lt;dbl&gt;, inmetro &lt;int&gt;, category &lt;chr&gt;
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-histogram-auto[
+
+```r
+*ggplot(
+* data = midwest,
+* mapping = aes(x = area)
+*) 
+```
+]
+ 
+.right-panel-histogram-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/histogram_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-histogram-auto[
+
+```r
+ggplot(  
+  data = midwest,  
+  mapping = aes(x = area)  
+) +  
+* geom_histogram()
+```
+]
+ 
+.right-panel-histogram-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/histogram_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-histogram-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-histogram-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-histogram-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-histogram-10-bins-auto[
+
+```r
+*ggplot(
+* data = midwest,
+* mapping = aes(x = area)
+*) 
+```
+]
+ 
+.right-panel-histogram-10-bins-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/histogram-10-bins_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-histogram-10-bins-auto[
+
+```r
+ggplot(  
+  data = midwest,  
+  mapping = aes(x = area)  
+) +  
+* geom_histogram(bins = 10)
+```
+]
+ 
+.right-panel-histogram-10-bins-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/histogram-10-bins_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-histogram-10-bins-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-histogram-10-bins-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-histogram-10-bins-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-subset-fly-auto[
+
+```r
+*ggplot(
+* data = filter(
+*   midwest,
+*   state %in% c("OH", "WI")
+* ),
+* mapping = aes(x = percollege,
+*               fill = state)
+*) 
+```
+]
+ 
+.right-panel-subset-fly-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/subset-fly_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-subset-fly-auto[
+
+```r
+ggplot(  
+  data = filter(  
+    midwest,  
+    state %in% c("OH", "WI")  
+  ),  
+  mapping = aes(x = percollege,  
+                fill = state)  
+) +  
+* geom_histogram(
+*   position = "identity",
+*   alpha = 0.4, bins = 20
+* )
+```
+]
+ 
+.right-panel-subset-fly-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/subset-fly_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-subset-fly-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-subset-fly-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-subset-fly-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-density-auto[
+
+```r
+*ggplot(
+* data = midwest,
+* mapping = aes(x = area)
+*) 
+```
+]
+ 
+.right-panel-density-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/density_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-density-auto[
+
+```r
+ggplot(  
+  data = midwest,  
+  mapping = aes(x = area)  
+) +  
+* geom_density()
+```
+]
+ 
+.right-panel-density-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/density_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-density-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-density-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-density-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-density-fill-auto[
+
+```r
+*ggplot(
+* data = midwest,
+* mapping = aes(
+*   x = area,
+*   fill = state,
+*   color = state
+* )
+*) 
+```
+]
+ 
+.right-panel-density-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/density-fill_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-density-fill-auto[
+
+```r
+ggplot(  
+  data = midwest,  
+  mapping = aes(  
+    x = area,  
+    fill = state,  
+    color = state  
+  )  
+) +  
+* geom_density(alpha = 0.3)
+```
+]
+ 
+.right-panel-density-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/density-fill_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-density-fill-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-density-fill-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-density-fill-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Avoiding transformations when necessary
+
+
+```r
+titanic
+```
+
+```
+##       fate    sex    n percent
+## 1 perished   male 1364    62.0
+## 2 perished female  126     5.7
+## 3 survived   male  367    16.7
+## 4 survived female  344    15.6
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-titanic-bar-rotate[
+
+```r
+ggplot(  
+  data = titanic,  
+  mapping = aes(  
+    x = fate,  
+    y = percent,  
+    fill = sex  
+  )  
+) +  
+  geom_bar(stat = "identity", position = "dodge") +  
+  theme(legend.position = "top")  
+```
+]
+ 
+.right-panel-titanic-bar-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/titanic-bar_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-titanic-bar-rotate[
+
+```r
+ggplot(  
+  data = titanic,  
+  mapping = aes(  
+    x = fate,  
+    y = percent,  
+    fill = sex  
+  )  
+) +  
+* geom_col(position = "dodge") +
+  theme(legend.position = "top")  
+```
+]
+ 
+.right-panel-titanic-bar-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/titanic-bar_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-titanic-bar-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-titanic-bar-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-titanic-bar-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+```r
+oecd_sum
+```
+
+```
+## # A tibble: 57 x 5
+## # Groups:   year [57]
+##     year other   usa  diff hi_lo
+##    &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;
+##  1  1960  68.6  69.9 1.3   Below
+##  2  1961  69.2  70.4 1.2   Below
+##  3  1962  68.9  70.2 1.30  Below
+##  4  1963  69.1  70   0.9   Below
+##  5  1964  69.5  70.3 0.800 Below
+##  6  1965  69.6  70.3 0.7   Below
+##  7  1966  69.9  70.3 0.400 Below
+##  8  1967  70.1  70.7 0.6   Below
+##  9  1968  70.1  70.4 0.3   Below
+## 10  1969  70.1  70.6 0.5   Below
+## # … with 47 more rows
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-oecd-plot-auto[
+
+```r
+*ggplot(
+* data = oecd_sum,
+* mapping = aes(x = year,
+*               y = diff,
+*               fill = hi_lo)
+*) 
+```
+]
+ 
+.right-panel-oecd-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/oecd-plot_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-oecd-plot-auto[
+
+```r
+ggplot(  
+  data = oecd_sum,  
+  mapping = aes(x = year,  
+                y = diff,  
+                fill = hi_lo)  
+) +  
+* geom_col()
+```
+]
+ 
+.right-panel-oecd-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/oecd-plot_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-oecd-plot-auto[
+
+```r
+ggplot(  
+  data = oecd_sum,  
+  mapping = aes(x = year,  
+                y = diff,  
+                fill = hi_lo)  
+) +  
+  geom_col() +  
+* guides(fill = FALSE)
+```
+]
+ 
+.right-panel-oecd-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/oecd-plot_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-oecd-plot-auto[
+
+```r
+ggplot(  
+  data = oecd_sum,  
+  mapping = aes(x = year,  
+                y = diff,  
+                fill = hi_lo)  
+) +  
+  geom_col() +  
+  guides(fill = FALSE) +  
+* labs(
+*   x = NULL, y = "Difference in Years",
+*   title = "The US Life Expectancy Gap",
+*   subtitle = "Difference between US and OECD average life expectancies, 1960-2015",
+*   caption = "Data: OECD. After a chart by Christopher Ingraham, Washington Post, December 27th 2017."
+* )
+```
+]
+ 
+.right-panel-oecd-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/oecd-plot_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-oecd-plot-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-oecd-plot-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-oecd-plot-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Cross-tabulation the awkward way
+
+* Cross-classify two categorical variables using color
+* Equivalent to a frequency table
+* How to achieve within `ggplot()`?
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-religion-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(
+*   x = bigregion,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-region-religion-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(  
+    x = bigregion,  
+    fill = religion  
+  )  
+) +  
+* geom_bar()
+```
+]
+ 
+.right-panel-region-religion-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-religion-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-religion-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-religion-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-religion-fill-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(
+*   x = bigregion,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-region-religion-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-fill_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-fill-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(  
+    x = bigregion,  
+    fill = religion  
+  )  
+) +  
+* geom_bar(position = "fill")
+```
+]
+ 
+.right-panel-region-religion-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-fill_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-religion-fill-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-religion-fill-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-religion-fill-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-religion-dodge-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(
+*   x = bigregion,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-region-religion-dodge-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-dodge_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-dodge-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(  
+    x = bigregion,  
+    fill = religion  
+  )  
+) +  
+* geom_bar(position = "dodge")
+```
+]
+ 
+.right-panel-region-religion-dodge-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-dodge_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-religion-dodge-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-religion-dodge-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-religion-dodge-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-religion-dodge-prop-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(
+*   x = bigregion,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-region-religion-dodge-prop-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-dodge-prop_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-dodge-prop-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(  
+    x = bigregion,  
+    fill = religion  
+  )  
+) +  
+* geom_bar(
+*   mapping = aes(y = stat(prop)),
+*   position = "dodge"
+* )
+```
+]
+ 
+.right-panel-region-religion-dodge-prop-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-dodge-prop_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-religion-dodge-prop-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-religion-dodge-prop-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-religion-dodge-prop-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-religion-dodge-prop-religion-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(
+*   x = bigregion,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-region-religion-dodge-prop-religion-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-dodge-prop-religion_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-dodge-prop-religion-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(  
+    x = bigregion,  
+    fill = religion  
+  )  
+) +  
+* geom_bar(
+*   mapping = aes(
+*     y = stat(prop),
+*     group = religion
+*   ),
+*   position = "dodge")
+```
+]
+ 
+.right-panel-region-religion-dodge-prop-religion-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-dodge-prop-religion_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-religion-dodge-prop-religion-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-religion-dodge-prop-religion-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-religion-dodge-prop-religion-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-region-religion-facet-auto[
+
+```r
+*ggplot(
+* data = gss_sm,
+* mapping = aes(x = religion)
+*) 
+```
+]
+ 
+.right-panel-region-religion-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-facet_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-facet-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(x = religion)  
+) +  
+* geom_bar(
+*   mapping = aes(
+*     y = stat(prop),
+*     group = bigregion
+*   ),
+*   position = "dodge"
+* )
+```
+]
+ 
+.right-panel-region-religion-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-facet_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-region-religion-facet-auto[
+
+```r
+ggplot(  
+  data = gss_sm,  
+  mapping = aes(x = religion)  
+) +  
+  geom_bar(  
+    mapping = aes(  
+      y = stat(prop),  
+      group = bigregion  
+    ),  
+    position = "dodge"  
+  ) +  
+* facet_wrap(~bigregion)
+```
+]
+ 
+.right-panel-region-religion-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/region-religion-facet_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-region-religion-facet-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-region-religion-facet-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-region-religion-facet-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+&lt;div style="width:100%;height:0;padding-bottom:60%;position:relative;"&gt;&lt;iframe src="https://giphy.com/embed/y9v6gGKHjBX7W" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen&gt;&lt;/iframe&gt;&lt;/div&gt;
+
+---
+
+# Use `dplyr` to summarize manually
+
+
+```r
+(rel_by_region &lt;- gss_sm %&gt;%
+  count(bigregion, religion) %&gt;%
+  mutate(
+    freq = n / sum(n),
+    pct = round((freq * 100), 0)
+  ) %&gt;%
+  drop_na())
+```
+
+```
+## # A tibble: 20 x 5
+##    bigregion religion       n    freq   pct
+##    &lt;fct&gt;     &lt;fct&gt;      &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;
+##  1 Northeast Protestant   158 0.0551      6
+##  2 Northeast Catholic     162 0.0565      6
+##  3 Northeast Jewish        27 0.00942     1
+##  4 Northeast None         112 0.0391      4
+##  5 Northeast Other         28 0.00977     1
+##  6 Midwest   Protestant   325 0.113      11
+##  7 Midwest   Catholic     172 0.0600      6
+##  8 Midwest   Jewish         3 0.00105     0
+##  9 Midwest   None         157 0.0548      5
+## 10 Midwest   Other         33 0.0115      1
+## 11 South     Protestant   650 0.227      23
+## 12 South     Catholic     160 0.0558      6
+## 13 South     Jewish        11 0.00384     0
+## 14 South     None         170 0.0593      6
+## 15 South     Other         50 0.0174      2
+## 16 West      Protestant   238 0.0830      8
+## 17 West      Catholic     155 0.0541      5
+## 18 West      Jewish        10 0.00349     0
+## 19 West      None         180 0.0628      6
+## 20 West      Other         48 0.0167      2
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-rel-by-region-plot-auto[
+
+```r
+*ggplot(
+* data = rel_by_region,
+* mapping = aes(
+*   x = bigregion,
+*   y = pct,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-rel-by-region-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = bigregion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+* geom_col(position = "dodge2")
+```
+]
+ 
+.right-panel-rel-by-region-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = bigregion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+  geom_col(position = "dodge2") +  
+* labs(x = "Region",
+*      y = "Percent",
+*      fill = "Religion")
+```
+]
+ 
+.right-panel-rel-by-region-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = bigregion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+  geom_col(position = "dodge2") +  
+  labs(x = "Region",  
+       y = "Percent",  
+       fill = "Religion") +  
+* theme(legend.position = "top")
+```
+]
+ 
+.right-panel-rel-by-region-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-rel-by-region-plot-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-rel-by-region-plot-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-rel-by-region-plot-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-rel-by-region-plot-facet-auto[
+
+```r
+*ggplot(
+* data = rel_by_region,
+* mapping = aes(
+*   x = religion,
+*   y = pct,
+*   fill = religion
+* )
+*) 
+```
+]
+ 
+.right-panel-rel-by-region-plot-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot-facet_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-facet-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = religion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+* geom_col(position = "dodge2")
+```
+]
+ 
+.right-panel-rel-by-region-plot-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot-facet_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-facet-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = religion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+  geom_col(position = "dodge2") +  
+* labs(x = "Region",
+*      y = "Percent",
+*      fill = "Religion")
+```
+]
+ 
+.right-panel-rel-by-region-plot-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot-facet_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-facet-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = religion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+  geom_col(position = "dodge2") +  
+  labs(x = "Region",  
+       y = "Percent",  
+       fill = "Religion") +  
+* guides(fill = FALSE)
+```
+]
+ 
+.right-panel-rel-by-region-plot-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot-facet_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-facet-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = religion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+  geom_col(position = "dodge2") +  
+  labs(x = "Region",  
+       y = "Percent",  
+       fill = "Religion") +  
+  guides(fill = FALSE) +  
+* coord_flip()
+```
+]
+ 
+.right-panel-rel-by-region-plot-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot-facet_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-rel-by-region-plot-facet-auto[
+
+```r
+ggplot(  
+  data = rel_by_region,  
+  mapping = aes(  
+    x = religion,  
+    y = pct,  
+    fill = religion  
+  )  
+) +  
+  geom_col(position = "dodge2") +  
+  labs(x = "Region",  
+       y = "Percent",  
+       fill = "Religion") +  
+  guides(fill = FALSE) +  
+  coord_flip() +  
+* facet_grid(~bigregion)
+```
+]
+ 
+.right-panel-rel-by-region-plot-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/rel-by-region-plot-facet_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-rel-by-region-plot-facet-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-rel-by-region-plot-facet-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-rel-by-region-plot-facet-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Continuous variables by group or category
+
+
+```r
+glimpse(organdata)
+```
+
+```
+## Rows: 238
+## Columns: 21
+## $ country          &lt;chr&gt; "Australia", "Australia", "Australia", "Australia", …
+## $ year             &lt;date&gt; NA, 1991-01-01, 1992-01-01, 1993-01-01, 1994-01-01,…
+## $ donors           &lt;dbl&gt; NA, 12.09, 12.35, 12.51, 10.25, 10.18, 10.59, 10.26,…
+## $ pop              &lt;int&gt; 17065, 17284, 17495, 17667, 17855, 18072, 18311, 185…
+## $ pop_dens         &lt;dbl&gt; 0.2204433, 0.2232723, 0.2259980, 0.2282198, 0.230648…
+## $ gdp              &lt;int&gt; 16774, 17171, 17914, 18883, 19849, 21079, 21923, 229…
+## $ gdp_lag          &lt;int&gt; 16591, 16774, 17171, 17914, 18883, 19849, 21079, 219…
+## $ health           &lt;dbl&gt; 1300, 1379, 1455, 1540, 1626, 1737, 1846, 1948, 2077…
+## $ health_lag       &lt;dbl&gt; 1224, 1300, 1379, 1455, 1540, 1626, 1737, 1846, 1948…
+## $ pubhealth        &lt;dbl&gt; 4.8, 5.4, 5.4, 5.4, 5.4, 5.5, 5.6, 5.7, 5.9, 6.1, 6.…
+## $ roads            &lt;dbl&gt; 136.59537, 122.25179, 112.83224, 110.54508, 107.9809…
+## $ cerebvas         &lt;int&gt; 682, 647, 630, 611, 631, 592, 576, 525, 516, 493, 47…
+## $ assault          &lt;int&gt; 21, 19, 17, 18, 17, 16, 17, 17, 16, 15, 16, 15, 14, …
+## $ external         &lt;int&gt; 444, 425, 406, 376, 387, 371, 395, 385, 410, 409, 39…
+## $ txp_pop          &lt;dbl&gt; 0.9375916, 0.9257116, 0.9145470, 0.9056433, 0.896107…
+## $ world            &lt;chr&gt; "Liberal", "Liberal", "Liberal", "Liberal", "Liberal…
+## $ opt              &lt;chr&gt; "In", "In", "In", "In", "In", "In", "In", "In", "In"…
+## $ consent_law      &lt;chr&gt; "Informed", "Informed", "Informed", "Informed", "Inf…
+## $ consent_practice &lt;chr&gt; "Informed", "Informed", "Informed", "Informed", "Inf…
+## $ consistent       &lt;chr&gt; "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Yes", "Ye…
+## $ ccode            &lt;chr&gt; "Oz", "Oz", "Oz", "Oz", "Oz", "Oz", "Oz", "Oz", "Oz"…
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-box-auto[
+
+```r
+*ggplot(
+* data = organdata,
+* mapping = aes(x = country,
+*               y = donors)
+*) 
+```
+]
+ 
+.right-panel-organ-box-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-box_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-box-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(x = country,  
+                y = donors)  
+) +  
+* geom_boxplot()
+```
+]
+ 
+.right-panel-organ-box-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-box_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-box-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(x = country,  
+                y = donors)  
+) +  
+  geom_boxplot() +  
+* coord_flip()
+```
+]
+ 
+.right-panel-organ-box-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-box_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-box-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-box-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-box-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-reorder-auto[
+
+```r
+*ggplot(
+* data = organdata,
+* mapping = aes(
+*   x = reorder(x = country,
+*               X = donors,
+*               na.rm = TRUE),
+*   y = donors
+* )
+*) 
+```
+]
+ 
+.right-panel-organ-reorder-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-reorder_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-reorder-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors  
+  )  
+) +  
+* geom_boxplot()
+```
+]
+ 
+.right-panel-organ-reorder-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-reorder_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-reorder-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors  
+  )  
+) +  
+  geom_boxplot() +  
+* labs(x = NULL)
+```
+]
+ 
+.right-panel-organ-reorder-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-reorder_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-reorder-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors  
+  )  
+) +  
+  geom_boxplot() +  
+  labs(x = NULL) +  
+* coord_flip()
+```
+]
+ 
+.right-panel-organ-reorder-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-reorder_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-reorder-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-reorder-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-reorder-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-world-auto[
+
+```r
+*ggplot(
+* data = organdata,
+* mapping = aes(
+*   x = reorder(x = country,
+*               X = donors,
+*               na.rm = TRUE),
+*   y = donors, fill = world
+* )
+*) 
+```
+]
+ 
+.right-panel-organ-world-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-world_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-world-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors, fill = world  
+  )  
+) +  
+* geom_boxplot()
+```
+]
+ 
+.right-panel-organ-world-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-world_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-world-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors, fill = world  
+  )  
+) +  
+  geom_boxplot() +  
+* labs(x = NULL)
+```
+]
+ 
+.right-panel-organ-world-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-world_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-world-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors, fill = world  
+  )  
+) +  
+  geom_boxplot() +  
+  labs(x = NULL) +  
+* coord_flip()
+```
+]
+ 
+.right-panel-organ-world-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-world_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-world-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors, fill = world  
+  )  
+) +  
+  geom_boxplot() +  
+  labs(x = NULL) +  
+  coord_flip() +  
+* theme(legend.position = "bottom")
+```
+]
+ 
+.right-panel-organ-world-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-world_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-world-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-world-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-world-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-strip-chart-rotate[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors, color = world  
+  )  
+) +  
+  geom_point() +  
+  labs(x = NULL) +  
+  coord_flip() +  
+  theme(legend.position = "bottom")  
+```
+]
+ 
+.right-panel-strip-chart-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/strip-chart_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-strip-chart-rotate[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = reorder(x = country,  
+                X = donors,  
+                na.rm = TRUE),  
+    y = donors, color = world  
+  )  
+) +  
+* geom_jitter() +
+  labs(x = NULL) +  
+  coord_flip() +  
+  theme(legend.position = "bottom")  
+```
+]
+ 
+.right-panel-strip-chart-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/strip-chart_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-strip-chart-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-strip-chart-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-strip-chart-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Prep data
+
+
+```r
+(by_country &lt;- organdata %&gt;%
+  group_by(consent_law, country) %&gt;%
+  summarize(
+    donors_mean = mean(donors, na.rm = TRUE),
+    donors_sd = sd(donors, na.rm = TRUE),
+    gdp_mean = mean(gdp, na.rm = TRUE),
+    health_mean = mean(health, na.rm = TRUE),
+    roads_mean = mean(roads, na.rm = TRUE),
+    cerebvas_mean = mean(cerebvas, na.rm = TRUE)
+  ))
+```
+
+```
+## # A tibble: 17 x 8
+## # Groups:   consent_law [2]
+##    consent_law country donors_mean donors_sd gdp_mean health_mean roads_mean
+##    &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;       &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Informed    Austra…        10.6     1.14    22179.       1958.      105. 
+##  2 Informed    Canada         14.0     0.751   23711.       2272.      109. 
+##  3 Informed    Denmark        13.1     1.47    23722.       2054.      102. 
+##  4 Informed    Germany        13.0     0.611   22163.       2349.      113. 
+##  5 Informed    Ireland        19.8     2.48    20824.       1480.      118. 
+##  6 Informed    Nether…        13.7     1.55    23013.       1993.       76.1
+##  7 Informed    United…        13.5     0.775   21359.       1561.       67.9
+##  8 Informed    United…        20.0     1.33    29212.       3988.      155. 
+##  9 Presumed    Austria        23.5     2.42    23876.       1875.      150. 
+## 10 Presumed    Belgium        21.9     1.94    22500.       1958.      155. 
+## 11 Presumed    Finland        18.4     1.53    21019.       1615.       93.6
+## 12 Presumed    France         16.8     1.60    22603.       2160.      156. 
+## 13 Presumed    Italy          11.1     4.28    21554.       1757       122. 
+## 14 Presumed    Norway         15.4     1.11    26448.       2217.       70.0
+## 15 Presumed    Spain          28.1     4.96    16933        1289.      161. 
+## 16 Presumed    Sweden         13.1     1.75    22415.       1951.       72.3
+## 17 Presumed    Switze…        14.2     1.71    27233        2776.       96.4
+## # … with 1 more variable: cerebvas_mean &lt;dbl&gt;
+```
+
+---
+
+# Prep data
+
+
+```r
+(by_country &lt;- organdata %&gt;%
+  group_by(consent_law, country) %&gt;%
+  summarize(across(where(is.numeric), list(mean = mean, sd = sd), na.rm = TRUE)) %&gt;%
+  ungroup())
+```
+
+```
+## # A tibble: 17 x 28
+##    consent_law country donors_mean donors_sd pop_mean pop_sd pop_dens_mean
+##    &lt;chr&gt;       &lt;chr&gt;         &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;         &lt;dbl&gt;
+##  1 Informed    Austra…        10.6     1.14    18318. 8.31e2         0.237
+##  2 Informed    Canada         14.0     0.751   29608. 1.19e3         0.297
+##  3 Informed    Denmark        13.1     1.47     5257. 8.06e1        12.2  
+##  4 Informed    Germany        13.0     0.611   80255. 5.16e3        22.5  
+##  5 Informed    Ireland        19.8     2.48     3674. 1.32e2         5.23 
+##  6 Informed    Nether…        13.7     1.55    15548. 3.73e2        37.4  
+##  7 Informed    United…        13.5     0.775   58187. 6.26e2        24.0  
+##  8 Informed    United…        20.0     1.33   269330. 1.25e4         2.80 
+##  9 Presumed    Austria        23.5     2.42     7927. 1.09e2         9.45 
+## 10 Presumed    Belgium        21.9     1.94    10153. 1.09e2        30.7  
+## 11 Presumed    Finland        18.4     1.53     5112. 6.86e1         1.51 
+## 12 Presumed    France         16.8     1.60    58056. 8.51e2        10.5  
+## 13 Presumed    Italy          11.1     4.28    57360. 4.25e2        19.0  
+## 14 Presumed    Norway         15.4     1.11     4386. 9.73e1         1.35 
+## 15 Presumed    Spain          28.1     4.96    39666. 9.51e2         7.84 
+## 16 Presumed    Sweden         13.1     1.75     8789. 1.14e2         1.95 
+## 17 Presumed    Switze…        14.2     1.71     7037. 1.70e2        17.0  
+## # … with 21 more variables: pop_dens_sd &lt;dbl&gt;, gdp_mean &lt;dbl&gt;, gdp_sd &lt;dbl&gt;,
+## #   gdp_lag_mean &lt;dbl&gt;, gdp_lag_sd &lt;dbl&gt;, health_mean &lt;dbl&gt;, health_sd &lt;dbl&gt;,
+## #   health_lag_mean &lt;dbl&gt;, health_lag_sd &lt;dbl&gt;, pubhealth_mean &lt;dbl&gt;,
+## #   pubhealth_sd &lt;dbl&gt;, roads_mean &lt;dbl&gt;, roads_sd &lt;dbl&gt;, cerebvas_mean &lt;dbl&gt;,
+## #   cerebvas_sd &lt;dbl&gt;, assault_mean &lt;dbl&gt;, assault_sd &lt;dbl&gt;,
+## #   external_mean &lt;dbl&gt;, external_sd &lt;dbl&gt;, txp_pop_mean &lt;dbl&gt;,
+## #   txp_pop_sd &lt;dbl&gt;
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+*ggplot(
+* data = by_country,
+* mapping = aes(
+*   x = donors_mean,
+*   y = reorder(country, donors_mean),
+*   color = consent_law
+* )
+*) 
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+* geom_point(size = 3)
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+  geom_point(size = 3) +  
+* labs(
+*   x = "Donor Procurement Rate",
+*   y = "", color = "Consent Law"
+* )
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+  geom_point(size = 3) +  
+  labs(  
+    x = "Donor Procurement Rate",  
+    y = "", color = "Consent Law"  
+  ) +  
+* theme(legend.position = "top")
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-donor-mean-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-donor-mean-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-donor-mean-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+*ggplot(
+* data = by_country,
+* mapping = aes(
+*   x = donors_mean,
+*   y = reorder(country, donors_mean),
+*   color = consent_law
+* )
+*) 
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+* geom_point(size = 3)
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+  geom_point(size = 3) +  
+* labs(
+*   x = "Donor Procurement Rate",
+*   y = "", color = "Consent Law"
+* )
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+  geom_point(size = 3) +  
+  labs(  
+    x = "Donor Procurement Rate",  
+    y = "", color = "Consent Law"  
+  ) +  
+* theme(legend.position = "top")
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-donor-mean-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-donor-mean-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-donor-mean-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+*ggplot(
+* data = by_country,
+* mapping = aes(
+*   x = donors_mean,
+*   y = reorder(country, donors_mean),
+*   color = consent_law
+* )
+*) 
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+* geom_point(size = 3)
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+  geom_point(size = 3) +  
+* labs(
+*   x = "Donor Procurement Rate",
+*   y = "", color = "Consent Law"
+* )
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-mean-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = donors_mean,  
+    y = reorder(country, donors_mean),  
+    color = consent_law  
+  )  
+) +  
+  geom_point(size = 3) +  
+  labs(  
+    x = "Donor Procurement Rate",  
+    y = "", color = "Consent Law"  
+  ) +  
+* theme(legend.position = "top")
+```
+]
+ 
+.right-panel-organ-donor-mean-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-mean_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-donor-mean-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-donor-mean-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-donor-mean-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-organ-donor-sd-auto[
+
+```r
+*ggplot(
+* data = by_country,
+* mapping = aes(
+*   x = reorder(country,
+*               donors_mean),
+*   y = donors_mean
+* )
+*) 
+```
+]
+ 
+.right-panel-organ-donor-sd-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-sd_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-sd-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = reorder(country,  
+                donors_mean),  
+    y = donors_mean  
+  )  
+) +  
+* geom_pointrange(mapping = aes(
+*   ymin = donors_mean - donors_sd,
+*   ymax = donors_mean + donors_sd
+* ))
+```
+]
+ 
+.right-panel-organ-donor-sd-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-sd_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-sd-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = reorder(country,  
+                donors_mean),  
+    y = donors_mean  
+  )  
+) +  
+  geom_pointrange(mapping = aes(  
+    ymin = donors_mean - donors_sd,  
+    ymax = donors_mean + donors_sd  
+  )) +  
+* labs(
+*   x = "",
+*   y = "Donor Procurement Rate"
+* )
+```
+]
+ 
+.right-panel-organ-donor-sd-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-sd_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-organ-donor-sd-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = reorder(country,  
+                donors_mean),  
+    y = donors_mean  
+  )  
+) +  
+  geom_pointrange(mapping = aes(  
+    ymin = donors_mean - donors_sd,  
+    ymax = donors_mean + donors_sd  
+  )) +  
+  labs(  
+    x = "",  
+    y = "Donor Procurement Rate"  
+  ) +  
+* coord_flip()
+```
+]
+ 
+.right-panel-organ-donor-sd-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/organ-donor-sd_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-organ-donor-sd-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-organ-donor-sd-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-organ-donor-sd-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Plot text directly
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-geom-text-rotate[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = roads_mean,  
+    y = donors_mean  
+  )  
+) +  
+  geom_point() +  
+  geom_text(aes(label = country))  
+```
+]
+ 
+.right-panel-geom-text-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/geom-text_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-geom-text-rotate[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(  
+    x = roads_mean,  
+    y = donors_mean  
+  )  
+) +  
+  geom_point() +  
+* geom_text(aes(label = country, hjust = 0))
+```
+]
+ 
+.right-panel-geom-text-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/geom-text_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-geom-text-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-geom-text-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-geom-text-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# `ggrepel::geom_text_repel()`
+
+
+```r
+elections_historic %&gt;%
+  select(2:7)
+```
+
+```
+## # A tibble: 49 x 6
+##     year winner                 win_party ec_pct popular_pct popular_margin
+##    &lt;int&gt; &lt;chr&gt;                  &lt;chr&gt;      &lt;dbl&gt;       &lt;dbl&gt;          &lt;dbl&gt;
+##  1  1824 John Quincy Adams      D.-R.      0.322       0.309        -0.104 
+##  2  1828 Andrew Jackson         Dem.       0.682       0.559         0.122 
+##  3  1832 Andrew Jackson         Dem.       0.766       0.547         0.178 
+##  4  1836 Martin Van Buren       Dem.       0.578       0.508         0.142 
+##  5  1840 William Henry Harrison Whig       0.796       0.529         0.0605
+##  6  1844 James Polk             Dem.       0.618       0.495         0.0145
+##  7  1848 Zachary Taylor         Whig       0.562       0.473         0.0479
+##  8  1852 Franklin Pierce        Dem.       0.858       0.508         0.0695
+##  9  1856 James Buchanan         Dem.       0.588       0.453         0.122 
+## 10  1860 Abraham Lincoln        Rep.       0.594       0.396         0.101 
+## # … with 39 more rows
+```
+
+---
+
+
+```r
+p_title &lt;- "Presidential Elections: Popular &amp; Electoral College Margins"
+p_subtitle &lt;- "1824-2016"
+p_caption &lt;- "Data for 2016 are provisional."
+x_label &lt;- "Winner's share of Popular Vote"
+y_label &lt;- "Winner's share of Electoral College Votes"
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+*ggplot(data = elections_historic,
+*      mapping = aes(
+*        x = popular_pct,
+*        y = ec_pct,
+*        label = winner_label
+*      ))
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+* geom_hline(yintercept = 0.5,
+*            size = 1.4,
+*            color = "gray80")
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+  geom_hline(yintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+* geom_vline(xintercept = 0.5,
+*            size = 1.4,
+*            color = "gray80")
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+  geom_hline(yintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_vline(xintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+* geom_point()
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+  geom_hline(yintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_vline(xintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_point() +  
+* geom_text_repel()
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+  geom_hline(yintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_vline(xintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_point() +  
+  geom_text_repel() +  
+* scale_x_continuous(labels = scales::percent)
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+  geom_hline(yintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_vline(xintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_point() +  
+  geom_text_repel() +  
+  scale_x_continuous(labels = scales::percent) +  
+* scale_y_continuous(labels = scales::percent)
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_7_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-elections-plot-draw-auto[
+
+```r
+ggplot(data = elections_historic,  
+       mapping = aes(  
+         x = popular_pct,  
+         y = ec_pct,  
+         label = winner_label  
+       )) +  
+  geom_hline(yintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_vline(xintercept = 0.5,  
+             size = 1.4,  
+             color = "gray80") +  
+  geom_point() +  
+  geom_text_repel() +  
+  scale_x_continuous(labels = scales::percent) +  
+  scale_y_continuous(labels = scales::percent) +  
+* labs(
+*   x = x_label, y = y_label,
+*   title = p_title, subtitle = p_subtitle,
+*   caption = p_caption
+* )
+```
+]
+ 
+.right-panel-elections-plot-draw-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/elections-plot-draw_auto_8_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-elections-plot-draw-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 60%
+}
+.right-panel-elections-plot-draw-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 60%
+}
+.middle-panel-elections-plot-draw-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 60%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-label-outliers-auto[
+
+```r
+*ggplot(
+* data = by_country,
+* mapping = aes(x = gdp_mean,
+*               y = health_mean)
+*) 
+```
+]
+ 
+.right-panel-label-outliers-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/label-outliers_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-label-outliers-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(x = gdp_mean,  
+                y = health_mean)  
+) +  
+* geom_point()
+```
+]
+ 
+.right-panel-label-outliers-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/label-outliers_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-label-outliers-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(x = gdp_mean,  
+                y = health_mean)  
+) +  
+  geom_point() +  
+* geom_text_repel(
+*   data = filter(by_country, gdp_mean &gt; 25000),
+*   mapping = aes(label = country)
+* )
+```
+]
+ 
+.right-panel-label-outliers-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/label-outliers_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-label-outliers-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-label-outliers-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-label-outliers-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-label-outliers-2-auto[
+
+```r
+*ggplot(
+* data = by_country,
+* mapping = aes(x = gdp_mean,
+*               y = health_mean)
+*) 
+```
+]
+ 
+.right-panel-label-outliers-2-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/label-outliers-2_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-label-outliers-2-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(x = gdp_mean,  
+                y = health_mean)  
+) +  
+* geom_point()
+```
+]
+ 
+.right-panel-label-outliers-2-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/label-outliers-2_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-label-outliers-2-auto[
+
+```r
+ggplot(  
+  data = by_country,  
+  mapping = aes(x = gdp_mean,  
+                y = health_mean)  
+) +  
+  geom_point() +  
+* geom_text_repel(
+*   data = filter(
+*     by_country,
+*     gdp_mean &gt; 25000 | health_mean &lt; 1500 |
+*       country %in% "Belgium"
+*   ),
+*   mapping = aes(label = country)
+* )
+```
+]
+ 
+.right-panel-label-outliers-2-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/label-outliers-2_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-label-outliers-2-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-label-outliers-2-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-label-outliers-2-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-gapminder-scales-auto[
+
+```r
+*ggplot(
+* data = gapminder,
+* mapping =
+*   aes(
+*     x = gdpPercap,
+*     y = lifeExp,
+*     color = continent,
+*     fill = continent
+*   )
+*) 
+```
+]
+ 
+.right-panel-gapminder-scales-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-scales_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-gapminder-scales-auto[
+
+```r
+ggplot(  
+  data = gapminder,  
+  mapping =  
+    aes(  
+      x = gdpPercap,  
+      y = lifeExp,  
+      color = continent,  
+      fill = continent  
+    )  
+) +  
+* geom_point()
+```
+]
+ 
+.right-panel-gapminder-scales-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-scales_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-gapminder-scales-auto[
+
+```r
+ggplot(  
+  data = gapminder,  
+  mapping =  
+    aes(  
+      x = gdpPercap,  
+      y = lifeExp,  
+      color = continent,  
+      fill = continent  
+    )  
+) +  
+  geom_point() +  
+* geom_smooth(method = "loess")
+```
+]
+ 
+.right-panel-gapminder-scales-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-scales_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-gapminder-scales-auto[
+
+```r
+ggplot(  
+  data = gapminder,  
+  mapping =  
+    aes(  
+      x = gdpPercap,  
+      y = lifeExp,  
+      color = continent,  
+      fill = continent  
+    )  
+) +  
+  geom_point() +  
+  geom_smooth(method = "loess") +  
+* scale_x_log10()
+```
+]
+ 
+.right-panel-gapminder-scales-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/gapminder-scales_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-gapminder-scales-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-gapminder-scales-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-gapminder-scales-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Scales, guides, and themes
+
+Scale functions control scale mappings in geoms. Remember: not just `x` and `y` but also `color`, `fill`, `shape`, and `size` are scales. They visually represent quantities or categories in your data -- thus, they have a scale associated with that
+representation. This means you control things like color schemes for data mappings through **scale functions**.
+
+```r
+scale_&lt;MAPPING&gt;_&lt;KIND&gt;()
+
+scale_x_continuous()
+scale_y_continuous()
+scale_x_discrete()
+scale_y_discrete()
+scale_x_log10()
+scale_x_sqrt()
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-labs-breaks-limits-auto[
+
+```r
+*ggplot(
+* data = organdata,
+* mapping = aes(
+*   x = roads,
+*   y = donors,
+*   color = world
+* )
+*) 
+```
+]
+ 
+.right-panel-labs-breaks-limits-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs-breaks-limits_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-breaks-limits-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = roads,  
+    y = donors,  
+    color = world  
+  )  
+) +  
+* geom_point()
+```
+]
+ 
+.right-panel-labs-breaks-limits-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs-breaks-limits_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-breaks-limits-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = roads,  
+    y = donors,  
+    color = world  
+  )  
+) +  
+  geom_point() +  
+* scale_x_log10()
+```
+]
+ 
+.right-panel-labs-breaks-limits-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs-breaks-limits_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-labs-breaks-limits-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = roads,  
+    y = donors,  
+    color = world  
+  )  
+) +  
+  geom_point() +  
+  scale_x_log10() +  
+* scale_y_continuous(
+*   breaks = c(5, 15, 25),
+*   labels = c("Five", "Fifteen", "Twenty Five")
+* )
+```
+]
+ 
+.right-panel-labs-breaks-limits-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/labs-breaks-limits_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-labs-breaks-limits-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-labs-breaks-limits-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-labs-breaks-limits-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-scale-color-auto[
+
+```r
+*ggplot(
+* data = organdata,
+* mapping = aes(
+*   x = roads,
+*   y = donors,
+*   color = world
+* )
+*) 
+```
+]
+ 
+.right-panel-scale-color-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/scale-color_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-scale-color-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = roads,  
+    y = donors,  
+    color = world  
+  )  
+) +  
+* geom_point()
+```
+]
+ 
+.right-panel-scale-color-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/scale-color_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-scale-color-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = roads,  
+    y = donors,  
+    color = world  
+  )  
+) +  
+  geom_point() +  
+* scale_color_discrete(
+*   labels =
+*     c(
+*       "Corporatist", "Liberal",
+*       "Social Democratic", "Unclassified"
+*     )
+* )
+```
+]
+ 
+.right-panel-scale-color-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/scale-color_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-scale-color-auto[
+
+```r
+ggplot(  
+  data = organdata,  
+  mapping = aes(  
+    x = roads,  
+    y = donors,  
+    color = world  
+  )  
+) +  
+  geom_point() +  
+  scale_color_discrete(  
+    labels =  
+      c(  
+        "Corporatist", "Liberal",  
+        "Social Democratic", "Unclassified"  
+      )  
+  ) +  
+* labs(
+*   x = "Road Deaths",
+*   y = "Donor Procurement",
+*   color = "Welfare State"
+* )
+```
+]
+ 
+.right-panel-scale-color-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/scale-color_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-scale-color-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 50%
+}
+.right-panel-scale-color-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 50%
+}
+.middle-panel-scale-color-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 50%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-guides-off-auto[
+
+```r
+*ggplot(data = organdata,
+*      mapping = aes(
+*        x = roads,
+*        y = donors,
+*        color = world
+*      ))
+```
+]
+ 
+.right-panel-guides-off-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/guides-off_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-guides-off-auto[
+
+```r
+ggplot(data = organdata,  
+       mapping = aes(  
+         x = roads,  
+         y = donors,  
+         color = world  
+       )) +  
+* geom_point()
+```
+]
+ 
+.right-panel-guides-off-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/guides-off_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-guides-off-auto[
+
+```r
+ggplot(data = organdata,  
+       mapping = aes(  
+         x = roads,  
+         y = donors,  
+         color = world  
+       )) +  
+  geom_point() +  
+* labs(
+*   x = "Road Deaths",
+*   y = "Donor Procurement"
+* )
+```
+]
+ 
+.right-panel-guides-off-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/guides-off_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-guides-off-auto[
+
+```r
+ggplot(data = organdata,  
+       mapping = aes(  
+         x = roads,  
+         y = donors,  
+         color = world  
+       )) +  
+  geom_point() +  
+  labs(  
+    x = "Road Deaths",  
+    y = "Donor Procurement"  
+  ) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-guides-off-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/guides-off_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-guides-off-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-guides-off-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-guides-off-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Midday break
+
+&lt;img src="https://i0.wp.com/redgalmusings.com/wp-content/uploads/2018/10/take-a-break-hamilton.gif" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Mapping data to graphics
+
+## General process
+
+* Loading data
+* Clean it up
+* Map specific column to aesthetics
+
+--
+
+
+* [BBC Children in Need](https://www.bbcchildreninneed.co.uk/)
+
+---
+
+# Load and clean data
+
+
+```r
+# Load libraries
+library(tidyverse)  # For ggplot, dplyr, and friends
+library(readxl)     # For reading Excel files
+library(lubridate)  # For working with dates
+```
+
+
+
+
+```r
+glimpse(bbc_raw)
+```
+
+```
+## Rows: 2,968
+## Columns: 21
+## $ Identifier                                    &lt;chr&gt; "360G-CiN-2014-2909", "…
+## $ Title                                         &lt;chr&gt; "Grant to Keystone Deve…
+## $ Description                                   &lt;chr&gt; "The project will provi…
+## $ Currency                                      &lt;chr&gt; "GBP", "GBP", "GBP", "G…
+## $ `Amount Awarded`                              &lt;dbl&gt; 49495, 55709, 81483, 88…
+## $ `Award Date`                                  &lt;dttm&gt; 2015-03-01, 2015-11-01…
+## $ `Planned Dates:Start Date`                    &lt;dttm&gt; 2015-04-01, 2016-05-03…
+## $ `Planned Dates:End Date`                      &lt;dttm&gt; 2018-09-01, 2019-11-01…
+## $ `Planned Dates:Duration (months)`             &lt;dbl&gt; 36, 36, 36, 36, 36, 36,…
+## $ `Recipient Org:Identifier`                    &lt;chr&gt; "GB-CHC-1093162", "GB-C…
+## $ `Recipient Org:Name`                          &lt;chr&gt; "Keystone Development T…
+## $ `Recipient Org:Charity Number`                &lt;dbl&gt; 1093162, 1067193, 10143…
+## $ `Recipient Org:Company Number`                &lt;chr&gt; NA, NA, NA, NA, NA, NA,…
+## $ `Recipient Org:Location:Geographic Code Type` &lt;chr&gt; "Ward", "Ward", "Ward",…
+## $ `Recipient Org:Location:Name`                 &lt;chr&gt; "Thetford Priory", "Bux…
+## $ `Recipient Org:Location:Geographic Code`      &lt;chr&gt; "E05010261", "E05010626…
+## $ `Funding Org:Identifier`                      &lt;chr&gt; "GB-CHC-802052", "GB-CH…
+## $ `Funding Org:Name`                            &lt;chr&gt; "BBC Children in Need",…
+## $ `Grant Programme:Title`                       &lt;chr&gt; "Main Grants", "Main Gr…
+## $ `Last modified`                               &lt;chr&gt; "2019-12-23T00:00:00Z",…
+## $ `Data Source`                                 &lt;chr&gt; "https://www.bbcchildre…
+```
+
+---
+
+# Clean the data
+
+
+```r
+bbc &lt;- bbc_raw %&gt;% 
+  # Extract the year from the award date
+  mutate(grant_year = year(`Award Date`)) %&gt;% 
+  # Rename some columns
+  rename(grant_amount = `Amount Awarded`,
+         grant_program = `Grant Programme:Title`,
+         grant_duration = `Planned Dates:Duration (months)`) %&gt;% 
+  # Make a new text-based version of the duration column, recoding months
+  # between 12-23, 23-35, and 36+. The case_when() function here lets us use
+  # multiple if/else conditions at the same time.
+  mutate(grant_duration_text = case_when(
+    grant_duration &gt;= 12 &amp; grant_duration &lt; 24 ~ "1 year",
+    grant_duration &gt;= 24 &amp; grant_duration &lt; 36 ~ "2 years",
+    grant_duration &gt;= 36 ~ "3 years"
+  )) %&gt;% 
+  # Get rid of anything before 2016
+  filter(grant_year &gt; 2015) %&gt;% 
+  # Make a categorical version of the year column
+  mutate(grant_year_category = factor(grant_year))
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-hist-basic-rotate[
+
+```r
+ggplot(data = bbc,  
+       mapping = aes(x = grant_amount)) +  
+  geom_histogram()  
+```
+]
+ 
+.right-panel-hist-basic-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-basic_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hist-basic-rotate[
+
+```r
+ggplot(data = bbc,  
+       mapping = aes(x = grant_amount)) +  
+* geom_histogram(binwidth = 100000)
+```
+]
+ 
+.right-panel-hist-basic-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-basic_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hist-basic-rotate[
+
+```r
+ggplot(data = bbc,  
+       mapping = aes(x = grant_amount)) +  
+* geom_histogram(binwidth = 500)
+```
+]
+ 
+.right-panel-hist-basic-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-basic_rotate_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hist-basic-rotate[
+
+```r
+ggplot(data = bbc,  
+       mapping = aes(x = grant_amount)) +  
+* geom_histogram(binwidth = 10000, color = "white")
+```
+]
+ 
+.right-panel-hist-basic-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-basic_rotate_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hist-basic-rotate[
+
+```r
+ggplot(data = bbc,  
+       mapping = aes(x = grant_amount)) +  
+* geom_histogram(aes(fill = grant_year_category), binwidth = 10000, color = "white")
+```
+]
+ 
+.right-panel-hist-basic-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-basic_rotate_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-hist-basic-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-hist-basic-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-hist-basic-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-hist-facet-fill-auto[
+
+```r
+*ggplot(bbc, aes(x = grant_amount, fill = grant_year_category))
+```
+]
+ 
+.right-panel-hist-facet-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-facet-fill_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hist-facet-fill-auto[
+
+```r
+ggplot(bbc, aes(x = grant_amount, fill = grant_year_category)) +  
+* geom_histogram(binwidth = 10000, color = "white")
+```
+]
+ 
+.right-panel-hist-facet-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-facet-fill_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-hist-facet-fill-auto[
+
+```r
+ggplot(bbc, aes(x = grant_amount, fill = grant_year_category)) +  
+  geom_histogram(binwidth = 10000, color = "white") +  
+* facet_wrap(vars(grant_year))
+```
+]
+ 
+.right-panel-hist-facet-fill-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/hist-facet-fill_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-hist-facet-fill-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-hist-facet-fill-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-hist-facet-fill-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+
+count: false
+ 
+
+.left-panel-points-initial-rotate[
+
+```r
+ggplot(bbc,  
+       aes(x = grant_year_category,  
+           y = grant_amount)) +  
+  geom_point()  
+```
+]
+ 
+.right-panel-points-initial-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/points-initial_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-points-initial-rotate[
+
+```r
+ggplot(bbc,  
+       aes(x = grant_year_category,  
+           y = grant_amount)) +  
+* geom_point(alpha = .1)
+```
+]
+ 
+.right-panel-points-initial-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/points-initial_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-points-initial-rotate[
+
+```r
+ggplot(bbc,  
+       aes(x = grant_year_category,  
+           y = grant_amount)) +  
+* geom_point(position = position_jitter())
+```
+]
+ 
+.right-panel-points-initial-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/points-initial_rotate_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-points-initial-rotate[
+
+```r
+ggplot(bbc,  
+       aes(x = grant_year_category,  
+           y = grant_amount)) +  
+* geom_point(position = position_jitter(height = 0))
+```
+]
+ 
+.right-panel-points-initial-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/points-initial_rotate_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-points-initial-rotate[
+
+```r
+ggplot(bbc,  
+       aes(x = grant_year_category,  
+           y = grant_amount)) +  
+* geom_point(aes(color = grant_program), position = position_jitter(height = 0))
+```
+]
+ 
+.right-panel-points-initial-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/points-initial_rotate_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-points-initial-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-points-initial-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-points-initial-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-boxplot-auto[
+
+```r
+*ggplot(bbc,
+*      aes(x = grant_year_category,
+*          y = grant_amount,
+*          color = grant_program))
+```
+]
+ 
+.right-panel-boxplot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/boxplot_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-boxplot-auto[
+
+```r
+ggplot(bbc,  
+       aes(x = grant_year_category,  
+           y = grant_amount,  
+           color = grant_program)) +  
+* geom_boxplot()
+```
+]
+ 
+.right-panel-boxplot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/boxplot_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-boxplot-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-boxplot-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-boxplot-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Summaries
+
+
+```r
+bbc_by_year &lt;- bbc %&gt;% 
+  group_by(grant_year) %&gt;%
+  summarize(total = sum(grant_amount), 
+            avg = mean(grant_amount),
+            number = n())
+
+bbc_by_year
+```
+
+```
+## # A tibble: 4 x 4
+##   grant_year    total    avg number
+##        &lt;dbl&gt;    &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt;
+## 1       2016 17290488 78238.    221
+## 2       2017 62394278 59765.   1044
+## 3       2018 61349392 60205.   1019
+## 4       2019 41388816 61136.    677
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-year-summaries-rotate[
+
+```r
+ggplot(bbc_by_year,  
+       aes(  
+         x = grant_year,  
+         y = avg  
+       )  
+) +  
+  geom_col()  
+```
+]
+ 
+.right-panel-plot-year-summaries-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-summaries_rotate_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-summaries-rotate[
+
+```r
+ggplot(bbc_by_year,  
+       aes(  
+         x = grant_year,  
+*        y = total#ROTATE
+       )  
+) +  
+  geom_col()  
+```
+]
+ 
+.right-panel-plot-year-summaries-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-summaries_rotate_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-summaries-rotate[
+
+```r
+ggplot(bbc_by_year,  
+       aes(  
+         x = grant_year,  
+*        y = number#ROTATE
+       )  
+) +  
+  geom_col()  
+```
+]
+ 
+.right-panel-plot-year-summaries-rotate[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-summaries_rotate_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-year-summaries-rotate {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-year-summaries-rotate {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-year-summaries-rotate {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Incorporate additional aesthetics
+
+
+```r
+bbc_year_size &lt;- bbc %&gt;% 
+  group_by(grant_year, grant_program) %&gt;% 
+  summarize(total = sum(grant_amount),
+            avg = mean(grant_amount),
+            number = n())
+bbc_year_size
+```
+
+```
+## # A tibble: 8 x 5
+## # Groups:   grant_year [4]
+##   grant_year grant_program    total    avg number
+##        &lt;dbl&gt; &lt;chr&gt;            &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt;
+## 1       2016 Main Grants   16405586 86345.    190
+## 2       2016 Small Grants    884902 28545.     31
+## 3       2017 Main Grants   48502923 90154.    538
+## 4       2017 Small Grants  13891355 27453.    506
+## 5       2018 Main Grants   47347789 95652.    495
+## 6       2018 Small Grants  14001603 26721.    524
+## 7       2019 Main Grants   33019492 96267.    343
+## 8       2019 Small Grants   8369324 25058.    334
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-year-size-auto[
+
+```r
+*ggplot(bbc_year_size,
+*      aes(x = grant_year,
+*          y = total,
+*          fill = grant_program))
+```
+]
+ 
+.right-panel-plot-year-size-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-auto[
+
+```r
+ggplot(bbc_year_size,  
+       aes(x = grant_year,  
+           y = total,  
+           fill = grant_program)) +  
+* geom_col()
+```
+]
+ 
+.right-panel-plot-year-size-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-year-size-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-year-size-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-year-size-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-year-size-dodge-auto[
+
+```r
+*ggplot(bbc_year_size,
+*      aes(x = grant_year,
+*          y = total,
+*          fill = grant_program))
+```
+]
+ 
+.right-panel-plot-year-size-dodge-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-dodge_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-dodge-auto[
+
+```r
+ggplot(bbc_year_size,  
+       aes(x = grant_year,  
+           y = total,  
+           fill = grant_program)) +  
+* geom_col(position = position_dodge())
+```
+]
+ 
+.right-panel-plot-year-size-dodge-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-dodge_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-year-size-dodge-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-year-size-dodge-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-year-size-dodge-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-year-size-facet-auto[
+
+```r
+*ggplot(bbc_year_size,
+*      aes(x = grant_year,
+*          y = total,
+*          fill = grant_program))
+```
+]
+ 
+.right-panel-plot-year-size-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-facet_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-facet-auto[
+
+```r
+ggplot(bbc_year_size,  
+       aes(x = grant_year,  
+           y = total,  
+           fill = grant_program)) +  
+* geom_col()
+```
+]
+ 
+.right-panel-plot-year-size-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-facet_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-facet-auto[
+
+```r
+ggplot(bbc_year_size,  
+       aes(x = grant_year,  
+           y = total,  
+           fill = grant_program)) +  
+  geom_col() +  
+* facet_wrap(vars(grant_program))
+```
+]
+ 
+.right-panel-plot-year-size-facet-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-facet_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-year-size-facet-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-year-size-facet-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-year-size-facet-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-year-size-col-auto[
+
+```r
+*ggplot(bbc_year_size,
+*      aes(x = grant_year,
+*          y = total,
+*          fill = grant_program))
+```
+]
+ 
+.right-panel-plot-year-size-col-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-col_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-col-auto[
+
+```r
+ggplot(bbc_year_size,  
+       aes(x = grant_year,  
+           y = total,  
+           fill = grant_program)) +  
+* geom_col()
+```
+]
+ 
+.right-panel-plot-year-size-col-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-col_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-col-auto[
+
+```r
+ggplot(bbc_year_size,  
+       aes(x = grant_year,  
+           y = total,  
+           fill = grant_program)) +  
+  geom_col() +  
+* facet_wrap(vars(grant_program), ncol = 1)
+```
+]
+ 
+.right-panel-plot-year-size-col-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-col_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-year-size-col-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-year-size-col-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-year-size-col-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# One more time
+
+
+```r
+bbc_year_size_duration &lt;- bbc %&gt;% 
+  group_by(grant_year, grant_program, grant_duration_text) %&gt;% 
+  summarize(total = sum(grant_amount),
+            avg = mean(grant_amount),
+            number = n())
+bbc_year_size_duration
+```
+
+```
+## # A tibble: 21 x 6
+## # Groups:   grant_year, grant_program [8]
+##    grant_year grant_program grant_duration_text    total    avg number
+##         &lt;dbl&gt; &lt;chr&gt;         &lt;chr&gt;                  &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt;
+##  1       2016 Main Grants   2 years                97355 48678.      2
+##  2       2016 Main Grants   3 years             16308231 86746.    188
+##  3       2016 Small Grants  3 years               884902 28545.     31
+##  4       2017 Main Grants   1 year                 59586 29793       2
+##  5       2017 Main Grants   2 years               825732 82573.     10
+##  6       2017 Main Grants   3 years             47617605 90528.    526
+##  7       2017 Small Grants  1 year                 10000 10000       1
+##  8       2017 Small Grants  2 years               245227 18864.     13
+##  9       2017 Small Grants  3 years             13636128 27716.    492
+## 10       2018 Main Grants   1 year                118134 59067       2
+## # … with 11 more rows
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-year-size-duration-auto[
+
+```r
+*ggplot(bbc_year_size_duration,
+*      aes(x = grant_year,
+*          y = number,
+*          fill = grant_program))
+```
+]
+ 
+.right-panel-plot-year-size-duration-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-duration_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-duration-auto[
+
+```r
+ggplot(bbc_year_size_duration,  
+       aes(x = grant_year,  
+           y = number,  
+           fill = grant_program)) +  
+* geom_col(position = position_dodge(preserve = "single"))
+```
+]
+ 
+.right-panel-plot-year-size-duration-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-duration_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-year-size-duration-auto[
+
+```r
+ggplot(bbc_year_size_duration,  
+       aes(x = grant_year,  
+           y = number,  
+           fill = grant_program)) +  
+  geom_col(position = position_dodge(preserve = "single")) +  
+* facet_wrap(vars(grant_duration_text), ncol = 1)
+```
+]
+ 
+.right-panel-plot-year-size-duration-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-year-size-duration_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-year-size-duration-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-year-size-duration-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-year-size-duration-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Number of daily births in the US
+
+- `US_births_1994-2003_CDC_NCHS.csv` contains U.S. births data for the years 1994 to 2003, as provided by the Centers for Disease Control and Prevention’s National Center for Health Statistics.
+- `US_births_2000-2014_SSA.csv` contains U.S. births data for the years 2000 to 2014, as provided by the Social Security Administration.
+
+---
+
+# Load and clean data
+
+
+```r
+library(tidyverse)
+library(scales)   # For nice labels in charts
+
+births_1994_1999 &lt;- read_csv("data/US_births_1994-2003_CDC_NCHS.csv") %&gt;% 
+  # Ignore anything after 2000
+  filter(year &lt; 2000)
+births_2000_2014 &lt;- read_csv("data/US_births_2000-2014_SSA.csv")
+births_combined &lt;- bind_rows(births_1994_1999, births_2000_2014)
+```
+
+
+
+---
+
+# Wrangle data
+
+
+```r
+births_combined
+```
+
+```
+## # A tibble: 7,670 x 5
+##     year month date_of_month day_of_week births
+##    &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;  &lt;dbl&gt;
+##  1  1994     1             1           6   8096
+##  2  1994     1             2           7   7772
+##  3  1994     1             3           1  10142
+##  4  1994     1             4           2  11248
+##  5  1994     1             5           3  11053
+##  6  1994     1             6           4  11406
+##  7  1994     1             7           5  11251
+##  8  1994     1             8           6   8653
+##  9  1994     1             9           7   7910
+## 10  1994     1            10           1  10498
+## # … with 7,660 more rows
+```
+
+---
+
+# Wrangle data
+
+
+```r
+month_names &lt;- c("January", "February", "March", "April", "May", "June", "July",
+                 "August", "September", "October", "November", "December")
+
+day_names &lt;- c("Monday", "Tuesday", "Wednesday", 
+               "Thursday", "Friday", "Saturday", "Sunday")
+
+births &lt;- births_combined %&gt;% 
+  mutate(month = factor(month, labels = month_names, ordered = TRUE)) %&gt;% 
+  mutate(day_of_week = factor(day_of_week, labels = day_names, ordered = TRUE),
+         date_of_month_categorical = factor(date_of_month)) %&gt;% 
+  mutate(weekend = ifelse(day_of_week %in% c("Saturday", "Sunday"), TRUE, FALSE))
+
+head(births)
+```
+
+```
+## # A tibble: 6 x 7
+##    year month   date_of_month day_of_week births date_of_month_categori… weekend
+##   &lt;dbl&gt; &lt;ord&gt;           &lt;dbl&gt; &lt;ord&gt;        &lt;dbl&gt; &lt;fct&gt;                   &lt;lgl&gt;  
+## 1  1994 January             1 Saturday      8096 1                       TRUE   
+## 2  1994 January             2 Sunday        7772 2                       TRUE   
+## 3  1994 January             3 Monday       10142 3                       FALSE  
+## 4  1994 January             4 Tuesday      11248 4                       FALSE  
+## 5  1994 January             5 Wednesday    11053 5                       FALSE  
+## 6  1994 January             6 Thursday     11406 6                       FALSE
+```
+
+---
+
+# Bar plot
+
+
+```r
+(total_births_weekday &lt;- births %&gt;% 
+  group_by(day_of_week) %&gt;% 
+  summarize(total = sum(births)))
+```
+
+```
+## # A tibble: 7 x 2
+##   day_of_week    total
+##   &lt;ord&gt;          &lt;dbl&gt;
+## 1 Monday      12720974
+## 2 Tuesday     14074616
+## 3 Wednesday   13832479
+## 4 Thursday    13744222
+## 5 Friday      13522413
+## 6 Saturday     9449669
+## 7 Sunday       8368365
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-bar-chart-auto[
+
+```r
+*ggplot(data = total_births_weekday,
+*      mapping = aes(
+*        x = day_of_week,
+*        y = total,
+*        fill = day_of_week
+*      ))
+```
+]
+ 
+.right-panel-plot-bar-chart-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = day_of_week  
+       )) +  
+* geom_col()
+```
+]
+ 
+.right-panel-plot-bar-chart-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = day_of_week  
+       )) +  
+  geom_col() +  
+* guides(fill = FALSE)
+```
+]
+ 
+.right-panel-plot-bar-chart-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-bar-chart-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-bar-chart-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-bar-chart-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Add informative color
+
+
+```r
+(total_births_weekday &lt;- births %&gt;% 
+  group_by(day_of_week) %&gt;% 
+  summarize(total = sum(births)) %&gt;% 
+  mutate(weekend = day_of_week %in% c("Saturday", "Sunday")))
+```
+
+```
+## # A tibble: 7 x 3
+##   day_of_week    total weekend
+##   &lt;ord&gt;          &lt;dbl&gt; &lt;lgl&gt;  
+## 1 Monday      12720974 FALSE  
+## 2 Tuesday     14074616 FALSE  
+## 3 Wednesday   13832479 FALSE  
+## 4 Thursday    13744222 FALSE  
+## 5 Friday      13522413 FALSE  
+## 6 Saturday     9449669 TRUE   
+## 7 Sunday       8368365 TRUE
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-bar-chart-weekend-auto[
+
+```r
+*ggplot(data = total_births_weekday,
+*      mapping = aes(
+*        x = day_of_week,
+*        y = total,
+*        fill = weekend
+*      ))
+```
+]
+ 
+.right-panel-plot-bar-chart-weekend-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart-weekend_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-weekend-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = weekend  
+       )) +  
+* geom_col()
+```
+]
+ 
+.right-panel-plot-bar-chart-weekend-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart-weekend_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-weekend-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = weekend  
+       )) +  
+  geom_col()+  
+* scale_fill_manual(values = c("grey70", "#f2ad22"))
+```
+]
+ 
+.right-panel-plot-bar-chart-weekend-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart-weekend_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-weekend-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = weekend  
+       )) +  
+  geom_col()+  
+  scale_fill_manual(values = c("grey70", "#f2ad22")) +  
+* scale_y_continuous(labels = comma)
+```
+]
+ 
+.right-panel-plot-bar-chart-weekend-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart-weekend_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-weekend-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = weekend  
+       )) +  
+  geom_col()+  
+  scale_fill_manual(values = c("grey70", "#f2ad22")) +  
+  scale_y_continuous(labels = comma) +  
+* guides(fill = FALSE)
+```
+]
+ 
+.right-panel-plot-bar-chart-weekend-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart-weekend_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-bar-chart-weekend-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         fill = weekend  
+       )) +  
+  geom_col()+  
+  scale_fill_manual(values = c("grey70", "#f2ad22")) +  
+  scale_y_continuous(labels = comma) +  
+  guides(fill = FALSE) +  
+* labs(title = "Weekends are unpopular times for giving birth",
+*      x = NULL, y = "Total births")
+```
+]
+ 
+.right-panel-plot-bar-chart-weekend-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-bar-chart-weekend_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-bar-chart-weekend-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-bar-chart-weekend-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-bar-chart-weekend-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Lollipop chart
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-lollipop-chart-weekend-better-auto[
+
+```r
+*ggplot(data = total_births_weekday,
+*      mapping = aes(
+*        x = day_of_week,
+*        y = total,
+*        color = weekend
+*        ))
+```
+]
+ 
+.right-panel-plot-lollipop-chart-weekend-better-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-lollipop-chart-weekend-better_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-lollipop-chart-weekend-better-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         color = weekend  
+         )) +  
+* geom_pointrange(aes(ymin = 0, ymax = total),
+*                 fatten = 5, size = 1.5)
+```
+]
+ 
+.right-panel-plot-lollipop-chart-weekend-better-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-lollipop-chart-weekend-better_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-lollipop-chart-weekend-better-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         color = weekend  
+         )) +  
+  geom_pointrange(aes(ymin = 0, ymax = total),  
+                  fatten = 5, size = 1.5) +  
+* scale_color_manual(values = c("grey70", "#f2ad22"))
+```
+]
+ 
+.right-panel-plot-lollipop-chart-weekend-better-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-lollipop-chart-weekend-better_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-lollipop-chart-weekend-better-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         color = weekend  
+         )) +  
+  geom_pointrange(aes(ymin = 0, ymax = total),  
+                  fatten = 5, size = 1.5) +  
+  scale_color_manual(values = c("grey70", "#f2ad22")) +  
+* scale_y_continuous(labels = comma)
+```
+]
+ 
+.right-panel-plot-lollipop-chart-weekend-better-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-lollipop-chart-weekend-better_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-lollipop-chart-weekend-better-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         color = weekend  
+         )) +  
+  geom_pointrange(aes(ymin = 0, ymax = total),  
+                  fatten = 5, size = 1.5) +  
+  scale_color_manual(values = c("grey70", "#f2ad22")) +  
+  scale_y_continuous(labels = comma) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-plot-lollipop-chart-weekend-better-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-lollipop-chart-weekend-better_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-lollipop-chart-weekend-better-auto[
+
+```r
+ggplot(data = total_births_weekday,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = total,  
+         color = weekend  
+         )) +  
+  geom_pointrange(aes(ymin = 0, ymax = total),  
+                  fatten = 5, size = 1.5) +  
+  scale_color_manual(values = c("grey70", "#f2ad22")) +  
+  scale_y_continuous(labels = comma) +  
+  guides(color = FALSE) +  
+* labs(title = "Weekends are unpopular times for giving birth",
+*      x = NULL, y = "Total births")
+```
+]
+ 
+.right-panel-plot-lollipop-chart-weekend-better-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-lollipop-chart-weekend-better_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-lollipop-chart-weekend-better-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-lollipop-chart-weekend-better-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-lollipop-chart-weekend-better-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Strip chart
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-strip-plot-auto[
+
+```r
+*ggplot(data = births,
+*      mapping = aes(x = day_of_week,
+*                    y = births,
+*                    color = weekend))
+```
+]
+ 
+.right-panel-strip-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/strip-plot_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-strip-plot-auto[
+
+```r
+ggplot(data = births,  
+       mapping = aes(x = day_of_week,  
+                     y = births,  
+                     color = weekend)) +  
+* scale_color_manual(values = c("grey70", "#f2ad22"))
+```
+]
+ 
+.right-panel-strip-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/strip-plot_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-strip-plot-auto[
+
+```r
+ggplot(data = births,  
+       mapping = aes(x = day_of_week,  
+                     y = births,  
+                     color = weekend)) +  
+  scale_color_manual(values = c("grey70", "#f2ad22")) +  
+* geom_point(size = 0.5, position = position_jitter(height = 0))
+```
+]
+ 
+.right-panel-strip-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/strip-plot_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-strip-plot-auto[
+
+```r
+ggplot(data = births,  
+       mapping = aes(x = day_of_week,  
+                     y = births,  
+                     color = weekend)) +  
+  scale_color_manual(values = c("grey70", "#f2ad22")) +  
+  geom_point(size = 0.5, position = position_jitter(height = 0)) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-strip-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/strip-plot_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-strip-plot-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-strip-plot-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-strip-plot-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Beeswarm plot
+
+* [**ggbeeswarm** package](https://github.com/eclarke/ggbeeswarm)
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-beeswarm-plot-auto[
+
+```r
+*library(ggbeeswarm)
+```
+]
+ 
+.right-panel-beeswarm-plot-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-beeswarm-plot-auto[
+
+```r
+library(ggbeeswarm)  
+
+*ggplot(data = births,
+*      mapping = aes(
+*        x = day_of_week,
+*        y = births,
+*        color = weekend
+*      ))
+```
+]
+ 
+.right-panel-beeswarm-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/beeswarm-plot_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-beeswarm-plot-auto[
+
+```r
+library(ggbeeswarm)  
+
+ggplot(data = births,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = births,  
+         color = weekend  
+       )) +  
+* scale_color_manual(
+*   values = c("grey70",
+*              "#f2ad22")
+*   )
+```
+]
+ 
+.right-panel-beeswarm-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/beeswarm-plot_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-beeswarm-plot-auto[
+
+```r
+library(ggbeeswarm)  
+
+ggplot(data = births,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = births,  
+         color = weekend  
+       )) +  
+  scale_color_manual(  
+    values = c("grey70",  
+               "#f2ad22")  
+    ) +  
+* geom_quasirandom(size = 0.0001)
+```
+]
+ 
+.right-panel-beeswarm-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/beeswarm-plot_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-beeswarm-plot-auto[
+
+```r
+library(ggbeeswarm)  
+
+ggplot(data = births,  
+       mapping = aes(  
+         x = day_of_week,  
+         y = births,  
+         color = weekend  
+       )) +  
+  scale_color_manual(  
+    values = c("grey70",  
+               "#f2ad22")  
+    ) +  
+  geom_quasirandom(size = 0.0001) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-beeswarm-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/beeswarm-plot_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-beeswarm-plot-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-beeswarm-plot-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-beeswarm-plot-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Heatmap
+
+
+```r
+(avg_births_month_day &lt;- births %&gt;% 
+  group_by(month, date_of_month_categorical) %&gt;% 
+  summarize(avg_births = mean(births)))
+```
+
+```
+## # A tibble: 366 x 3
+## # Groups:   month [12]
+##    month   date_of_month_categorical avg_births
+##    &lt;ord&gt;   &lt;fct&gt;                          &lt;dbl&gt;
+##  1 January 1                              7827.
+##  2 January 2                              9356.
+##  3 January 3                             10869.
+##  4 January 4                             11064.
+##  5 January 5                             10992.
+##  6 January 6                             10942.
+##  7 January 7                             10963.
+##  8 January 8                             10656.
+##  9 January 9                             10672.
+## 10 January 10                            11072.
+## # … with 356 more rows
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-plot-heatmap-auto[
+
+```r
+*ggplot(data = avg_births_month_day,
+*      mapping = aes(x = date_of_month_categorical, y = fct_rev(month), fill = avg_births))
+```
+]
+ 
+.right-panel-plot-heatmap-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-heatmap_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-heatmap-auto[
+
+```r
+ggplot(data = avg_births_month_day,  
+       mapping = aes(x = date_of_month_categorical, y = fct_rev(month), fill = avg_births)) +  
+* geom_tile()
+```
+]
+ 
+.right-panel-plot-heatmap-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-heatmap_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-heatmap-auto[
+
+```r
+ggplot(data = avg_births_month_day,  
+       mapping = aes(x = date_of_month_categorical, y = fct_rev(month), fill = avg_births)) +  
+  geom_tile() +  
+* scale_fill_viridis_c(option = "inferno", labels = comma)
+```
+]
+ 
+.right-panel-plot-heatmap-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-heatmap_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-heatmap-auto[
+
+```r
+ggplot(data = avg_births_month_day,  
+       mapping = aes(x = date_of_month_categorical, y = fct_rev(month), fill = avg_births)) +  
+  geom_tile() +  
+  scale_fill_viridis_c(option = "inferno", labels = comma) +  
+* labs(x = "Day of the month", y = NULL,
+*      title = "Average births per day",
+*      subtitle = "1994-2014",
+*      fill = "Average births")
+```
+]
+ 
+.right-panel-plot-heatmap-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-heatmap_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-plot-heatmap-auto[
+
+```r
+ggplot(data = avg_births_month_day,  
+       mapping = aes(x = date_of_month_categorical, y = fct_rev(month), fill = avg_births)) +  
+  geom_tile() +  
+  scale_fill_viridis_c(option = "inferno", labels = comma) +  
+  labs(x = "Day of the month", y = NULL,  
+       title = "Average births per day",  
+       subtitle = "1994-2014",  
+       fill = "Average births") +  
+* coord_equal()
+```
+]
+ 
+.right-panel-plot-heatmap-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-heatmap_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-plot-heatmap-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-plot-heatmap-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-plot-heatmap-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+&lt;img src="02-showing-numbers-customization_files/figure-html/plot-heatmap-out-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Comparisons
+
+* [World Bank's Open Data portal](https://data.worldbank.org/)
+
+---
+
+# Load and clean data
+
+
+```r
+library(tidyverse)  # For ggplot, dplyr, and friends
+library(WDI)        # For getting data from the World Bank
+library(geofacet)   # For map-shaped facets
+library(scales)     # For helpful scale functions like dollar()
+library(ggrepel)    # For non-overlapping labels
+```
+
+---
+
+# Get indicators
+
+
+
+
+```r
+glimpse(wdi_raw)
+```
+
+```
+## Rows: 5,544
+## Columns: 14
+## $ iso2c          &lt;chr&gt; "1A", "1A", "1A", "1A", "1A", "1A", "1A", "1A", "1A", …
+## $ country        &lt;chr&gt; "Arab World", "Arab World", "Arab World", "Arab World"…
+## $ year           &lt;dbl&gt; 1998, 2001, 2002, 1999, 2009, 2010, 2003, 2000, 2013, …
+## $ SP.DYN.LE00.IN &lt;dbl&gt; 67.21809, 68.07252, 68.34025, 67.51769, 70.15756, 70.3…
+## $ EG.ELC.ACCS.ZS &lt;dbl&gt; 78.30278, 80.02305, 77.99911, 78.98086, 84.27092, 86.9…
+## $ EN.ATM.CO2E.PC &lt;dbl&gt; 3.349967, 3.607956, 3.604613, 3.328341, 4.562015, 4.63…
+## $ NY.GDP.PCAP.KD &lt;dbl&gt; 4709.023, 4818.303, 4743.914, 4692.670, 5810.978, 5946…
+## $ iso3c          &lt;chr&gt; "ARB", "ARB", "ARB", "ARB", "ARB", "ARB", "ARB", "ARB"…
+## $ region         &lt;chr&gt; "Aggregates", "Aggregates", "Aggregates", "Aggregates"…
+## $ capital        &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ longitude      &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ latitude       &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA…
+## $ income         &lt;chr&gt; "Aggregates", "Aggregates", "Aggregates", "Aggregates"…
+## $ lending        &lt;chr&gt; "Aggregates", "Aggregates", "Aggregates", "Aggregates"…
+```
+
+---
+
+# Clean the data
+
+
+```r
+wdi_clean &lt;- wdi_raw %&gt;% 
+  filter(region != "Aggregates") %&gt;% 
+  select(iso2c, country, year, 
+         life_expectancy = SP.DYN.LE00.IN, 
+         access_to_electricity = EG.ELC.ACCS.ZS, 
+         co2_emissions = EN.ATM.CO2E.PC, 
+         gdp_per_cap = NY.GDP.PCAP.KD, 
+         region, income)
+
+head(wdi_clean)
+```
+
+```
+## # A tibble: 6 x 9
+##   iso2c country  year life_expectancy access_to_elect… co2_emissions gdp_per_cap
+##   &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;       &lt;dbl&gt;
+## 1 AD    Andorra  2015              NA              100         NA         41768.
+## 2 AD    Andorra  2004              NA              100          7.36      47033.
+## 3 AD    Andorra  2001              NA              100          7.79      41421.
+## 4 AD    Andorra  2002              NA              100          7.59      42396.
+## 5 AD    Andorra  2014              NA              100          5.83      40790.
+## 6 AD    Andorra  1995              NA              100          6.66      32918.
+## # … with 2 more variables: region &lt;chr&gt;, income &lt;chr&gt;
+```
+
+---
+
+# Small multiples
+
+
+```r
+life_expectancy_small &lt;- wdi_clean %&gt;%
+  filter(country %in% c("Afghanistan", "Belarus", "India",
+                        "Mexico", "New Zealand", "Spain"))
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-life-expectancy-small-auto[
+
+```r
+*ggplot(data = life_expectancy_small,
+*      mapping = aes(
+*        x = year,
+*        y = life_expectancy
+*      ))
+```
+]
+ 
+.right-panel-life-expectancy-small-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-small-auto[
+
+```r
+ggplot(data = life_expectancy_small,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+* geom_line(size = 1)
+```
+]
+ 
+.right-panel-life-expectancy-small-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-small-auto[
+
+```r
+ggplot(data = life_expectancy_small,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+* facet_wrap(vars(country))
+```
+]
+ 
+.right-panel-life-expectancy-small-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-life-expectancy-small-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-life-expectancy-small-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-life-expectancy-small-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-life-expectancy-small-minimalist-auto[
+
+```r
+*ggplot(data = life_expectancy_small,
+*      mapping = aes(
+*        x = year,
+*        y = life_expectancy
+*      ))
+```
+]
+ 
+.right-panel-life-expectancy-small-minimalist-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small-minimalist_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-small-minimalist-auto[
+
+```r
+ggplot(data = life_expectancy_small,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+* geom_line(size = 1)
+```
+]
+ 
+.right-panel-life-expectancy-small-minimalist-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small-minimalist_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-small-minimalist-auto[
+
+```r
+ggplot(data = life_expectancy_small,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+* facet_wrap(vars(country), scales = "free_y")
+```
+]
+ 
+.right-panel-life-expectancy-small-minimalist-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small-minimalist_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-small-minimalist-auto[
+
+```r
+ggplot(data = life_expectancy_small,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+  facet_wrap(vars(country), scales = "free_y") +  
+* theme_void()
+```
+]
+ 
+.right-panel-life-expectancy-small-minimalist-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small-minimalist_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-small-minimalist-auto[
+
+```r
+ggplot(data = life_expectancy_small,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+  facet_wrap(vars(country), scales = "free_y") +  
+  theme_void() +  
+* theme(strip.text = element_text(face = "bold"))
+```
+]
+ 
+.right-panel-life-expectancy-small-minimalist-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-small-minimalist_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-life-expectancy-small-minimalist-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-life-expectancy-small-minimalist-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-life-expectancy-small-minimalist-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# MENA countries
+
+
+```r
+life_expectancy_mena &lt;- wdi_clean %&gt;% 
+  filter(region == "Middle East &amp; North Africa")
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-life-expectancy-mena-auto[
+
+```r
+*ggplot(data = life_expectancy_mena,
+*      mapping = aes(
+*        x = year,
+*        y = life_expectancy
+*      ))
+```
+]
+ 
+.right-panel-life-expectancy-mena-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-mena_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-mena-auto[
+
+```r
+ggplot(data = life_expectancy_mena,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+* geom_line(size = 1)
+```
+]
+ 
+.right-panel-life-expectancy-mena-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-mena_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-mena-auto[
+
+```r
+ggplot(data = life_expectancy_mena,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+* facet_wrap(vars(country),
+*            scales = "free_y",
+*            nrow = 5)
+```
+]
+ 
+.right-panel-life-expectancy-mena-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-mena_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-mena-auto[
+
+```r
+ggplot(data = life_expectancy_mena,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+  facet_wrap(vars(country),  
+             scales = "free_y",  
+             nrow = 5) +  
+* theme_void()
+```
+]
+ 
+.right-panel-life-expectancy-mena-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-mena_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-mena-auto[
+
+```r
+ggplot(data = life_expectancy_mena,  
+       mapping = aes(  
+         x = year,  
+         y = life_expectancy  
+       )) +  
+  geom_line(size = 1) +  
+  facet_wrap(vars(country),  
+             scales = "free_y",  
+             nrow = 5) +  
+  theme_void() +  
+* theme(strip.text = element_text(face = "bold"))
+```
+]
+ 
+.right-panel-life-expectancy-mena-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-mena_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-life-expectancy-mena-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-life-expectancy-mena-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-life-expectancy-mena-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# `geofacet`
+
+* Arrange facets by geography
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+*life_expectancy_eu &lt;- wdi_clean
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+life_expectancy_eu &lt;- wdi_clean %&gt;%  
+* filter(region == "Europe &amp; Central Asia")
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+life_expectancy_eu &lt;- wdi_clean %&gt;%  
+  filter(region == "Europe &amp; Central Asia")  
+
+*ggplot(life_expectancy_eu,
+*      aes(x = year,
+*          y = life_expectancy))
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-eu_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+life_expectancy_eu &lt;- wdi_clean %&gt;%  
+  filter(region == "Europe &amp; Central Asia")  
+
+ggplot(life_expectancy_eu,  
+       aes(x = year,  
+           y = life_expectancy)) +  
+* geom_line(size = 1)
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-eu_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+life_expectancy_eu &lt;- wdi_clean %&gt;%  
+  filter(region == "Europe &amp; Central Asia")  
+
+ggplot(life_expectancy_eu,  
+       aes(x = year,  
+           y = life_expectancy)) +  
+  geom_line(size = 1) +  
+* facet_geo(vars(country),
+*           grid = "eu_grid1",
+*           scales = "free_y")
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-eu_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+life_expectancy_eu &lt;- wdi_clean %&gt;%  
+  filter(region == "Europe &amp; Central Asia")  
+
+ggplot(life_expectancy_eu,  
+       aes(x = year,  
+           y = life_expectancy)) +  
+  geom_line(size = 1) +  
+  facet_geo(vars(country),  
+            grid = "eu_grid1",  
+            scales = "free_y") +  
+* labs(x = NULL, y = NULL,
+*      title = "Life expectancy from 1995–2015",
+*      caption = "Source: The World Bank (SP.DYN.LE00.IN)")
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-eu_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-life-expectancy-eu-auto[
+
+```r
+life_expectancy_eu &lt;- wdi_clean %&gt;%  
+  filter(region == "Europe &amp; Central Asia")  
+
+ggplot(life_expectancy_eu,  
+       aes(x = year,  
+           y = life_expectancy)) +  
+  geom_line(size = 1) +  
+  facet_geo(vars(country),  
+            grid = "eu_grid1",  
+            scales = "free_y") +  
+  labs(x = NULL, y = NULL,  
+       title = "Life expectancy from 1995–2015",  
+       caption = "Source: The World Bank (SP.DYN.LE00.IN)") +  
+* theme(strip.text = element_text(face = "bold"),
+*       plot.title = element_text(face = "bold"),
+*       axis.text.x = element_text(angle = 45, hjust = 1))
+```
+]
+ 
+.right-panel-life-expectancy-eu-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/life-expectancy-eu_auto_7_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-life-expectancy-eu-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-life-expectancy-eu-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-life-expectancy-eu-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Sparklines
+
+Sparklines are just line charts (or bar charts) that are really really small
+
+
+```r
+india_co2 &lt;- wdi_clean %&gt;% 
+  filter(country == "India")
+
+plot_india &lt;- ggplot(india_co2, aes(x = year, y = co2_emissions)) +
+  geom_line() +
+  theme_void()
+plot_india
+```
+
+&lt;img src="02-showing-numbers-customization_files/figure-html/india-spark-1.png" width="72" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Sparklines
+
+
+```r
+china_co2 &lt;- wdi_clean %&gt;% 
+  filter(country == "China")
+
+plot_china &lt;- ggplot(china_co2, aes(x = year, y = co2_emissions)) +
+  geom_line() +
+  theme_void()
+plot_china
+```
+
+&lt;img src="02-showing-numbers-customization_files/figure-html/china-spark-1.png" width="72" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Sparklines
+
+&gt; Both India &lt;img class="img-inline" src="https://data-mining-viz.netlify.app/images/india-spark-1.png" width = "100"/&gt; and China &lt;img class="img-inline" src="https://data-mining-viz.netlify.app/images/china-spark-1.png" width = "100"/&gt; have seen increased CO~2~ emissions over the past 20 years.
+
+---
+
+# Slopegraphs
+
+
+```r
+gdp_south_asia &lt;- wdi_clean %&gt;% 
+  filter(region == "South Asia") %&gt;% 
+  filter(year %in% c(1995, 2015)) %&gt;% 
+  # Look at each country individually
+  group_by(country) %&gt;%
+  # Remove the country if any of its gdp_per_cap values are missing
+  filter(!any(is.na(gdp_per_cap))) %&gt;%
+  ungroup() %&gt;%
+  # Make year a factor
+  mutate(year = factor(year)) %&gt;% 
+  # Make some nice label columns
+  # If the year is 1995, format it like "Country name: $GDP". If the year is
+  # 2015, format it like "$GDP"
+  mutate(label_first = ifelse(year == 1995, str_c(country, ": ", dollar(round(gdp_per_cap))), NA),
+         label_last = ifelse(year == 2015, dollar(round(gdp_per_cap, 0)), NA))
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-auto[
+
+```r
+*ggplot(gdp_south_asia,
+*      aes(x = year,
+*          y = gdp_per_cap,
+*          group = country,
+*          color = country))
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+* geom_line(size = 1.5)
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+* geom_text(aes(label = country))
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text(aes(label = country)) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-slopegraph-sa-simple-text-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slopegraph-sa-simple-text-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slopegraph-sa-simple-text-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-fancier-auto[
+
+```r
+*ggplot(gdp_south_asia,
+*      aes(x = year,
+*          y = gdp_per_cap,
+*          group = country,
+*          color = country))
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text-fancier_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-fancier-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+* geom_line(size = 1.5)
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text-fancier_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-fancier-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+* geom_text(aes(label = label_first))
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text-fancier_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-fancier-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text(aes(label = label_first)) +  
+* geom_text(aes(label = label_last))
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text-fancier_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-simple-text-fancier-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text(aes(label = label_first)) +  
+  geom_text(aes(label = label_last)) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-slopegraph-sa-simple-text-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-simple-text-fancier_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-slopegraph-sa-simple-text-fancier-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slopegraph-sa-simple-text-fancier-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slopegraph-sa-simple-text-fancier-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-slopegraph-sa-getting-warmer-auto[
+
+```r
+*ggplot(gdp_south_asia,
+*      aes(x = year,
+*          y = gdp_per_cap,
+*          group = country,
+*          color = country))
+```
+]
+ 
+.right-panel-slopegraph-sa-getting-warmer-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-getting-warmer_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-getting-warmer-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+* geom_line(size = 1.5)
+```
+]
+ 
+.right-panel-slopegraph-sa-getting-warmer-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-getting-warmer_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-getting-warmer-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+* geom_text_repel(aes(label = label_first))
+```
+]
+ 
+.right-panel-slopegraph-sa-getting-warmer-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-getting-warmer_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-getting-warmer-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text_repel(aes(label = label_first)) +  
+* geom_text_repel(aes(label = label_last))
+```
+]
+ 
+.right-panel-slopegraph-sa-getting-warmer-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-getting-warmer_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-getting-warmer-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text_repel(aes(label = label_first)) +  
+  geom_text_repel(aes(label = label_last)) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-slopegraph-sa-getting-warmer-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-getting-warmer_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-slopegraph-sa-getting-warmer-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slopegraph-sa-getting-warmer-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slopegraph-sa-getting-warmer-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+*ggplot(gdp_south_asia,
+*      aes(x = year,
+*          y = gdp_per_cap,
+*          group = country,
+*          color = country))
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+* geom_line(size = 1.5)
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+* geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1, seed = 1234)
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1, seed = 1234) +  
+* geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 1, seed = 1234)
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1, seed = 1234) +  
+  geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 1, seed = 1234) +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1, seed = 1234) +  
+  geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 1, seed = 1234) +  
+  guides(color = FALSE) +  
+* scale_color_viridis_d(option = "magma", end = 0.9)
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-slopegraph-sa-done-auto[
+
+```r
+ggplot(gdp_south_asia,  
+       aes(x = year,  
+           y = gdp_per_cap,  
+           group = country,  
+           color = country)) +  
+  geom_line(size = 1.5) +  
+  geom_text_repel(aes(label = label_first), direction = "y", nudge_x = -1, seed = 1234) +  
+  geom_text_repel(aes(label = label_last), direction = "y", nudge_x = 1, seed = 1234) +  
+  guides(color = FALSE) +  
+  scale_color_viridis_d(option = "magma", end = 0.9) +  
+* theme_void()
+```
+]
+ 
+.right-panel-slopegraph-sa-done-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/slopegraph-sa-done_auto_7_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-slopegraph-sa-done-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-slopegraph-sa-done-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-slopegraph-sa-done-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+# Bump charts
+
+---
+
+
+```r
+(sa_co2 &lt;- wdi_clean %&gt;% 
+  filter(region == "South Asia") %&gt;% 
+  filter(year &gt;= 2004, year &lt; 2015) %&gt;% 
+  group_by(year) %&gt;% 
+  mutate(rank = rank(co2_emissions)))
+```
+
+```
+## # A tibble: 88 x 10
+## # Groups:   year [11]
+##    iso2c country  year life_expectancy access_to_elect… co2_emissions
+##    &lt;chr&gt; &lt;chr&gt;   &lt;dbl&gt;           &lt;dbl&gt;            &lt;dbl&gt;         &lt;dbl&gt;
+##  1 AF    Afghan…  2014            63.0             89.5        0.294 
+##  2 AF    Afghan…  2012            62.1             69.1        0.345 
+##  3 AF    Afghan…  2013            62.5             68.9        0.310 
+##  4 AF    Afghan…  2006            58.8             28.6        0.0624
+##  5 AF    Afghan…  2007            59.4             34.3        0.0839
+##  6 AF    Afghan…  2009            60.5             45.7        0.238 
+##  7 AF    Afghan…  2010            61.0             42.7        0.290 
+##  8 AF    Afghan…  2011            61.6             43.2        0.406 
+##  9 AF    Afghan…  2008            59.9             42.4        0.152 
+## 10 AF    Afghan…  2004            57.8             NA          0.0384
+## # … with 78 more rows, and 4 more variables: gdp_per_cap &lt;dbl&gt;, region &lt;chr&gt;,
+## #   income &lt;chr&gt;, rank &lt;dbl&gt;
+```
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-make-bump-plot-auto[
+
+```r
+*ggplot(sa_co2,
+*      aes(x = year,
+*          y = rank,
+*          color = country))
+```
+]
+ 
+.right-panel-make-bump-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/make-bump-plot_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-make-bump-plot-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+* geom_line()
+```
+]
+ 
+.right-panel-make-bump-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/make-bump-plot_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-make-bump-plot-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line() +  
+* geom_point()
+```
+]
+ 
+.right-panel-make-bump-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/make-bump-plot_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-make-bump-plot-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line() +  
+  geom_point() +  
+* scale_y_reverse(breaks = 1:8)
+```
+]
+ 
+.right-panel-make-bump-plot-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/make-bump-plot_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-make-bump-plot-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 80%
+}
+.right-panel-make-bump-plot-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 80%
+}
+.middle-panel-make-bump-plot-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 80%
+}
+&lt;/style&gt;
+
+
+
+---
+
+
+
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+*ggplot(sa_co2,
+*      aes(x = year,
+*          y = rank,
+*          color = country))
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_1_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+* geom_line(size = 2)
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_2_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+* geom_point(size = 4)
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_3_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+* geom_text(data = filter(sa_co2, year == 2004),
+*           aes(label = iso2c, x = 2003.25),
+*           fontface = "bold")
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_4_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+* geom_text(data = filter(sa_co2, year == 2014),
+*           aes(label = iso2c, x = 2014.75),
+*           fontface = "bold")
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_5_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+  geom_text(data = filter(sa_co2, year == 2014),  
+            aes(label = iso2c, x = 2014.75),  
+            fontface = "bold") +  
+* guides(color = FALSE)
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_6_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+  geom_text(data = filter(sa_co2, year == 2014),  
+            aes(label = iso2c, x = 2014.75),  
+            fontface = "bold") +  
+  guides(color = FALSE) +  
+* scale_y_reverse(breaks = 1:8)
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_7_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+  geom_text(data = filter(sa_co2, year == 2014),  
+            aes(label = iso2c, x = 2014.75),  
+            fontface = "bold") +  
+  guides(color = FALSE) +  
+  scale_y_reverse(breaks = 1:8) +  
+* scale_x_continuous(breaks = 2004:2014)
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_8_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+  geom_text(data = filter(sa_co2, year == 2014),  
+            aes(label = iso2c, x = 2014.75),  
+            fontface = "bold") +  
+  guides(color = FALSE) +  
+  scale_y_reverse(breaks = 1:8) +  
+  scale_x_continuous(breaks = 2004:2014) +  
+* scale_color_viridis_d(option = "magma", begin = 0.2, end = 0.9)
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_9_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+  geom_text(data = filter(sa_co2, year == 2014),  
+            aes(label = iso2c, x = 2014.75),  
+            fontface = "bold") +  
+  guides(color = FALSE) +  
+  scale_y_reverse(breaks = 1:8) +  
+  scale_x_continuous(breaks = 2004:2014) +  
+  scale_color_viridis_d(option = "magma", begin = 0.2, end = 0.9) +  
+* labs(x = NULL, y = "Rank")
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_10_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+count: false
+ 
+
+.left-panel-bump-plot-fancier-auto[
+
+```r
+ggplot(sa_co2,  
+       aes(x = year,  
+           y = rank,  
+           color = country)) +  
+  geom_line(size = 2) +  
+  geom_point(size = 4) +  
+  geom_text(data = filter(sa_co2, year == 2004),  
+            aes(label = iso2c, x = 2003.25),  
+            fontface = "bold") +  
+  geom_text(data = filter(sa_co2, year == 2014),  
+            aes(label = iso2c, x = 2014.75),  
+            fontface = "bold") +  
+  guides(color = FALSE) +  
+  scale_y_reverse(breaks = 1:8) +  
+  scale_x_continuous(breaks = 2004:2014) +  
+  scale_color_viridis_d(option = "magma", begin = 0.2, end = 0.9) +  
+  labs(x = NULL, y = "Rank") +  
+* theme(panel.grid.major.y = element_blank(),
+*       panel.grid.minor.y = element_blank(),
+*       panel.grid.minor.x = element_blank())
+```
+]
+ 
+.right-panel-bump-plot-fancier-auto[
+&lt;img src="02-showing-numbers-customization_files/figure-html/bump-plot-fancier_auto_11_output-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+&lt;style&gt;
+.left-panel-bump-plot-fancier-auto {
+  color: #777;
+  width: 49.0196078431373%;
+  height: 92%;
+  float: left;
+  font-size: 60%
+}
+.right-panel-bump-plot-fancier-auto {
+  width: 49.0196078431373%;
+  float: right;
+  padding-left: 1%;
+  font-size: 60%
+}
+.middle-panel-bump-plot-fancier-auto {
+  width: 0%;
+  float: left;
+  padding-left: 1%;
+  font-size: 60%
+}
+&lt;/style&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://cfss.uchicago.edu/slides/macros.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightLanguage": "r",
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

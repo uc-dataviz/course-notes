@@ -37,3 +37,20 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# Excel temporary
+~$*.xls*
+
+# .DS_Store
+.DS_Store
+
+# README.html
+README.html
+LICENSE.html
+
+# Jupyter notebooks
+.ipynb_checkpoints/
+
+# Spark logs
+*.log
+*spark.log*
