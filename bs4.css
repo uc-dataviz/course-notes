@@ -1,0 +1,89 @@
+/*---- Div tips -----*/
+
+div.rmdnote,
+div.rmdpackage,
+div.rmdwarning {
+  padding: 1.9rem;
+  margin: 1em 0 1em 10px;
+  padding-left: 100px;
+  background-size: 60px;
+  background-repeat: no-repeat;
+  background-position: 20px 1.5em;
+  min-height: 100px;
+  line-height: 1.75em;
+  font-size: 0.85em;
+  letter-spacing: 0.8pt;
+}
+
+div.rmdnote {
+  background-image: url("images/notes.svg");
+  background-color: #a9c90112;
+  border-left: 4px solid #a9c90080;
+  position: relative;
+  color: #233546;
+}
+
+div.rmdnote::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1em;
+  width: 4px;
+  display: block;
+  background-color: #a9c900;
+}
+
+div.rmdwarning {
+  background-image: url("images/flag.svg");
+  color: #802f5f;
+  background-color: #eab0c41a !important;
+  border-left: #a3055d54 solid 4px;
+  position: relative;
+}
+
+div.rmdwarning::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1em;
+  width: 4px;
+  display: block;
+  background-color: #a3025e;
+}
+
+div.rmdpackage {
+  background-image: url("images/package.svg");
+  color: #8E5703FF;
+  background-color: #F29C1E1A !important;
+  border-left: #FFB874FF solid 4px;
+  position: relative;
+}
+
+
+div.rmdpackage::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1em;
+  width: 4px;
+  display: block;
+  background-color: #F29C1E;
+}
+
+div.rmdnote code {
+  background-color: #91cbd721 !important;
+  font-size: 1em;
+}
+
+div.rmdwarning code {
+  background-color: #cb9faf52 !important;
+  font-size: 1em;
+}
+
+div.rmdpackage code {
+  background-color: #cb9faf52 !important;
+  font-size: 1em;
+}

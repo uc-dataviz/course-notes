@@ -1,461 +1,74 @@
 <!DOCTYPE html>
-<html lang="" xml:lang="">
+<html lang="en">
 <head>
-
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Data Visualization</title>
-  <meta name="description" content="Contains notes for the spring 2022 course." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
-
-  <meta property="og:title" content="Data Visualization" />
-  <meta property="og:type" content="book" />
-  
-  
-  <meta property="og:description" content="Contains notes for the spring 2022 course." />
-  <meta name="github-repo" content="uc-dataviz/course-notes" />
-
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Data Visualization" />
-  
-  <meta name="twitter:description" content="Contains notes for the spring 2022 course." />
-  
-
-<meta name="author" content="Benjamin Soltoff" />
-
-
-<meta name="date" content="2022-03-04" />
-
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  
-  
-
-<link rel="next" href="intro-data-viz.html"/>
-<script src="libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
-<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
-<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
-
-
-
-
-
-
-
-
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
-<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
-<script src="libs/datatables-binding-0.21/datatables.js"></script>
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet" />
-<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet" />
-<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
-<link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet" />
-<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
-
-
-
-
-<link rel="stylesheet" href="css/style.css" type="text/css" />
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Syllabus | Data Visualization</title>
+<meta name="author" content="Benjamin Soltoff">
+<meta name="description" content="Contains notes for the spring 2022 course.">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Syllabus | Data Visualization">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Contains notes for the spring 2022 course.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Syllabus | Data Visualization">
+<meta name="twitter:description" content="Contains notes for the spring 2022 course.">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/htmlwidgets-1.5.4/htmlwidgets.js"></script><link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="libs/datatables-binding-0.21/datatables.js"></script><link href="libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script><link href="libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="libs/crosstalk-1.2.0/js/crosstalk.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4.css">
 </head>
+<body data-spy="scroll" data-target="#toc">
 
-<body>
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
 
-
-
-  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
-
-    <div class="book-summary">
-      <nav role="navigation">
-
-<ul class="summary">
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Syllabus</a>
-<ul>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#contact-information"><i class="fa fa-check"></i>Contact information</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-description"><i class="fa fa-check"></i>Course description</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#prerequisites"><i class="fa fa-check"></i>Prerequisites</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#course-schedule"><i class="fa fa-check"></i>Course schedule</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#what-do-i-need-for-this-course"><i class="fa fa-check"></i>What do I need for this course?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#how-will-i-be-evaluated"><i class="fa fa-check"></i>How will I be evaluated?</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#statement-on-disabilities"><i class="fa fa-check"></i>Statement on Disabilities</a></li>
-</ul></li>
-<li class="chapter" data-level="1" data-path="intro-data-viz.html"><a href="intro-data-viz.html"><i class="fa fa-check"></i><b>1</b> Introduction to data visualization</a>
-<ul>
-<li class="chapter" data-level="" data-path="intro-data-viz.html"><a href="intro-data-viz.html#learning-objectives"><i class="fa fa-check"></i>Learning objectives</a>
-<ul>
-<li class="chapter" data-level="1.0.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#morning"><i class="fa fa-check"></i><b>1.0.1</b> Morning</a></li>
-<li class="chapter" data-level="1.0.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#afternoon"><i class="fa fa-check"></i><b>1.0.2</b> Afternoon</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="intro-data-viz.html"><a href="intro-data-viz.html#assigned-readings"><i class="fa fa-check"></i>Assigned readings</a></li>
-<li class="chapter" data-level="1.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#why-visualize-data"><i class="fa fa-check"></i><b>1.1</b> Why visualize data?</a>
-<ul>
-<li class="chapter" data-level="1.1.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#anscombes-quartet"><i class="fa fa-check"></i><b>1.1.1</b> Anscombe’s quartet</a></li>
-<li class="chapter" data-level="1.1.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#datasaurus-dozen"><i class="fa fa-check"></i><b>1.1.2</b> Datasaurus dozen</a></li>
-<li class="chapter" data-level="1.1.3" data-path="intro-data-viz.html"><a href="intro-data-viz.html#outliers"><i class="fa fa-check"></i><b>1.1.3</b> Outliers</a></li>
-</ul></li>
-<li class="chapter" data-level="1.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#what-makes-visualizations-bad"><i class="fa fa-check"></i><b>1.2</b> What makes visualizations bad</a>
-<ul>
-<li class="chapter" data-level="1.2.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#lies"><i class="fa fa-check"></i><b>1.2.1</b> Lies</a></li>
-<li class="chapter" data-level="1.2.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#dual-axes"><i class="fa fa-check"></i><b>1.2.2</b> Dual axes</a></li>
-<li class="chapter" data-level="1.2.3" data-path="intro-data-viz.html"><a href="intro-data-viz.html#lacking-functionality"><i class="fa fa-check"></i><b>1.2.3</b> Lacking functionality</a></li>
-<li class="chapter" data-level="1.2.4" data-path="intro-data-viz.html"><a href="intro-data-viz.html#junky"><i class="fa fa-check"></i><b>1.2.4</b> Junky</a></li>
-</ul></li>
-<li class="chapter" data-level="1.3" data-path="intro-data-viz.html"><a href="intro-data-viz.html#purpose-of-visualizations"><i class="fa fa-check"></i><b>1.3</b> Purpose of visualizations</a>
-<ul>
-<li class="chapter" data-level="1.3.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#statistical-graphics"><i class="fa fa-check"></i><b>1.3.1</b> Statistical graphics</a></li>
-<li class="chapter" data-level="1.3.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#information-dashboards"><i class="fa fa-check"></i><b>1.3.2</b> Information dashboards</a></li>
-<li class="chapter" data-level="1.3.3" data-path="intro-data-viz.html"><a href="intro-data-viz.html#infographics"><i class="fa fa-check"></i><b>1.3.3</b> Infographics</a></li>
-<li class="chapter" data-level="1.3.4" data-path="intro-data-viz.html"><a href="intro-data-viz.html#informative-art"><i class="fa fa-check"></i><b>1.3.4</b> Informative art</a></li>
-</ul></li>
-<li class="chapter" data-level="1.4" data-path="intro-data-viz.html"><a href="intro-data-viz.html#what-makes-a-good-visualization"><i class="fa fa-check"></i><b>1.4</b> What makes a good visualization</a>
-<ul>
-<li class="chapter" data-level="1.4.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#dr.-john-snow-and-cholera-outbreak-in-london"><i class="fa fa-check"></i><b>1.4.1</b> Dr. John Snow and cholera outbreak in London</a></li>
-<li class="chapter" data-level="1.4.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#minards-map-of-napoleons-march-on-russia"><i class="fa fa-check"></i><b>1.4.2</b> Minard’s map of Napoleon’s march on Russia</a></li>
-</ul></li>
-<li class="chapter" data-level="1.5" data-path="intro-data-viz.html"><a href="intro-data-viz.html#perception-and-data-visualization"><i class="fa fa-check"></i><b>1.5</b> Perception and data visualization</a>
-<ul>
-<li class="chapter" data-level="1.5.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#visual-tasks-and-decoding-graphs"><i class="fa fa-check"></i><b>1.5.1</b> Visual tasks and decoding graphs</a></li>
-<li class="chapter" data-level="1.5.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#channels-and-decoding-information"><i class="fa fa-check"></i><b>1.5.2</b> Channels and decoding information</a></li>
-<li class="chapter" data-level="1.5.3" data-path="intro-data-viz.html"><a href="intro-data-viz.html#example-of-decoding-information"><i class="fa fa-check"></i><b>1.5.3</b> Example of decoding information</a></li>
-<li class="chapter" data-level="1.5.4" data-path="intro-data-viz.html"><a href="intro-data-viz.html#choropleths"><i class="fa fa-check"></i><b>1.5.4</b> Choropleths</a></li>
-</ul></li>
-<li class="chapter" data-level="1.6" data-path="intro-data-viz.html"><a href="intro-data-viz.html#identifying-appropriate-graphical-forms"><i class="fa fa-check"></i><b>1.6</b> Identifying appropriate graphical forms</a>
-<ul>
-<li class="chapter" data-level="1.6.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#cairos-truthful-art-suggested-approach"><i class="fa fa-check"></i><b>1.6.1</b> Cairo’s <em>Truthful Art</em> suggested approach</a></li>
-<li class="chapter" data-level="1.6.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#what-is-the-story"><i class="fa fa-check"></i><b>1.6.2</b> What is the story?</a></li>
-</ul></li>
-<li class="chapter" data-level="1.7" data-path="intro-data-viz.html"><a href="intro-data-viz.html#grammar-of-graphics"><i class="fa fa-check"></i><b>1.7</b> Grammar of graphics</a>
-<ul>
-<li class="chapter" data-level="1.7.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#components-of-the-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>1.7.1</b> Components of the layered grammar of graphics</a></li>
-<li class="chapter" data-level="1.7.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#layer"><i class="fa fa-check"></i><b>1.7.2</b> Layer</a></li>
-<li class="chapter" data-level="1.7.3" data-path="intro-data-viz.html"><a href="intro-data-viz.html#data-and-mapping"><i class="fa fa-check"></i><b>1.7.3</b> Data and mapping</a></li>
-<li class="chapter" data-level="1.7.4" data-path="intro-data-viz.html"><a href="intro-data-viz.html#statistical-transformation"><i class="fa fa-check"></i><b>1.7.4</b> Statistical transformation</a></li>
-<li class="chapter" data-level="1.7.5" data-path="intro-data-viz.html"><a href="intro-data-viz.html#geometric-objects"><i class="fa fa-check"></i><b>1.7.5</b> Geometric objects</a></li>
-<li class="chapter" data-level="1.7.6" data-path="intro-data-viz.html"><a href="intro-data-viz.html#position-adjustment"><i class="fa fa-check"></i><b>1.7.6</b> Position adjustment</a></li>
-<li class="chapter" data-level="1.7.7" data-path="intro-data-viz.html"><a href="intro-data-viz.html#scale"><i class="fa fa-check"></i><b>1.7.7</b> Scale</a></li>
-<li class="chapter" data-level="1.7.8" data-path="intro-data-viz.html"><a href="intro-data-viz.html#coordinate-system"><i class="fa fa-check"></i><b>1.7.8</b> Coordinate system</a></li>
-<li class="chapter" data-level="1.7.9" data-path="intro-data-viz.html"><a href="intro-data-viz.html#faceting"><i class="fa fa-check"></i><b>1.7.9</b> Faceting</a></li>
-<li class="chapter" data-level="1.7.10" data-path="intro-data-viz.html"><a href="intro-data-viz.html#defaults"><i class="fa fa-check"></i><b>1.7.10</b> Defaults</a></li>
-</ul></li>
-<li class="chapter" data-level="1.8" data-path="intro-data-viz.html"><a href="intro-data-viz.html#building-minards-map-in-r"><i class="fa fa-check"></i><b>1.8</b> Building Minard’s map in R</a>
-<ul>
-<li class="chapter" data-level="1.8.1" data-path="intro-data-viz.html"><a href="intro-data-viz.html#exercise-define-the-grammar-of-graphics-for-this-graph"><i class="fa fa-check"></i><b>1.8.1</b> Exercise: Define the grammar of graphics for this graph</a></li>
-<li class="chapter" data-level="1.8.2" data-path="intro-data-viz.html"><a href="intro-data-viz.html#write-the-r-code"><i class="fa fa-check"></i><b>1.8.2</b> Write the R code</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="intro-data-viz.html"><a href="intro-data-viz.html#session-info"><i class="fa fa-check"></i>Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="2" data-path="show-the-numbers.html"><a href="show-the-numbers.html"><i class="fa fa-check"></i><b>2</b> Showing the right numbers</a>
-<ul>
-<li class="chapter" data-level="" data-path="show-the-numbers.html"><a href="show-the-numbers.html#learning-objectives-1"><i class="fa fa-check"></i>Learning objectives</a>
-<ul>
-<li class="chapter" data-level="2.0.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#morning-1"><i class="fa fa-check"></i><b>2.0.1</b> Morning</a></li>
-<li class="chapter" data-level="2.0.2" data-path="show-the-numbers.html"><a href="show-the-numbers.html#afternoon-1"><i class="fa fa-check"></i><b>2.0.2</b> Afternoon</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="show-the-numbers.html"><a href="show-the-numbers.html#assigned-readings-1"><i class="fa fa-check"></i>Assigned readings</a></li>
-<li class="chapter" data-level="2.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#grammar-of-graphics-review"><i class="fa fa-check"></i><b>2.1</b> Grammar of graphics (review)</a></li>
-<li class="chapter" data-level="2.2" data-path="show-the-numbers.html"><a href="show-the-numbers.html#grouped-data-and-the-group-aesthetic"><i class="fa fa-check"></i><b>2.2</b> Grouped data and the <code>group</code> aesthetic</a></li>
-<li class="chapter" data-level="2.3" data-path="show-the-numbers.html"><a href="show-the-numbers.html#geoms-can-transform-data"><i class="fa fa-check"></i><b>2.3</b> Geoms can transform data</a></li>
-<li class="chapter" data-level="2.4" data-path="show-the-numbers.html"><a href="show-the-numbers.html#geom_-functions-call-their-default-stat_-functions-behind-the-scenes"><i class="fa fa-check"></i><b>2.4</b> <code>geom_*()</code> functions call their default <code>stat_*()</code> functions behind the scenes</a>
-<ul>
-<li class="chapter" data-level="2.4.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#color-in-a-bar-chart"><i class="fa fa-check"></i><b>2.4.1</b> Color in a bar chart</a></li>
-</ul></li>
-<li class="chapter" data-level="2.5" data-path="show-the-numbers.html"><a href="show-the-numbers.html#histograms-and-kernel-densities"><i class="fa fa-check"></i><b>2.5</b> Histograms and kernel densities</a>
-<ul>
-<li class="chapter" data-level="2.5.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#subsetting-data-on-the-fly"><i class="fa fa-check"></i><b>2.5.1</b> Subsetting data on the fly</a></li>
-</ul></li>
-<li class="chapter" data-level="2.6" data-path="show-the-numbers.html"><a href="show-the-numbers.html#avoiding-transformations-when-necessary"><i class="fa fa-check"></i><b>2.6</b> Avoiding transformations when necessary</a></li>
-<li class="chapter" data-level="2.7" data-path="show-the-numbers.html"><a href="show-the-numbers.html#cross-tabulation-the-awkward-way"><i class="fa fa-check"></i><b>2.7</b> Cross-tabulation the awkward way</a>
-<ul>
-<li class="chapter" data-level="2.7.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#calculate-manually"><i class="fa fa-check"></i><b>2.7.1</b> Calculate manually</a></li>
-</ul></li>
-<li class="chapter" data-level="2.8" data-path="show-the-numbers.html"><a href="show-the-numbers.html#continuous-variables-by-group-or-category"><i class="fa fa-check"></i><b>2.8</b> Continuous variables by group or category</a>
-<ul>
-<li class="chapter" data-level="2.8.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#boxplots"><i class="fa fa-check"></i><b>2.8.1</b> Boxplots</a></li>
-<li class="chapter" data-level="2.8.2" data-path="show-the-numbers.html"><a href="show-the-numbers.html#coord_flip"><i class="fa fa-check"></i><b>2.8.2</b> <code>coord_flip()</code></a></li>
-<li class="chapter" data-level="2.8.3" data-path="show-the-numbers.html"><a href="show-the-numbers.html#reorder"><i class="fa fa-check"></i><b>2.8.3</b> <code>reorder()</code></a></li>
-<li class="chapter" data-level="2.8.4" data-path="show-the-numbers.html"><a href="show-the-numbers.html#strip-chart"><i class="fa fa-check"></i><b>2.8.4</b> Strip chart</a></li>
-<li class="chapter" data-level="2.8.5" data-path="show-the-numbers.html"><a href="show-the-numbers.html#cleveland-dotplot"><i class="fa fa-check"></i><b>2.8.5</b> Cleveland dotplot</a></li>
-</ul></li>
-<li class="chapter" data-level="2.9" data-path="show-the-numbers.html"><a href="show-the-numbers.html#plot-text-directly"><i class="fa fa-check"></i><b>2.9</b> Plot text directly</a>
-<ul>
-<li class="chapter" data-level="2.9.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#geom_text"><i class="fa fa-check"></i><b>2.9.1</b> <code>geom_text()</code></a></li>
-</ul></li>
-<li class="chapter" data-level="2.10" data-path="show-the-numbers.html"><a href="show-the-numbers.html#ggrepelgeom_text_repel"><i class="fa fa-check"></i><b>2.10</b> <code>ggrepel::geom_text_repel()</code></a>
-<ul>
-<li class="chapter" data-level="2.10.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#label-outliers-only"><i class="fa fa-check"></i><b>2.10.1</b> Label outliers only</a></li>
-</ul></li>
-<li class="chapter" data-level="2.11" data-path="show-the-numbers.html"><a href="show-the-numbers.html#scales-guides-and-themes"><i class="fa fa-check"></i><b>2.11</b> Scales, guides, and themes</a>
-<ul>
-<li class="chapter" data-level="2.11.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#labels-breaks-and-limits"><i class="fa fa-check"></i><b>2.11.1</b> Labels, breaks, and limits</a></li>
-</ul></li>
-<li class="chapter" data-level="2.12" data-path="show-the-numbers.html"><a href="show-the-numbers.html#mapping-data-to-graphics"><i class="fa fa-check"></i><b>2.12</b> Mapping data to graphics</a>
-<ul>
-<li class="chapter" data-level="2.12.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#load-and-clean-data"><i class="fa fa-check"></i><b>2.12.1</b> Load and clean data</a></li>
-<li class="chapter" data-level="2.12.2" data-path="show-the-numbers.html"><a href="show-the-numbers.html#histograms"><i class="fa fa-check"></i><b>2.12.2</b> Histograms</a></li>
-<li class="chapter" data-level="2.12.3" data-path="show-the-numbers.html"><a href="show-the-numbers.html#points"><i class="fa fa-check"></i><b>2.12.3</b> Points</a></li>
-<li class="chapter" data-level="2.12.4" data-path="show-the-numbers.html"><a href="show-the-numbers.html#boxplots-1"><i class="fa fa-check"></i><b>2.12.4</b> Boxplots</a></li>
-<li class="chapter" data-level="2.12.5" data-path="show-the-numbers.html"><a href="show-the-numbers.html#summaries"><i class="fa fa-check"></i><b>2.12.5</b> Summaries</a></li>
-</ul></li>
-<li class="chapter" data-level="2.13" data-path="show-the-numbers.html"><a href="show-the-numbers.html#amounts-and-proportions"><i class="fa fa-check"></i><b>2.13</b> Amounts and proportions</a>
-<ul>
-<li class="chapter" data-level="2.13.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#load-data"><i class="fa fa-check"></i><b>2.13.1</b> Load data</a></li>
-<li class="chapter" data-level="2.13.2" data-path="show-the-numbers.html"><a href="show-the-numbers.html#wrangle-data"><i class="fa fa-check"></i><b>2.13.2</b> Wrangle data</a></li>
-<li class="chapter" data-level="2.13.3" data-path="show-the-numbers.html"><a href="show-the-numbers.html#bar-plot"><i class="fa fa-check"></i><b>2.13.3</b> Bar plot</a></li>
-<li class="chapter" data-level="2.13.4" data-path="show-the-numbers.html"><a href="show-the-numbers.html#lollipop-chart"><i class="fa fa-check"></i><b>2.13.4</b> Lollipop chart</a></li>
-<li class="chapter" data-level="2.13.5" data-path="show-the-numbers.html"><a href="show-the-numbers.html#strip-plot"><i class="fa fa-check"></i><b>2.13.5</b> Strip plot</a></li>
-<li class="chapter" data-level="2.13.6" data-path="show-the-numbers.html"><a href="show-the-numbers.html#beeswarm-plot"><i class="fa fa-check"></i><b>2.13.6</b> Beeswarm plot</a></li>
-<li class="chapter" data-level="2.13.7" data-path="show-the-numbers.html"><a href="show-the-numbers.html#heatmap"><i class="fa fa-check"></i><b>2.13.7</b> Heatmap</a></li>
-</ul></li>
-<li class="chapter" data-level="2.14" data-path="show-the-numbers.html"><a href="show-the-numbers.html#comparisons"><i class="fa fa-check"></i><b>2.14</b> Comparisons</a>
-<ul>
-<li class="chapter" data-level="2.14.1" data-path="show-the-numbers.html"><a href="show-the-numbers.html#load-and-clean-data-1"><i class="fa fa-check"></i><b>2.14.1</b> Load and clean data</a></li>
-<li class="chapter" data-level="2.14.2" data-path="show-the-numbers.html"><a href="show-the-numbers.html#small-multiples"><i class="fa fa-check"></i><b>2.14.2</b> Small multiples</a></li>
-<li class="chapter" data-level="2.14.3" data-path="show-the-numbers.html"><a href="show-the-numbers.html#sparklines"><i class="fa fa-check"></i><b>2.14.3</b> Sparklines</a></li>
-<li class="chapter" data-level="2.14.4" data-path="show-the-numbers.html"><a href="show-the-numbers.html#slopegraphs"><i class="fa fa-check"></i><b>2.14.4</b> Slopegraphs</a></li>
-<li class="chapter" data-level="2.14.5" data-path="show-the-numbers.html"><a href="show-the-numbers.html#bump-charts"><i class="fa fa-check"></i><b>2.14.5</b> Bump charts</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="show-the-numbers.html"><a href="show-the-numbers.html#acknowledgments"><i class="fa fa-check"></i>Acknowledgments</a></li>
-<li class="chapter" data-level="" data-path="show-the-numbers.html"><a href="show-the-numbers.html#session-info-1"><i class="fa fa-check"></i>Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="science-polish.html"><a href="science-polish.html"><i class="fa fa-check"></i><b>3</b> Making plots pretty and clean</a>
-<ul>
-<li class="chapter" data-level="" data-path="science-polish.html"><a href="science-polish.html#learning-objectives-2"><i class="fa fa-check"></i>Learning objectives</a>
-<ul>
-<li class="chapter" data-level="3.0.1" data-path="science-polish.html"><a href="science-polish.html#morning-2"><i class="fa fa-check"></i><b>3.0.1</b> Morning</a></li>
-<li class="chapter" data-level="3.0.2" data-path="science-polish.html"><a href="science-polish.html#afternoon-2"><i class="fa fa-check"></i><b>3.0.2</b> Afternoon</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="science-polish.html"><a href="science-polish.html#assigned-readings-2"><i class="fa fa-check"></i>Assigned readings</a></li>
-<li class="chapter" data-level="3.1" data-path="science-polish.html"><a href="science-polish.html#tuftes-world"><i class="fa fa-check"></i><b>3.1</b> Tufte’s world</a>
-<ul>
-<li class="chapter" data-level="3.1.1" data-path="science-polish.html"><a href="science-polish.html#what-is-integral"><i class="fa fa-check"></i><b>3.1.1</b> What is integral?</a></li>
-</ul></li>
-<li class="chapter" data-level="3.2" data-path="science-polish.html"><a href="science-polish.html#chart-junk"><i class="fa fa-check"></i><b>3.2</b> Chart junk</a></li>
-<li class="chapter" data-level="3.3" data-path="science-polish.html"><a href="science-polish.html#compare-tufte-minimal-graphs-to-traditional-graphs-using-ggplot2"><i class="fa fa-check"></i><b>3.3</b> Compare Tufte minimal graphs to traditional graphs using <code>ggplot2</code></a>
-<ul>
-<li class="chapter" data-level="3.3.1" data-path="science-polish.html"><a href="science-polish.html#minimal-line-plot"><i class="fa fa-check"></i><b>3.3.1</b> Minimal line plot</a></li>
-<li class="chapter" data-level="3.3.2" data-path="science-polish.html"><a href="science-polish.html#minimal-boxplot"><i class="fa fa-check"></i><b>3.3.2</b> Minimal boxplot</a></li>
-<li class="chapter" data-level="3.3.3" data-path="science-polish.html"><a href="science-polish.html#minimal-barchart"><i class="fa fa-check"></i><b>3.3.3</b> Minimal barchart</a></li>
-<li class="chapter" data-level="3.3.4" data-path="science-polish.html"><a href="science-polish.html#range-frame-scatterplot"><i class="fa fa-check"></i><b>3.3.4</b> Range-frame scatterplot</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="science-polish.html"><a href="science-polish.html#reconsidering-tufte"><i class="fa fa-check"></i><b>3.4</b> Reconsidering Tufte</a>
-<ul>
-<li class="chapter" data-level="3.4.1" data-path="science-polish.html"><a href="science-polish.html#when-is-redundancy-better"><i class="fa fa-check"></i><b>3.4.1</b> When is redundancy better?</a></li>
-<li class="chapter" data-level="3.4.2" data-path="science-polish.html"><a href="science-polish.html#does-minimalism-really-help-here"><i class="fa fa-check"></i><b>3.4.2</b> Does minimalism really help here?</a></li>
-<li class="chapter" data-level="3.4.3" data-path="science-polish.html"><a href="science-polish.html#experimental-tests-of-tuftes-claims"><i class="fa fa-check"></i><b>3.4.3</b> Experimental tests of Tufte’s claims</a></li>
-<li class="chapter" data-level="3.4.4" data-path="science-polish.html"><a href="science-polish.html#discussing-the-results"><i class="fa fa-check"></i><b>3.4.4</b> Discussing the results</a></li>
-<li class="chapter" data-level="3.4.5" data-path="science-polish.html"><a href="science-polish.html#rethinking-tuftes-definition-of-visual-excellence"><i class="fa fa-check"></i><b>3.4.5</b> Rethinking Tufte’s definition of visual excellence</a></li>
-<li class="chapter" data-level="3.4.6" data-path="science-polish.html"><a href="science-polish.html#testing-this-theory"><i class="fa fa-check"></i><b>3.4.6</b> Testing this theory</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="science-polish.html"><a href="science-polish.html#visualizing-uncertainty"><i class="fa fa-check"></i><b>3.5</b> Visualizing uncertainty</a>
-<ul>
-<li class="chapter" data-level="3.5.1" data-path="science-polish.html"><a href="science-polish.html#load-and-clean-data-2"><i class="fa fa-check"></i><b>3.5.1</b> Load and clean data</a></li>
-<li class="chapter" data-level="3.5.2" data-path="science-polish.html"><a href="science-polish.html#histograms-1"><i class="fa fa-check"></i><b>3.5.2</b> Histograms</a></li>
-<li class="chapter" data-level="3.5.3" data-path="science-polish.html"><a href="science-polish.html#density-plots"><i class="fa fa-check"></i><b>3.5.3</b> Density plots</a></li>
-<li class="chapter" data-level="3.5.4" data-path="science-polish.html"><a href="science-polish.html#box-violin-and-rain-cloud-plots"><i class="fa fa-check"></i><b>3.5.4</b> Box, violin, and rain cloud plots</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="science-polish.html"><a href="science-polish.html#building-a-theme"><i class="fa fa-check"></i><b>3.6</b> Building a <code>theme()</code></a></li>
-<li class="chapter" data-level="3.7" data-path="science-polish.html"><a href="science-polish.html#annotations"><i class="fa fa-check"></i><b>3.7</b> Annotations</a>
-<ul>
-<li class="chapter" data-level="3.7.1" data-path="science-polish.html"><a href="science-polish.html#load-data-1"><i class="fa fa-check"></i><b>3.7.1</b> Load data</a></li>
-<li class="chapter" data-level="3.7.2" data-path="science-polish.html"><a href="science-polish.html#clean-and-reshape-data"><i class="fa fa-check"></i><b>3.7.2</b> Clean and reshape data</a></li>
-<li class="chapter" data-level="3.7.3" data-path="science-polish.html"><a href="science-polish.html#plot-the-data-and-annotate"><i class="fa fa-check"></i><b>3.7.3</b> Plot the data and annotate</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="science-polish.html"><a href="science-polish.html#acknowledgments-1"><i class="fa fa-check"></i>Acknowledgments</a></li>
-<li class="chapter" data-level="" data-path="science-polish.html"><a href="science-polish.html#session-info-2"><i class="fa fa-check"></i>Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="geoviz.html"><a href="geoviz.html"><i class="fa fa-check"></i><b>4</b> Geospatial visualizations</a>
-<ul>
-<li class="chapter" data-level="" data-path="geoviz.html"><a href="geoviz.html#learning-objectives-3"><i class="fa fa-check"></i>Learning objectives</a>
-<ul>
-<li class="chapter" data-level="4.0.1" data-path="geoviz.html"><a href="geoviz.html#morning-3"><i class="fa fa-check"></i><b>4.0.1</b> Morning</a></li>
-<li class="chapter" data-level="4.0.2" data-path="geoviz.html"><a href="geoviz.html#afternoon-3"><i class="fa fa-check"></i><b>4.0.2</b> Afternoon</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="geoviz.html"><a href="geoviz.html#assigned-readings-3"><i class="fa fa-check"></i>Assigned readings</a></li>
-<li class="chapter" data-level="4.1" data-path="geoviz.html"><a href="geoviz.html#introduction-to-geospatial-visualization"><i class="fa fa-check"></i><b>4.1</b> Introduction to geospatial visualization</a>
-<ul>
-<li class="chapter" data-level="4.1.1" data-path="geoviz.html"><a href="geoviz.html#john-snow-and-the-broad-street-water-pump"><i class="fa fa-check"></i><b>4.1.1</b> John Snow and the Broad Street water pump</a></li>
-<li class="chapter" data-level="4.1.2" data-path="geoviz.html"><a href="geoviz.html#carte-figurative-des-pertes-successives-en-hommes-de-larmée-française-dans-la-campagne-de-russie-1812-1813"><i class="fa fa-check"></i><b>4.1.2</b> <em>Carte figurative des pertes successives en hommes de l’Armée Française dans la campagne de Russie 1812-1813)</em></a></li>
-<li class="chapter" data-level="4.1.3" data-path="geoviz.html"><a href="geoviz.html#designing-modern-maps"><i class="fa fa-check"></i><b>4.1.3</b> Designing modern maps</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="geoviz.html"><a href="geoviz.html#drawing-raster-maps-with-ggmap"><i class="fa fa-check"></i><b>4.2</b> Drawing raster maps with <code>ggmap</code></a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="geoviz.html"><a href="geoviz.html#obtain-map-images"><i class="fa fa-check"></i><b>4.2.1</b> Obtain map images</a></li>
-<li class="chapter" data-level="4.2.2" data-path="geoviz.html"><a href="geoviz.html#specifying-map-regions"><i class="fa fa-check"></i><b>4.2.2</b> Specifying map regions</a></li>
-<li class="chapter" data-level="4.2.3" data-path="geoviz.html"><a href="geoviz.html#types-of-map-tiles"><i class="fa fa-check"></i><b>4.2.3</b> Types of map tiles</a></li>
-<li class="chapter" data-level="4.2.4" data-path="geoviz.html"><a href="geoviz.html#import-crime-data"><i class="fa fa-check"></i><b>4.2.4</b> Import crime data</a></li>
-<li class="chapter" data-level="4.2.5" data-path="geoviz.html"><a href="geoviz.html#plot-high-level-map-of-crime"><i class="fa fa-check"></i><b>4.2.5</b> Plot high-level map of crime</a></li>
-<li class="chapter" data-level="4.2.6" data-path="geoviz.html"><a href="geoviz.html#using-geom_point"><i class="fa fa-check"></i><b>4.2.6</b> Using <code>geom_point()</code></a></li>
-<li class="chapter" data-level="4.2.7" data-path="geoviz.html"><a href="geoviz.html#using-stat_density_2d"><i class="fa fa-check"></i><b>4.2.7</b> Using <code>stat_density_2d()</code></a></li>
-<li class="chapter" data-level="4.2.8" data-path="geoviz.html"><a href="geoviz.html#looking-for-variation"><i class="fa fa-check"></i><b>4.2.8</b> Looking for variation</a></li>
-<li class="chapter" data-level="4.2.9" data-path="geoviz.html"><a href="geoviz.html#locations-of-murders"><i class="fa fa-check"></i><b>4.2.9</b> Locations of murders</a></li>
-</ul></li>
-<li class="chapter" data-level="4.3" data-path="geoviz.html"><a href="geoviz.html#exercise-chicago-311-data"><i class="fa fa-check"></i><b>4.3</b> Exercise: Chicago 311 data</a>
-<ul>
-<li class="chapter" data-level="4.3.1" data-path="geoviz.html"><a href="geoviz.html#visualize-the-311-data"><i class="fa fa-check"></i><b>4.3.1</b> Visualize the 311 data</a></li>
-</ul></li>
-<li class="chapter" data-level="4.4" data-path="geoviz.html"><a href="geoviz.html#importing-spatial-data-files-using-sf"><i class="fa fa-check"></i><b>4.4</b> Importing spatial data files using <code>sf</code></a></li>
-<li class="chapter" data-level="4.5" data-path="geoviz.html"><a href="geoviz.html#file-formats"><i class="fa fa-check"></i><b>4.5</b> File formats</a>
-<ul>
-<li class="chapter" data-level="4.5.1" data-path="geoviz.html"><a href="geoviz.html#shapefile"><i class="fa fa-check"></i><b>4.5.1</b> Shapefile</a></li>
-<li class="chapter" data-level="4.5.2" data-path="geoviz.html"><a href="geoviz.html#geojson"><i class="fa fa-check"></i><b>4.5.2</b> GeoJSON</a></li>
-</ul></li>
-<li class="chapter" data-level="4.6" data-path="geoviz.html"><a href="geoviz.html#simple-features"><i class="fa fa-check"></i><b>4.6</b> Simple features</a>
-<ul>
-<li class="chapter" data-level="4.6.1" data-path="geoviz.html"><a href="geoviz.html#what-is-a-feature"><i class="fa fa-check"></i><b>4.6.1</b> What is a feature?</a></li>
-<li class="chapter" data-level="4.6.2" data-path="geoviz.html"><a href="geoviz.html#dimensions"><i class="fa fa-check"></i><b>4.6.2</b> Dimensions</a></li>
-<li class="chapter" data-level="4.6.3" data-path="geoviz.html"><a href="geoviz.html#simple-feature-geometry-types"><i class="fa fa-check"></i><b>4.6.3</b> Simple feature geometry types</a></li>
-<li class="chapter" data-level="4.6.4" data-path="geoviz.html"><a href="geoviz.html#coordinate-reference-system"><i class="fa fa-check"></i><b>4.6.4</b> Coordinate reference system</a></li>
-</ul></li>
-<li class="chapter" data-level="4.7" data-path="geoviz.html"><a href="geoviz.html#simple-features-in-r"><i class="fa fa-check"></i><b>4.7</b> Simple features in R</a>
-<ul>
-<li class="chapter" data-level="4.7.1" data-path="geoviz.html"><a href="geoviz.html#importing-spatial-data-using-sf"><i class="fa fa-check"></i><b>4.7.1</b> Importing spatial data using <code>sf</code></a></li>
-</ul></li>
-<li class="chapter" data-level="4.8" data-path="geoviz.html"><a href="geoviz.html#drawing-vector-maps-with-sf-and-ggplot2"><i class="fa fa-check"></i><b>4.8</b> Drawing vector maps with <code>sf</code> and <code>ggplot2</code></a>
-<ul>
-<li class="chapter" data-level="4.8.1" data-path="geoviz.html"><a href="geoviz.html#import-usa-state-boundaries"><i class="fa fa-check"></i><b>4.8.1</b> Import USA state boundaries</a></li>
-<li class="chapter" data-level="4.8.2" data-path="geoviz.html"><a href="geoviz.html#draw-the-boundaries"><i class="fa fa-check"></i><b>4.8.2</b> Draw the boundaries</a></li>
-<li class="chapter" data-level="4.8.3" data-path="geoviz.html"><a href="geoviz.html#add-data-to-the-map"><i class="fa fa-check"></i><b>4.8.3</b> Add data to the map</a></li>
-<li class="chapter" data-level="4.8.4" data-path="geoviz.html"><a href="geoviz.html#changing-map-projection"><i class="fa fa-check"></i><b>4.8.4</b> Changing map projection</a></li>
-</ul></li>
-<li class="chapter" data-level="4.9" data-path="geoviz.html"><a href="geoviz.html#practice-drawing-vector-maps"><i class="fa fa-check"></i><b>4.9</b> Practice drawing vector maps</a>
-<ul>
-<li class="chapter" data-level="4.9.1" data-path="geoviz.html"><a href="geoviz.html#american-community-survey"><i class="fa fa-check"></i><b>4.9.1</b> American Community Survey</a></li>
-<li class="chapter" data-level="4.9.2" data-path="geoviz.html"><a href="geoviz.html#exercise-visualize-income-data"><i class="fa fa-check"></i><b>4.9.2</b> Exercise: Visualize income data</a></li>
-<li class="chapter" data-level="4.9.3" data-path="geoviz.html"><a href="geoviz.html#exercise-customize-your-maps"><i class="fa fa-check"></i><b>4.9.3</b> Exercise: Customize your maps</a></li>
-</ul></li>
-<li class="chapter" data-level="4.10" data-path="geoviz.html"><a href="geoviz.html#selecting-optimal-color-palettes"><i class="fa fa-check"></i><b>4.10</b> Selecting optimal color palettes</a>
-<ul>
-<li class="chapter" data-level="4.10.1" data-path="geoviz.html"><a href="geoviz.html#color-brewer"><i class="fa fa-check"></i><b>4.10.1</b> Color Brewer</a></li>
-<li class="chapter" data-level="4.10.2" data-path="geoviz.html"><a href="geoviz.html#viridis"><i class="fa fa-check"></i><b>4.10.2</b> Viridis</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="geoviz.html"><a href="geoviz.html#session-info-3"><i class="fa fa-check"></i>Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="5" data-path="shiny.html"><a href="shiny.html"><i class="fa fa-check"></i><b>5</b> Shiny applications</a>
-<ul>
-<li class="chapter" data-level="" data-path="shiny.html"><a href="shiny.html#learning-objectives-4"><i class="fa fa-check"></i>Learning objectives</a>
-<ul>
-<li class="chapter" data-level="5.0.1" data-path="shiny.html"><a href="shiny.html#morning-4"><i class="fa fa-check"></i><b>5.0.1</b> Morning</a></li>
-<li class="chapter" data-level="5.0.2" data-path="shiny.html"><a href="shiny.html#afternoon-4"><i class="fa fa-check"></i><b>5.0.2</b> Afternoon</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="shiny.html"><a href="shiny.html#assigned-readings-4"><i class="fa fa-check"></i>Assigned readings</a></li>
-<li class="chapter" data-level="5.1" data-path="shiny.html"><a href="shiny.html#what-is-shiny"><i class="fa fa-check"></i><b>5.1</b> What is Shiny?</a></li>
-<li class="chapter" data-level="5.2" data-path="shiny.html"><a href="shiny.html#before-we-begin"><i class="fa fa-check"></i><b>5.2</b> Before we begin</a></li>
-<li class="chapter" data-level="5.3" data-path="shiny.html"><a href="shiny.html#shiny-app-basics"><i class="fa fa-check"></i><b>5.3</b> Shiny app basics</a></li>
-<li class="chapter" data-level="5.4" data-path="shiny.html"><a href="shiny.html#create-an-empty-shiny-app"><i class="fa fa-check"></i><b>5.4</b> Create an empty Shiny app</a>
-<ul>
-<li class="chapter" data-level="5.4.1" data-path="shiny.html"><a href="shiny.html#alternate-way-to-create-a-shiny-app-separate-ui-and-server-files"><i class="fa fa-check"></i><b>5.4.1</b> Alternate way to create a Shiny app: separate UI and server files</a></li>
-<li class="chapter" data-level="5.4.2" data-path="shiny.html"><a href="shiny.html#let-rstudio-fill-out-a-shiny-app-template-for-you"><i class="fa fa-check"></i><b>5.4.2</b> Let RStudio fill out a Shiny app template for you</a></li>
-</ul></li>
-<li class="chapter" data-level="5.5" data-path="shiny.html"><a href="shiny.html#load-the-dataset"><i class="fa fa-check"></i><b>5.5</b> Load the dataset</a></li>
-<li class="chapter" data-level="5.6" data-path="shiny.html"><a href="shiny.html#build-the-basic-ui"><i class="fa fa-check"></i><b>5.6</b> Build the basic UI</a>
-<ul>
-<li class="chapter" data-level="5.6.1" data-path="shiny.html"><a href="shiny.html#add-plain-text-to-the-ui"><i class="fa fa-check"></i><b>5.6.1</b> Add plain text to the UI</a></li>
-<li class="chapter" data-level="5.6.2" data-path="shiny.html"><a href="shiny.html#add-formatted-text-and-other-html-elements"><i class="fa fa-check"></i><b>5.6.2</b> Add formatted text and other HTML elements</a></li>
-<li class="chapter" data-level="5.6.3" data-path="shiny.html"><a href="shiny.html#add-a-title"><i class="fa fa-check"></i><b>5.6.3</b> Add a title</a></li>
-<li class="chapter" data-level="5.6.4" data-path="shiny.html"><a href="shiny.html#add-a-layout"><i class="fa fa-check"></i><b>5.6.4</b> Add a layout</a></li>
-</ul></li>
-<li class="chapter" data-level="5.7" data-path="shiny.html"><a href="shiny.html#all-ui-functions-are-simply-html-wrappers"><i class="fa fa-check"></i><b>5.7</b> All UI functions are simply HTML wrappers</a></li>
-<li class="chapter" data-level="5.8" data-path="shiny.html"><a href="shiny.html#add-inputs-to-the-ui"><i class="fa fa-check"></i><b>5.8</b> Add inputs to the UI</a>
-<ul>
-<li class="chapter" data-level="5.8.1" data-path="shiny.html"><a href="shiny.html#input-for-hourly-wage"><i class="fa fa-check"></i><b>5.8.1</b> Input for hourly wage</a></li>
-<li class="chapter" data-level="5.8.2" data-path="shiny.html"><a href="shiny.html#input-for-fullpart-time"><i class="fa fa-check"></i><b>5.8.2</b> Input for full/part-time</a></li>
-<li class="chapter" data-level="5.8.3" data-path="shiny.html"><a href="shiny.html#input-for-department"><i class="fa fa-check"></i><b>5.8.3</b> Input for department</a></li>
-</ul></li>
-<li class="chapter" data-level="5.9" data-path="shiny.html"><a href="shiny.html#add-placeholders-for-outputs"><i class="fa fa-check"></i><b>5.9</b> Add placeholders for outputs</a>
-<ul>
-<li class="chapter" data-level="5.9.1" data-path="shiny.html"><a href="shiny.html#output-for-a-plot-of-the-results"><i class="fa fa-check"></i><b>5.9.1</b> Output for a plot of the results</a></li>
-<li class="chapter" data-level="5.9.2" data-path="shiny.html"><a href="shiny.html#output-for-a-table-summary-of-the-results"><i class="fa fa-check"></i><b>5.9.2</b> Output for a table summary of the results</a></li>
-</ul></li>
-<li class="chapter" data-level="5.10" data-path="shiny.html"><a href="shiny.html#checkpoint-what-our-app-looks-like-after-implementing-the-ui"><i class="fa fa-check"></i><b>5.10</b> Checkpoint: what our app looks like after implementing the UI</a></li>
-<li class="chapter" data-level="5.11" data-path="shiny.html"><a href="shiny.html#implement-server-logic-to-create-outputs"><i class="fa fa-check"></i><b>5.11</b> Implement server logic to create outputs</a>
-<ul>
-<li class="chapter" data-level="5.11.1" data-path="shiny.html"><a href="shiny.html#building-an-output"><i class="fa fa-check"></i><b>5.11.1</b> Building an output</a></li>
-<li class="chapter" data-level="5.11.2" data-path="shiny.html"><a href="shiny.html#making-an-output-react-to-an-input"><i class="fa fa-check"></i><b>5.11.2</b> Making an output react to an input</a></li>
-<li class="chapter" data-level="5.11.3" data-path="shiny.html"><a href="shiny.html#building-the-plot-output"><i class="fa fa-check"></i><b>5.11.3</b> Building the plot output</a></li>
-<li class="chapter" data-level="5.11.4" data-path="shiny.html"><a href="shiny.html#building-the-table-output"><i class="fa fa-check"></i><b>5.11.4</b> Building the table output</a></li>
-</ul></li>
-<li class="chapter" data-level="5.12" data-path="shiny.html"><a href="shiny.html#reactivity-101"><i class="fa fa-check"></i><b>5.12</b> Reactivity 101</a>
-<ul>
-<li class="chapter" data-level="5.12.1" data-path="shiny.html"><a href="shiny.html#creating-and-accessing-reactive-variables"><i class="fa fa-check"></i><b>5.12.1</b> Creating and accessing reactive variables</a></li>
-<li class="chapter" data-level="5.12.2" data-path="shiny.html"><a href="shiny.html#using-reactive-variables-to-reduce-code-duplication"><i class="fa fa-check"></i><b>5.12.2</b> Using reactive variables to reduce code duplication</a></li>
-<li class="chapter" data-level="5.12.3" data-path="shiny.html"><a href="shiny.html#blank-plots-showing-up"><i class="fa fa-check"></i><b>5.12.3</b> Blank plots showing up</a></li>
-</ul></li>
-<li class="chapter" data-level="5.13" data-path="shiny.html"><a href="shiny.html#using-uioutput-to-create-ui-elements-dynamically"><i class="fa fa-check"></i><b>5.13</b> Using <code>uiOutput()</code> to create UI elements dynamically</a>
-<ul>
-<li class="chapter" data-level="5.13.1" data-path="shiny.html"><a href="shiny.html#basic-example-of-uioutput"><i class="fa fa-check"></i><b>5.13.1</b> Basic example of <code>uiOutput()</code></a></li>
-<li class="chapter" data-level="5.13.2" data-path="shiny.html"><a href="shiny.html#use-uioutput-in-our-app-to-populate-the-job-titles"><i class="fa fa-check"></i><b>5.13.2</b> Use <code>uiOutput()</code> in our app to populate the job titles</a></li>
-</ul></li>
-<li class="chapter" data-level="5.14" data-path="shiny.html"><a href="shiny.html#final-shiny-app-code"><i class="fa fa-check"></i><b>5.14</b> Final Shiny app code</a></li>
-<li class="chapter" data-level="5.15" data-path="shiny.html"><a href="shiny.html#share-your-app-with-the-world"><i class="fa fa-check"></i><b>5.15</b> Share your app with the world</a>
-<ul>
-<li class="chapter" data-level="5.15.1" data-path="shiny.html"><a href="shiny.html#host-on-shinyapps.io"><i class="fa fa-check"></i><b>5.15.1</b> Host on shinyapps.io</a></li>
-<li class="chapter" data-level="5.15.2" data-path="shiny.html"><a href="shiny.html#host-on-a-shiny-server"><i class="fa fa-check"></i><b>5.15.2</b> Host on a Shiny Server</a></li>
-</ul></li>
-<li class="chapter" data-level="5.16" data-path="shiny.html"><a href="shiny.html#more-shiny-features-to-check-out"><i class="fa fa-check"></i><b>5.16</b> More Shiny features to check out</a>
-<ul>
-<li class="chapter" data-level="5.16.1" data-path="shiny.html"><a href="shiny.html#shiny-in-rmarkdown"><i class="fa fa-check"></i><b>5.16.1</b> Shiny in Rmarkdown</a></li>
-<li class="chapter" data-level="5.16.2" data-path="shiny.html"><a href="shiny.html#use-conditionalpanel-to-conditionally-show-ui-elements"><i class="fa fa-check"></i><b>5.16.2</b> Use <code>conditionalPanel()</code> to conditionally show UI elements</a></li>
-<li class="chapter" data-level="5.16.3" data-path="shiny.html"><a href="shiny.html#use-navbarpage-or-tabsetpanel-to-have-multiple-tabs-in-the-ui"><i class="fa fa-check"></i><b>5.16.3</b> Use <code>navbarPage()</code> or <code>tabsetPanel()</code> to have multiple tabs in the UI</a></li>
-<li class="chapter" data-level="5.16.4" data-path="shiny.html"><a href="shiny.html#use-dt-for-beautiful-interactive-tables"><i class="fa fa-check"></i><b>5.16.4</b> Use DT for beautiful, interactive tables</a></li>
-<li class="chapter" data-level="5.16.5" data-path="shiny.html"><a href="shiny.html#use-isolate-function-to-remove-a-dependency-on-a-reactive-variable"><i class="fa fa-check"></i><b>5.16.5</b> Use isolate() function to remove a dependency on a reactive variable</a></li>
-<li class="chapter" data-level="5.16.6" data-path="shiny.html"><a href="shiny.html#use-updateinput-functions-to-update-input-values-programmatically"><i class="fa fa-check"></i><b>5.16.6</b> Use <code>update*Input()</code> functions to update input values programmatically</a></li>
-<li class="chapter" data-level="5.16.7" data-path="shiny.html"><a href="shiny.html#scoping-rules-in-shiny-apps"><i class="fa fa-check"></i><b>5.16.7</b> Scoping rules in Shiny apps</a></li>
-<li class="chapter" data-level="5.16.8" data-path="shiny.html"><a href="shiny.html#use-global.r-to-define-objects-available-to-both-ui.r-and-server.r"><i class="fa fa-check"></i><b>5.16.8</b> Use global.R to define objects available to both ui.R and server.R</a></li>
-<li class="chapter" data-level="5.16.9" data-path="shiny.html"><a href="shiny.html#add-images"><i class="fa fa-check"></i><b>5.16.9</b> Add images</a></li>
-<li class="chapter" data-level="5.16.10" data-path="shiny.html"><a href="shiny.html#add-javascriptcss"><i class="fa fa-check"></i><b>5.16.10</b> Add JavaScript/CSS</a></li>
-</ul></li>
-<li class="chapter" data-level="5.17" data-path="shiny.html"><a href="shiny.html#awesome-add-on-packages-to-shiny"><i class="fa fa-check"></i><b>5.17</b> Awesome add-on packages to Shiny</a></li>
-<li class="chapter" data-level="5.18" data-path="shiny.html"><a href="shiny.html#resources"><i class="fa fa-check"></i><b>5.18</b> Resources</a></li>
-<li class="chapter" data-level="" data-path="shiny.html"><a href="shiny.html#acknowledgments-2"><i class="fa fa-check"></i>Acknowledgments</a></li>
-<li class="chapter" data-level="" data-path="shiny.html"><a href="shiny.html#session-info-4"><i class="fa fa-check"></i>Session info</a></li>
-</ul></li>
-<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
-
-</ul>
-
-      </nav>
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="MACS 20700/40700">Data Visualization</a>:
+        <small class="text-muted">MACS 20700/40700</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
     </div>
 
-    <div class="book-body">
-      <div class="body-inner">
-        <div class="book-header" role="navigation">
-          <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Data Visualization</a>
-          </h1>
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="active" href="index.html">Syllabus</a></li>
+<li><a class="" href="intro-data-viz.html"><span class="header-section-number">1</span> Introduction to data visualization</a></li>
+<li><a class="" href="show-the-numbers.html"><span class="header-section-number">2</span> Showing the right numbers</a></li>
+<li><a class="" href="science-polish.html"><span class="header-section-number">3</span> Making plots pretty and clean</a></li>
+<li><a class="" href="geoviz.html"><span class="header-section-number">4</span> Geospatial visualizations</a></li>
+<li><a class="" href="shiny.html"><span class="header-section-number">5</span> Shiny applications</a></li>
+<li><a class="" href="references.html">References</a></li>
+</ul>
+
+        <div class="book-extra">
+          
         </div>
-
-        <div class="page-wrapper" tabindex="-1" role="main">
-          <div class="page-inner">
-
-            <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Data Visualization</h1>
-<h2 class="subtitle"><em>MACS 20700/40700</em></h2>
-<p class="author"><em>Benjamin Soltoff</em></p>
-<p class="date"><em>2022-03-04</em></p>
+      </nav>
 </div>
-<div id="syllabus" class="section level1 unnumbered">
-<h1>Syllabus</h1>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="syllabus" class="section level1 unnumbered">
+<h1>Syllabus<a class="anchor" aria-label="anchor" href="#syllabus"><i class="fas fa-link"></i></a>
+</h1>
 <div id="contact-information" class="section level2 unnumbered">
-<h2>Contact information</h2>
-<table>
-<thead>
-<tr class="header">
+<h2>Contact information<a class="anchor" aria-label="anchor" href="#contact-information"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
 <th></th>
 <th><a href="http://www.bensoltoff.com/">Dr. Benjamin Soltoff</a></th>
-</tr>
-</thead>
+</tr></thead>
 <tbody>
 <tr class="odd">
 <td>Email</td>
@@ -467,25 +80,29 @@
 </tr>
 <tr class="odd">
 <td>Office</td>
-<td>Room 219, <a href="1155%20E%2060th%20St">1155 E 60th St</a></td>
+<td>Room 219, <a href="1155%20E%2060th%20St">1155 E 60th St</a>
+</td>
 </tr>
 <tr class="even">
 <td>Office hours</td>
 <td>TBD</td>
 </tr>
 </tbody>
-</table>
+</table></div>
 </div>
 <div id="course-description" class="section level2 unnumbered">
-<h2>Course description</h2>
+<h2>Course description<a class="anchor" aria-label="anchor" href="#course-description"><i class="fas fa-link"></i></a>
+</h2>
 <p>Social scientists frequently wish to convey information to a broader audience in a cohesive and interpretable manner. Visualizations are an excellent method to summarize information and report analysis and conclusions in a compelling format. This course introduces the theory and applications of data visualization. Students will learn techniques and methods for developing rich, informative and interactive, web-facing visualizations based on principles from graphic design and perceptual psychology. Students will practice these techniques on many types of social science data, including multivariate, temporal, geospatial, text, hierarchical, and network data. These techniques will be developed using a variety of software implementations such as R, ggplot2, D3, and Tableau.</p>
 </div>
 <div id="prerequisites" class="section level2 unnumbered">
-<h2>Prerequisites</h2>
+<h2>Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"><i class="fas fa-link"></i></a>
+</h2>
 <p>MACS 30500 or equivalent programming course in R. Prior experience with <code>ggplot2</code> is expected.</p>
 </div>
 <div id="course-schedule" class="section level2 unnumbered">
-<h2>Course schedule</h2>
+<h2>Course schedule<a class="anchor" aria-label="anchor" href="#course-schedule"><i class="fas fa-link"></i></a>
+</h2>
 <ol style="list-style-type: decimal">
 <li>Welcome to the course</li>
 <li>Grammar of graphics</li>
@@ -508,89 +125,99 @@
 </ol>
 </div>
 <div id="what-do-i-need-for-this-course" class="section level2 unnumbered">
-<h2>What do I need for this course?</h2>
+<h2>What do I need for this course?<a class="anchor" aria-label="anchor" href="#what-do-i-need-for-this-course"><i class="fas fa-link"></i></a>
+</h2>
 <p>Class sessions are a mix of lecture, demonstration, and live coding. It is essential to have a computer so you can follow along and complete the exercises. Before the course starts, you should install the following software on your computer:</p>
 <ul>
-<li><a href="https://www.r-project.org/">R</a> - easiest approach is to select <a href="https://cran.rstudio.com/">a pre-compiled binary appropriate for your operating system</a>.</li>
-<li><a href="https://www.rstudio.com/products/RStudio/">RStudio IDE</a> - this is a powerful user interface for programming in R. You could use base R, but you would regret it.</li>
-<li><a href="https://git-scm.com/">Git</a> - Git is a <a href="https://en.wikipedia.org/wiki/Version_control">version control system</a> which is used to manage projects and track changes in computer files. Once installed, it can be integrated into RStudio to manage your course assignments and other projects.</li>
+<li>
+<a href="https://www.r-project.org/">R</a> - easiest approach is to select <a href="https://cran.rstudio.com/">a pre-compiled binary appropriate for your operating system</a>.</li>
+<li>
+<a href="https://www.rstudio.com/products/RStudio/">RStudio IDE</a> - this is a powerful user interface for programming in R. You could use base R, but you would regret it.</li>
+<li>
+<a href="https://git-scm.com/">Git</a> - Git is a <a href="https://en.wikipedia.org/wiki/Version_control">version control system</a> which is used to manage projects and track changes in computer files. Once installed, it can be integrated into RStudio to manage your course assignments and other projects.</li>
 </ul>
 <p>Comprehensive instructions for downloading and setting up this software can be found <a href="https://cfss.uchicago.edu/setup/#option-2-install-the-software-locally">here</a>.</p>
 <p>All readings (e.g., papers, book chapters) will be open source, with either links or citations provided.</p>
 </div>
 <div id="how-will-i-be-evaluated" class="section level2 unnumbered">
-<h2>How will I be evaluated?</h2>
+<h2>How will I be evaluated?<a class="anchor" aria-label="anchor" href="#how-will-i-be-evaluated"><i class="fas fa-link"></i></a>
+</h2>
 <p>TBD</p>
 </div>
 <div id="statement-on-disabilities" class="section level2 unnumbered">
-<h2>Statement on Disabilities</h2>
+<h2>Statement on Disabilities<a class="anchor" aria-label="anchor" href="#statement-on-disabilities"><i class="fas fa-link"></i></a>
+</h2>
 <p>The University of Chicago is committed to diversity and rigorous inquiry from multiple perspectives. The MAPSS, CIR, and Computation programs share this commitment and seek to foster productive learning environments based upon inclusion, open communication, and mutual respect for a diverse range of identities, experiences, and positions.</p>
 <p>This course is open to all students who meet the academic requirements for participation. Any student who has a documented need for accommodation should contact Student Disability Services (773-702-6000 or <a href="mailto:disabilities@uchicago.edu">disabilities@uchicago.edu</a>) and provide us (Dr. Soltoff and Dr. Waggoner) with a copy of your Accommodation Determination Letter as soon as possible.</p>
 
 </div>
 </div>
-            </section>
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="next"><a href="intro-data-viz.html"><span class="header-section-number">1</span> Introduction to data visualization</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#syllabus">Syllabus</a></li>
+<li><a class="nav-link" href="#contact-information">Contact information</a></li>
+<li><a class="nav-link" href="#course-description">Course description</a></li>
+<li><a class="nav-link" href="#prerequisites">Prerequisites</a></li>
+<li><a class="nav-link" href="#course-schedule">Course schedule</a></li>
+<li><a class="nav-link" href="#what-do-i-need-for-this-course">What do I need for this course?</a></li>
+<li><a class="nav-link" href="#how-will-i-be-evaluated">How will I be evaluated?</a></li>
+<li><a class="nav-link" href="#statement-on-disabilities">Statement on Disabilities</a></li>
+</ul>
 
-          </div>
-        </div>
-      </div>
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
 
-<a href="intro-data-viz.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
-    </div>
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Data Visualization</strong>: MACS 20700/40700" was written by Benjamin Soltoff. It was last built on 2022-03-04.</p>
   </div>
-<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
-<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
-<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
-<script>
-gitbook.require(["gitbook"], function(gitbook) {
-gitbook.start({
-"sharing": {
-"github": false,
-"facebook": true,
-"twitter": true,
-"linkedin": false,
-"weibo": false,
-"instapaper": false,
-"vk": false,
-"whatsapp": false,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
-},
-"fontsettings": {
-"theme": "white",
-"family": "sans",
-"size": 2
-},
-"edit": {
-"link": null,
-"text": null
-},
-"history": {
-"link": null,
-"text": null
-},
-"view": {
-"link": null,
-"text": null
-},
-"download": null,
-"search": {
-"engine": "fuse",
-"options": null
-},
-"toc": {
-"collapse": "section"
-},
-"theme": "readable",
-"highlight": "pygment"
-});
-});
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- dynamically load mathjax for compatibility with self-contained --><script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script><script type="text/x-mathjax-config">const popovers = document.querySelectorAll('a.footnote-ref[data-toggle="popover"]');
+for (let popover of popovers) {
+  const div = document.createElement('div');
+  div.setAttribute('style', 'position: absolute; top: 0, left:0; width:0, height:0, overflow: hidden; visibility: hidden;');
+  div.innerHTML = popover.getAttribute('data-content');
+
+  var has_math = div.querySelector("span.math");
+  if (has_math) {
+    document.body.appendChild(div);
+    MathJax.Hub.Queue(["Typeset", MathJax.Hub, div]);
+    MathJax.Hub.Queue(function() {
+      popover.setAttribute('data-content', div.innerHTML);
+      document.body.removeChild(div);
+    })
+  }
+}
 </script>
-
 </body>
-
 </html>
