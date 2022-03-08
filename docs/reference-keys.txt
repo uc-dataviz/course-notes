@@ -7,6 +7,7 @@ what-do-i-need-for-this-course
 textbooks
 how-will-i-be-evaluated
 statement-on-disabilities
+acknowledgments
 instructional-staff
 instructor
 teaching-assistant

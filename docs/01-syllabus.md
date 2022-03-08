@@ -87,3 +87,18 @@ TBD
 The University of Chicago is committed to diversity and rigorous inquiry from multiple perspectives. The MAPSS, CIR, and Computation programs share this commitment and seek to foster productive learning environments based upon inclusion, open communication, and mutual respect for a diverse range of identities, experiences, and positions.
 
 This course is open to all students who meet the academic requirements for participation. Any student who has a documented need for accommodation should contact Student Disability Services (773-702-6000 or [disabilities@uchicago.edu](mailto:disabilities@uchicago.edu)) and provide me (Dr. Soltoff) with a copy of your Accommodation Determination Letter as soon as possible.
+
+## Acknowledgments
+
+Materials for this course are drawn from the past times I taught the class (spring 2017, 2018) as well as other excellent resources online. These include:
+
+- [STA/ISS 313 - Advanced Data Visualization by Mine Çetinkaya-Rundel](https://www.vizdata.org/index.html), licensed under a [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/).
+- [PMAP 8921 - Data Visualization by Andrew Young](https://datavizs21.classes.andrewheiss.com/), licensed under a [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
+
+
+
+
+
+
+
