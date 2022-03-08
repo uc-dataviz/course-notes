@@ -546,6 +546,10 @@ img.cover {
   margin: 0 1rem 0 1rem;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
+img.hexsticker {
+  float: right;
+  margin: 0 1rem 0 1rem;
+}
 img.avatar {
   float: right;
   margin: 0 1rem 0 1rem;
