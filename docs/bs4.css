@@ -545,6 +545,11 @@ img.cover {
   float: right;
   margin: 0 1rem 0 1rem;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+}
+img.avatar {
+  float: right;
+  margin: 0 1rem 0 1rem;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
   border-radius: 50%;
 }
 @media (max-width: 767.98px) {

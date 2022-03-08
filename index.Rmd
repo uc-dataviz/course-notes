@@ -14,6 +14,6 @@ github-repo: uc-dataviz/course-notes
 
 # Data Visualization {-}
 
-This is the homepage for MACS 20700/40700 - Data Visualization. All course materials will be posted on this site.
+<img src="images/hexsticker.svg" class="cover" width="240" height="240"/>This is the homepage for MACS 20700/40700 - Data Visualization. All course materials will be posted on this site.
 
 Class meets on Tuesdays and Thursdays from 11-12:20pm in room 295 in [1155 E 60th St](https://goo.gl/maps/iAotTKUvpn27YJrP8).
