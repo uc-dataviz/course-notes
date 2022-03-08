@@ -3,7 +3,7 @@ title: "Data Visualization"
 subtitle: "MACS 20700/40700"
 author:
   - Benjamin Soltoff
-date: "2022-03-04"
+date: "2022-03-08"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: krantz
@@ -27,11 +27,36 @@ description: "Contains notes for the spring 2022 course."
 
 ## Course description {-}
 
-Social scientists frequently wish to convey information to a broader audience in a cohesive and interpretable manner. Visualizations are an excellent method to summarize information and report analysis and conclusions in a compelling format. This course introduces the theory and applications of data visualization. Students will learn techniques and methods for developing rich, informative and interactive, web-facing visualizations based on principles from graphic design and perceptual psychology. Students will practice these techniques on many types of social science data, including multivariate, temporal, geospatial, text, hierarchical, and network data. These techniques will be developed using a variety of software implementations such as R, ggplot2, D3, and Tableau.
+Social scientists frequently wish to convey information to a broader audience in a cohesive and interpretable manner. Visualizations are an excellent method to summarize information and report analysis and conclusions in a compelling format. This course introduces the theory and applications of data visualization. We will establish this foundation using R and modern data visualization packages in R, most predominantly `ggplot2`.
+
+To support this approach, we will focus on the what, why, and how of data visualization. "What" focuses on specific types of visualizations for a particular purpose, as well as tools in R for constructing these plots. In "how" we will focus on the process of generating a data visualization from pre-processing the raw data, mapping attributes of the data to plot aesthetics, strategically determining how to define the visual encoding of the data for maximal accessibility, and finalizing the visualization to consider the importance of visual appeal. In "why" we discuss the theory tying together the "how" and the "what", and consider empirical evidence of best-practices in data communication.
+
+This course extends your prior training in the R programming language and extends your data science toolkit to a variety of data visualization packages. You will continue to employ common data science workflows for version control and collaboration, in particular with Git and GitHub.
+
+## Learning objectives {-}
+
+By the end of the course, students will be able to:
+
+- Understand the principles of designing and creating effective data visualizations.
+- Evaluate, critique, and improve upon one's own and others' data visualizations based on how good a job the visualization does for communicating a message clearly and correctly.
+- Post-process and refine plots for effective communication.
+- Use visualizations for evaluating statistical models and for statistical inference.
+- Master using R and a variety of modern data visualization packages to create data visualizations.
+- Work reproducibly individually and collaboratively using Git and GitHub.
 
 ## Prerequisites {-}
 
-MACS 30500 or equivalent programming course in R. Prior experience with `ggplot2` is expected.
+[MACS 30500](https://cfss.uchicago.edu) or an equivalent programming course in R. In particular, you should feel comfortable with the following operations in R:
+
+- Importing data files
+- Tidying and wrangling data
+- Data transformation
+- Data visualizations
+- Reproducible documents and `rmarkdown`
+- Core programming fundamentals (e.g. functions, iterative operations, conditional expressions)
+- `tidyverse` approaches to data scientific operations in R
+- Reproducible workflows
+- Git/GitHub
 
 ## Course schedule {-}
 
@@ -64,7 +89,15 @@ Class sessions are a mix of lecture, demonstration, and live coding. It is essen
 
 Comprehensive instructions for downloading and setting up this software can be found [here](https://cfss.uchicago.edu/setup/#option-2-install-the-software-locally).
 
-All readings (e.g., papers, book chapters) will be open source, with either links or citations provided.
+## Textbooks {-}
+
+We will draw from a variety of sources in this class. Primarily we will utilize the following textbooks. All are available electronically via open-source license.
+
+1. Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen. [ggplot2: Elegant Graphics for Data Analysis](https://ggplot2-book.org/). (in progress) 3rd edition. Springer, 2021.
+1. Claus O. Wilke. [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/). O'Reilly Media, 2019.
+1. Kieran Healy. [Data Visualization: A Practical Introduction](https://socviz.co/). Princeton University Press, 2018.
+
+Additional readings will be assigned as necessary and will either be free electronically or on electronic course reserve via the UChicago library. All course reserves can be accessed through the course Canvas site.
 
 ## How will I be evaluated? {-}
 
@@ -74,4 +107,4 @@ TBD
 
 The University of Chicago is committed to diversity and rigorous inquiry from multiple perspectives. The MAPSS, CIR, and Computation programs share this commitment and seek to foster productive learning environments based upon inclusion, open communication, and mutual respect for a diverse range of identities, experiences, and positions.
 
-This course is open to all students who meet the academic requirements for participation. Any student who has a documented need for accommodation should contact Student Disability Services (773-702-6000 or [disabilities@uchicago.edu](mailto:disabilities@uchicago.edu)) and provide us (Dr. Soltoff and Dr. Waggoner) with a copy of your Accommodation Determination Letter as soon as possible.
+This course is open to all students who meet the academic requirements for participation. Any student who has a documented need for accommodation should contact Student Disability Services (773-702-6000 or [disabilities@uchicago.edu](mailto:disabilities@uchicago.edu)) and provide me (Dr. Soltoff) with a copy of your Accommodation Determination Letter as soon as possible.

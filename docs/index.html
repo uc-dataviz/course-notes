@@ -93,12 +93,40 @@
 <div id="course-description" class="section level2 unnumbered">
 <h2>Course description<a class="anchor" aria-label="anchor" href="#course-description"><i class="fas fa-link"></i></a>
 </h2>
-<p>Social scientists frequently wish to convey information to a broader audience in a cohesive and interpretable manner. Visualizations are an excellent method to summarize information and report analysis and conclusions in a compelling format. This course introduces the theory and applications of data visualization. Students will learn techniques and methods for developing rich, informative and interactive, web-facing visualizations based on principles from graphic design and perceptual psychology. Students will practice these techniques on many types of social science data, including multivariate, temporal, geospatial, text, hierarchical, and network data. These techniques will be developed using a variety of software implementations such as R, ggplot2, D3, and Tableau.</p>
+<p>Social scientists frequently wish to convey information to a broader audience in a cohesive and interpretable manner. Visualizations are an excellent method to summarize information and report analysis and conclusions in a compelling format. This course introduces the theory and applications of data visualization. We will establish this foundation using R and modern data visualization packages in R, most predominantly <code>ggplot2</code>.</p>
+<p>To support this approach, we will focus on the what, why, and how of data visualization. “What” focuses on specific types of visualizations for a particular purpose, as well as tools in R for constructing these plots. In “how” we will focus on the process of generating a data visualization from pre-processing the raw data, mapping attributes of the data to plot aesthetics, strategically determining how to define the visual encoding of the data for maximal accessibility, and finalizing the visualization to consider the importance of visual appeal. In “why” we discuss the theory tying together the “how” and the “what”, and consider empirical evidence of best-practices in data communication.</p>
+<p>This course extends your prior training in the R programming language and extends your data science toolkit to a variety of data visualization packages. You will continue to employ common data science workflows for version control and collaboration, in particular with Git and GitHub.</p>
+</div>
+<div id="learning-objectives" class="section level2 unnumbered">
+<h2>Learning objectives<a class="anchor" aria-label="anchor" href="#learning-objectives"><i class="fas fa-link"></i></a>
+</h2>
+<p>By the end of the course, students will be able to:</p>
+<ul>
+<li>Understand the principles of designing and creating effective data visualizations.</li>
+<li>Evaluate, critique, and improve upon one’s own and others’ data visualizations based on how good a job the visualization does for communicating a message clearly and correctly.</li>
+<li>Post-process and refine plots for effective communication.</li>
+<li>Use visualizations for evaluating statistical models and for statistical inference.</li>
+<li>Master using R and a variety of modern data visualization packages to create data visualizations.</li>
+<li>Work reproducibly individually and collaboratively using Git and GitHub.</li>
+</ul>
 </div>
 <div id="prerequisites" class="section level2 unnumbered">
 <h2>Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"><i class="fas fa-link"></i></a>
 </h2>
-<p>MACS 30500 or equivalent programming course in R. Prior experience with <code>ggplot2</code> is expected.</p>
+<p><a href="https://cfss.uchicago.edu">MACS 30500</a> or an equivalent programming course in R. In particular, you should feel comfortable with the following operations in R:</p>
+<ul>
+<li>Importing data files</li>
+<li>Tidying and wrangling data</li>
+<li>Data transformation</li>
+<li>Data visualizations</li>
+<li>Reproducible documents and <code>rmarkdown</code>
+</li>
+<li>Core programming fundamentals (e.g. functions, iterative operations, conditional expressions)</li>
+<li>
+<code>tidyverse</code> approaches to data scientific operations in R</li>
+<li>Reproducible workflows</li>
+<li>Git/GitHub</li>
+</ul>
 </div>
 <div id="course-schedule" class="section level2 unnumbered">
 <h2>Course schedule<a class="anchor" aria-label="anchor" href="#course-schedule"><i class="fas fa-link"></i></a>
@@ -137,7 +165,17 @@
 <a href="https://git-scm.com/">Git</a> - Git is a <a href="https://en.wikipedia.org/wiki/Version_control">version control system</a> which is used to manage projects and track changes in computer files. Once installed, it can be integrated into RStudio to manage your course assignments and other projects.</li>
 </ul>
 <p>Comprehensive instructions for downloading and setting up this software can be found <a href="https://cfss.uchicago.edu/setup/#option-2-install-the-software-locally">here</a>.</p>
-<p>All readings (e.g., papers, book chapters) will be open source, with either links or citations provided.</p>
+</div>
+<div id="textbooks" class="section level2 unnumbered">
+<h2>Textbooks<a class="anchor" aria-label="anchor" href="#textbooks"><i class="fas fa-link"></i></a>
+</h2>
+<p>We will draw from a variety of sources in this class. Primarily we will utilize the following textbooks. All are available electronically via open-source license.</p>
+<ol style="list-style-type: decimal">
+<li>Hadley Wickham, Danielle Navarro, and Thomas Lin Pedersen. <a href="https://ggplot2-book.org/">ggplot2: Elegant Graphics for Data Analysis</a>. (in progress) 3rd edition. Springer, 2021.</li>
+<li>Claus O. Wilke. <a href="https://clauswilke.com/dataviz/">Fundamentals of Data Visualization</a>. O’Reilly Media, 2019.</li>
+<li>Kieran Healy. <a href="https://socviz.co/">Data Visualization: A Practical Introduction</a>. Princeton University Press, 2018.</li>
+</ol>
+<p>Additional readings will be assigned as necessary and will either be free electronically or on electronic course reserve via the UChicago library. All course reserves can be accessed through the course Canvas site.</p>
 </div>
 <div id="how-will-i-be-evaluated" class="section level2 unnumbered">
 <h2>How will I be evaluated?<a class="anchor" aria-label="anchor" href="#how-will-i-be-evaluated"><i class="fas fa-link"></i></a>
@@ -148,7 +186,7 @@
 <h2>Statement on Disabilities<a class="anchor" aria-label="anchor" href="#statement-on-disabilities"><i class="fas fa-link"></i></a>
 </h2>
 <p>The University of Chicago is committed to diversity and rigorous inquiry from multiple perspectives. The MAPSS, CIR, and Computation programs share this commitment and seek to foster productive learning environments based upon inclusion, open communication, and mutual respect for a diverse range of identities, experiences, and positions.</p>
-<p>This course is open to all students who meet the academic requirements for participation. Any student who has a documented need for accommodation should contact Student Disability Services (773-702-6000 or <a href="mailto:disabilities@uchicago.edu">disabilities@uchicago.edu</a>) and provide us (Dr. Soltoff and Dr. Waggoner) with a copy of your Accommodation Determination Letter as soon as possible.</p>
+<p>This course is open to all students who meet the academic requirements for participation. Any student who has a documented need for accommodation should contact Student Disability Services (773-702-6000 or <a href="mailto:disabilities@uchicago.edu">disabilities@uchicago.edu</a>) and provide me (Dr. Soltoff) with a copy of your Accommodation Determination Letter as soon as possible.</p>
 
 </div>
 </div>
@@ -161,9 +199,11 @@
 <li><a class="nav-link" href="#syllabus">Syllabus</a></li>
 <li><a class="nav-link" href="#contact-information">Contact information</a></li>
 <li><a class="nav-link" href="#course-description">Course description</a></li>
+<li><a class="nav-link" href="#learning-objectives">Learning objectives</a></li>
 <li><a class="nav-link" href="#prerequisites">Prerequisites</a></li>
 <li><a class="nav-link" href="#course-schedule">Course schedule</a></li>
 <li><a class="nav-link" href="#what-do-i-need-for-this-course">What do I need for this course?</a></li>
+<li><a class="nav-link" href="#textbooks">Textbooks</a></li>
 <li><a class="nav-link" href="#how-will-i-be-evaluated">How will I be evaluated?</a></li>
 <li><a class="nav-link" href="#statement-on-disabilities">Statement on Disabilities</a></li>
 </ul>
@@ -182,7 +222,7 @@
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Visualization</strong>: MACS 20700/40700" was written by Benjamin Soltoff. It was last built on 2022-03-04.</p>
+    <p>"<strong>Data Visualization</strong>: MACS 20700/40700" was written by Benjamin Soltoff. It was last built on 2022-03-08.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
