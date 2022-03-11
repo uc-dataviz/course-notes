@@ -1,13 +1,71 @@
 ---
 title: "Introduction to data visualization"
 author: "MACS 24000 <br /> University of Chicago"
-output: rcfss::xaringan
+output:
+  xaringan::moon_reader:
+    css: xaringan-themer.css
+    nature:
+      slideNumberFormat: "%current%/%total%"
+      highlightStyle: solarized-light
+      highlightLanguage: ["r", "css", "yaml"]
+      highlightLines: true
+      ratio: 16:9
+      countIncrementalSlides: false
 ---
+
+```{r include = FALSE}
+# drawn from https://github.com/vizdata-f21/slides/blob/main/01-welcome/01-welcome.Rmd
+
+library(xaringanthemer)
+
+style_duo_accent(
+  primary_color = "#800000",
+  secondary_color = "#EAAA00",
+  inverse_header_color = "#464A53",
+  black_color = "#464A53",
+  header_font_google = google_font("Roboto Condensed"),
+  text_font_google   = google_font("Roboto Condensed", "300", "300i"),
+  code_font_google   = google_font("Source Code Pro"),
+  # base_font_size = "24px",
+  # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
+  # title_slide_background_size = "contain",
+  # title_slide_background_position = "top",
+  extra_css = list(
+    "h1" = list("margin-block-start" = "0.4rem", 
+                "margin-block-end" = "0.4rem"),
+    "h2" = list("margin-block-start" = "0.4rem", 
+                "margin-block-end" = "0.4rem"),
+    "h3" = list("margin-block-start" = "0.4rem", 
+                "margin-block-end" = "0.4rem"),
+    ".small" = list("font-size" = "90%"),
+    ".midi" = list("font-size" = "150%"),
+    ".large" = list("font-size" = "200%"),
+    ".xlarge" = list("font-size" = "600%"),
+    ".hand" = list("font-family" = "'Gochi Hand', cursive",
+                   "font-size" = "125%"),
+    ".task" = list("padding-right"    = "10px",
+                   "padding-left"     = "10px",
+                   "padding-top"      = "3px",
+                   "padding-bottom"   = "3px",
+                   "margin-bottom"    = "6px",
+                   "margin-top"       = "6px",
+                   "border-left"      = "solid 5px #F1DE67",
+                   "background-color" = "#F3D03E")
+  )
+  )
+```
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
-knitr::opts_chunk$set(cache = TRUE, message = FALSE, echo = FALSE,
-                      fig.retina = 2, fig.width = 12, fig.align = "center")
+knitr::opts_chunk$set(
+  cache = TRUE,
+  message = FALSE,
+  echo = FALSE,
+  fig.width = 8, fig.asp = 0.618, fig.retina = 3, dpi = 300,
+  out.width = "90%",
+  fig.align = "center",
+  fig.showtext = TRUE
+  )
 
 set.seed(1234)
 ```
@@ -53,19 +111,8 @@ ggplot(data = anscombe_tidy,
   facet_wrap(~ set) +
   labs(title = "Anscombe's quartet",
        x = expression(X),
-       y = expression(Y))
-```
-
----
-
-# Datasaurus dozen
-
-```{r datasaurus-graph}
-ggplot(datasaurus_dozen, aes(x = x, y = y)) +
-  geom_point() +
-  theme_minimal() +
-  transition_states(dataset, 3, 1) + 
-  ease_aes('cubic-in-out')
+       y = expression(Y)) +
+  theme_xaringan()
 ```
 
 ---
@@ -87,11 +134,13 @@ ggplot(datasaurus_dozen, aes(x = x, y = y)) +
 
 # Outlier detection
 
-```{r south-africa-outlier, out.height = "500px"}
+```{r south-africa-outlier, out.height = "500px", echo = TRUE}
 knitr::include_graphics("https://socviz.co/assets/ch-01-jackman-outlier.png")
 ```
 
 ---
+
+class: inverse
 
 # What makes visualizations bad
 
@@ -396,535 +445,20 @@ knitr::include_graphics(here("images", "ta_piketty.jpeg"))
 
 ---
 
-# Midday break
+## GitHub
 
+.center[.large[https://github.com/vizdata-f21]]
 
----
+<br>
 
-# Grammar
+- GitHub organization for the course
 
-> The whole system and structure of a language or of languages in general, usually taken as consisting of syntax and morphology (including inflections) and sometimes also phonology and semantics.
+- All of your work and your membership (enrollment) in the organization is private
 
---
+- Each assignment is a private repo on GitHub, I distribute the assignments on GitHub and you submit them there
 
-## Grammar of graphics
+- Feedback on assignments is given as GitHub issues, only points recorded on Sakai gradebook
 
-* "The fundamental principles or rules of an art or science"
-* A grammar used to describe and create a wide range of statistical graphics
-* Layered grammar of graphics
-    * `ggplot2`
-
----
-
-# Layered grammar of graphics
-
-* Layer
-    * Data
-    * Mapping
-    * Statistical transformation (stat)
-    * Geometric object (geom)
-    * Position adjustment (position)
-* Scale
-* Coordinate system (coord)
-* Faceting (facet)
-* Defaults
-    * Data
-    * Mapping
-
----
-
-# Layer
-
-**Layers** are used to create the objects on a plot. They are defined by five basic parts:
-
-1. Data
-1. Mapping
-1. Statistical transformation (stat)
-1. Geometric object (geom)
-1. Position adjustment (position)
-
----
-
-# Layered graph
-
-```{r layers}
-tibble(x = runif(50),
-       y = x + rnorm(50, 0, .2)) %>%
-  ggplot(mapping = aes(x = x, y = y)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  labs(title = "A plot with two layers",
-       subtitle = "A scatterplot and a smoothing line")
-```
-
----
-
-# Data and mapping
-
-* Defines the source of the information to be visualized
-* Independent from the other elements
-
----
-
-# `county_data`
-
-```{r county-data}
-county_data <- as_tibble(county_data) %>%
-  drop_na(hh_income, per_dem_2016, flipped, pop_dens)
-glimpse(county_data)
-```
-
----
-
-# Mapping
-
-* Defines how the variables are applied to the plot
-
---
-
-```{r mapping, dependson = "county-data", echo = TRUE}
-county_data %>%
-  select(hh_income, per_dem_2016) %>%
-  rename(
-    x = hh_income,
-    y = per_dem_2016
-  )
-```
-
----
-
-# Statistical transformation
-
-* Transforms the data through some sort of summarization
-* Bar chart
-* Smoothing lines
-* `stat_*()`
-
---
-
-.pull-left[
-
-```{r stat_raw, dependson = "county-data", echo = TRUE}
-county_data %>%
-  select(state)
-```
-
-]
-
-.pull-right[
-
-```{r stat_transform, dependson = "county-data", echo = TRUE}
-county_data %>%
-  count(state)
-```
-
-]
-
----
-
-# Geometric objects
-
-* Control the type of plot you create
-
---
-
-
-* 0 dimensions - point, text
-* 1 dimension - path, line
-* 2 dimensions - polygon, interval
-
----
-
-# `geom_point()`
-
-.pull-left[
-
-```{r geom_point, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(
-  data = county_data,
-  mapping = aes(
-    x = hh_income,
-    y = per_dem_2016,
-    color = flipped
-  )
-) +
-  geom_point() +
-  ggtitle("A point geom with position and color aesthetics")
-```
-
-]
-
-.pull-right[
-
-```{r geom-point-out, ref.label = "geom_point", eval = TRUE, echo = FALSE}
-```
-]
-
----
-
-# `geom_bar()`
-
-.pull-left[
-
-```{r geom_bar, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(data = county_data,
-       mapping = aes(x = pop_dens)) +
-  geom_bar() +
-  ggtitle("A bar geom with position and height aesthetics")
-```
-
-]
-
-.pull-right[
-
-```{r geom-bar-out, ref.label = "geom_bar", echo = FALSE, eval = TRUE}
-```
-
-]
-
-
----
-
-# Position adjustment
-
-.pull-left[
-
-```{r position_stack, dependson = "county-data", echo = TRUE, eval = FALSE}
-count(x = county_data, su_gun4, pop_dens) %>%
-  ggplot(mapping = aes(x = pop_dens,
-                       y = n,
-                       fill = su_gun4)) +
-  geom_bar(stat = "identity") +
-  ggtitle(label = "A stacked bar chart")
-```
-
-]
-
-.pull-right[
-
-```{r position-stack-out, ref.label = "position_stack", echo = FALSE, eval = TRUE}
-```
-
-]
-
----
-
-# Position adjustment
-
-.pull-left[
-
-```{r position_dodge, dependson = "county-data", echo = TRUE, eval = FALSE}
-count(x = county_data, su_gun4, pop_dens) %>%
-  ggplot(mapping = aes(x = pop_dens,
-                       y = n,
-                       fill = su_gun4)) +
-  geom_bar(stat = "identity",
-           position = "dodge") +
-  ggtitle(label = "A dodged bar chart")
-```
-
-]
-
-.pull-right[
-
-```{r position-dodge-out, ref.label = "position_dodge", echo = FALSE, eval = TRUE}
-```
-
-]
-
----
-
-# Jittering
-
-.pull-left[
-
-```{r position, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(
-  data = county_data,
-  mapping = aes(x = pop_dens,
-                y = per_dem_2016)
-) +
-  geom_point() +
-  ggtitle("A point geom with obscured data points")
-
-ggplot(
-  data = county_data,
-  mapping = aes(x = pop_dens,
-                y = per_dem_2016)
-) +
-  geom_jitter() +
-  ggtitle("A point geom with jittered data points")
-```
-
-]
-
-.pull-right[
-
-```{r position-out, ref.label = "position", echo = FALSE, eval = TRUE}
-```
-
-]
-
----
-
-# Scale
-
-* How data is mapped to aesthetic attributes
-
----
-
-# Scale
-
-.pull-left[
-
-```{r scale_color, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(
-  data = county_data,
-  mapping = aes(
-    x = hh_income,
-    y = per_dem_2016,
-    color = pop_dens
-  )
-) +
-  geom_point()
-```
-
-]
-
-.pull-right[
-
-```{r scale-color-out, ref.label = "scale_color", echo = FALSE, eval = TRUE, fig.width = 8}
-```
-
-]
-
----
-
-# Scale
-
-.pull-left[
-
-```{r scale_color_palette, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(
-  data = county_data,
-  mapping = aes(
-    x = hh_income,
-    y = per_dem_2016,
-    color = pop_dens
-  )
-) +
-  geom_point() +
-  scale_color_brewer(type = "seq")
-```
-
-]
-
-.pull-right[
-
-```{r scale-color-palette-out, ref.label = "scale_color_palette", echo = FALSE, eval = TRUE, fig.width = 8}
-```
-
-]
-
----
-
-# Coordinate system
-
-* Maps the position of objects onto the plane of the plot
-* Controls how the axes and grid lines are drawn
-* [Cartesian coordinate system](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
-
----
-
-# Coordinate system
-
-```{r coord_cart}
-x1 <- c(1, 10)
-y1 <- c(1, 5)
-p <- qplot(x = x1, y = y1, geom = "blank", xlab = NULL, ylab = NULL)
-p +
-  ggtitle(label = "Cartesian coordinate system")
-```
-
----
-
-# Semi-log
-
-```{r coord_semi_log, dependson = "coord_cart"}
-p +
-  coord_trans(y = "log10") +
-  ggtitle(label = "Semi-log coordinate system")
-```
-
----
-
-# Polar
-
-```{r coord_polar, dependson = "coord_cart"}
-p +
-  coord_polar() +
-  ggtitle(label = "Polar coordinate system")
-```
-
----
-
-# Faceting
-
-* Multiple panels
-* Same graph, different subsets of observations
-* Avoids use of `for` loops
-
----
-
-# Faceting
-
-.pull-left[
-
-```{r facet, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(
-  data = county_data,
-  mapping = aes(x = hh_income,
-                y = per_dem_2016)
-) +
-  geom_point() +
-  facet_wrap(~pop_dens)
-```
-
-]
-
-.pull-right[
-
-```{r facet-out, ref.label = "facet", echo = FALSE, eval = TRUE, fig.width = 8}
-```
-
-]
-
----
-
-# Defaults
-
-```{r default, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot() +
-  layer(
-    data = county_data, mapping = aes(x = hh_income, y = per_dem_2016),
-    geom = "point", stat = "identity", position = "identity"
-  ) +
-  scale_x_continuous() +
-  scale_y_continuous() +
-  coord_cartesian()
-```
-
----
-
-# Simplify
-
-```{r default2, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot() +
-  geom_point(
-    data = county_data,
-    mapping = aes(x = hh_income, y = per_dem_2016)
-  )
-```
-
----
-
-# Simplify
-
-```{r default3, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(
-  data = county_data,
-  mapping = aes(x = hh_income, y = per_dem_2016)
-) +
-  geom_point()
-```
-
----
-
-# Simplify
-
-```{r default4, dependson = "county-data", echo = TRUE, eval = FALSE}
-ggplot(county_data, aes(hh_income, per_dem_2016)) +
-  geom_point()
-```
-
----
-
-# Add additional layers
-
-```{r default5, dependson = "county-data", echo = TRUE}
-ggplot(county_data, aes(hh_income, per_dem_2016)) +
-  geom_point() +
-  geom_smooth()
-```
-
----
-
-# Add additional layers
-
-```{r default6, dependson = "county-data", echo = TRUE, error = TRUE}
-ggplot(county_data) +
-  geom_point(aes(hh_income, per_dem_2016)) +
-  geom_smooth()
-```
-
----
-
-# Building Minard's map in R
-
-```{r minard_data}
-# get data on troop movements and city names
-troops <- read_table("https://cfss.uchicago.edu/data/minard-troops.txt")
-cities <- read_table("https://cfss.uchicago.edu/data/minard-cities.txt")
-```
-
-.pull-left[
-
-## `troops`
-
-```{r minard-troops, dependson = "minard_data"}
-print(troops, n = 10)
-```
-
-]
-
-.pull-right[
-
-## `cities`
-
-```{r minard-cities, dependson = "minard_data"}
-print(cities, n = 10)
-```
-
-]
-
----
-
-# Minard's grammar
-
-.pull-left[
-
-* Troops
-    * Latitude
-    * Longitude
-    * Survivors
-    * Advance/retreat
-* Cities
-    * Latitude
-    * Longitude
-    * City name
-    
-]
-
-.pull-right[
-
-* Layer
-    * Data
-    * Mapping
-    * Statistical transformation (stat)
-    * Geometric object (geom)
-    * Position adjustment (position)
-* Scale
-* Coordinate system
-* Faceting
-
+.task[
+Fill out the *Getting to know you* survey for collection of your account names, later this week you will be invited to the course organization.
 ]

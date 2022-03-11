@@ -4,9 +4,8 @@
     <title>Introduction to data visualization</title>
     <meta charset="utf-8" />
     <meta name="author" content="MACS 24000   University of Chicago" />
-    <link href="libs/remark-css/default.css" rel="stylesheet" />
-    <link href="libs/remark-css/metropolis.css" rel="stylesheet" />
-    <link href="libs/remark-css/lucy-fonts.css" rel="stylesheet" />
+    <script src="01-intro-data-viz_files/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -16,6 +15,8 @@ class: center, middle, inverse, title-slide
 ### MACS 24000 <br /> University of Chicago
 
 ---
+
+
 
 
 
@@ -32,13 +33,7 @@ class: center, middle, inverse, title-slide
 
 # Anscombe's quartet
 
-&lt;img src="01-intro-data-viz_files/figure-html/anscombe-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Datasaurus dozen
-
-&lt;img src="01-intro-data-viz_files/figure-html/datasaurus-graph-1.gif" style="display: block; margin: auto;" /&gt;
+&lt;img src="01-intro-data-viz_files/figure-html/anscombe-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -46,7 +41,7 @@ class: center, middle, inverse, title-slide
 
 .center[
 
-&lt;img src="01-intro-data-viz_files/figure-html/datasaurus-graph-static-1.png" width="576" style="display: block; margin: auto;" /&gt;
+&lt;img src="01-intro-data-viz_files/figure-html/datasaurus-graph-static-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -54,9 +49,16 @@ class: center, middle, inverse, title-slide
 
 # Outlier detection
 
-&lt;img src="https://socviz.co/assets/ch-01-jackman-outlier.png" height="500px" style="display: block; margin: auto;" /&gt;
+
+```r
+knitr::include_graphics("https://socviz.co/assets/ch-01-jackman-outlier.png")
+```
+
+&lt;img src="https://socviz.co/assets/ch-01-jackman-outlier.png" width="90%" height="500px" style="display: block; margin: auto;" /&gt;
 
 ---
+
+class: inverse
 
 # What makes visualizations bad
 
@@ -64,31 +66,31 @@ class: center, middle, inverse, title-slide
 
 # Lies
 
-&lt;img src="/Users/soltoffbc/Projects/Data Visualization/data-mining-viz-notes/images/cost_of_gas.jpg" width="150%" style="display: block; margin: auto;" /&gt;
+&lt;img src="/Users/soltoffbc/Projects/Data Visualization/course-notes/images/cost_of_gas.jpg" width="150%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Dual axes
 
-&lt;img src="/Users/soltoffbc/Projects/Data Visualization/data-mining-viz-notes/images/drowning_cage.jpeg" width="1387" style="display: block; margin: auto;" /&gt;
+&lt;img src="/Users/soltoffbc/Projects/Data Visualization/course-notes/images/drowning_cage.jpeg" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Lacking functionality
 
-&lt;img src="/Users/soltoffbc/Projects/Data Visualization/data-mining-viz-notes/images/Bush_cuts2.png" width="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="/Users/soltoffbc/Projects/Data Visualization/course-notes/images/Bush_cuts2.png" width="130%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Lacking functionality
 
-&lt;img src="/Users/soltoffbc/Projects/Data Visualization/data-mining-viz-notes/images/stand_your_ground.jpg" width="403" style="display: block; margin: auto;" /&gt;
+&lt;img src="/Users/soltoffbc/Projects/Data Visualization/course-notes/images/stand_your_ground.jpg" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Junky
 
-&lt;img src="/Users/soltoffbc/Projects/Data Visualization/data-mining-viz-notes/images/death_penalty.jpg" width="130%" style="display: block; margin: auto;" /&gt;
+&lt;img src="/Users/soltoffbc/Projects/Data Visualization/course-notes/images/death_penalty.jpg" width="130%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -119,7 +121,7 @@ class: center, middle, inverse, title-slide
 
 # Double-time bar charts
 
-&lt;img src="https://dougmccune.com/blog/wp-content/uploads/2011/04/small_multiples_small.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://dougmccune.com/blog/wp-content/uploads/2011/04/small_multiples_small.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -149,19 +151,19 @@ class: center, middle, inverse, title-slide
 
 # Sexual sun stroke
 
-&lt;img src="https://klientboost.com/wp-content/uploads/2013/05/1.jpg" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://klientboost.com/wp-content/uploads/2013/05/1.jpg" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # What is that?
 
-&lt;img src="https://i.kinja-img.com/gawker-media/image/upload/b5icpqdsnzsdaezvnrm1.jpg" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://i.kinja-img.com/gawker-media/image/upload/b5icpqdsnzsdaezvnrm1.jpg" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Huh?
 
-&lt;img src="https://68.media.tumblr.com/fd2be427c6794cc8e25bc23c42da73aa/tumblr_omvcm7m9va1sgh0voo1_1280.jpg" height="500px" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://68.media.tumblr.com/fd2be427c6794cc8e25bc23c42da73aa/tumblr_omvcm7m9va1sgh0voo1_1280.jpg" width="90%" height="500px" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -185,13 +187,13 @@ From *The Truthful Art*
 
 # Napoleon's march on Russia
 
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/2/29/Minard.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Napoleon's march on Russia
 
-&lt;img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Minard_Update.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://upload.wikimedia.org/wikipedia/commons/e/e2/Minard_Update.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -207,37 +209,54 @@ From *The Truthful Art*
 
 # Visual tasks and decoding graphs
 
-&lt;img src="https://socviz.co/assets/ch-01-cleveland-task-types.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://socviz.co/assets/ch-01-cleveland-task-types.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Visual tasks and decoding graphs
 
-&lt;img src="https://socviz.co/assets/ch-01-heer-bostock-results.png" height="500px" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://socviz.co/assets/ch-01-heer-bostock-results.png" width="90%" height="500px" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Channels and decoding information
 
-&lt;img src="https://socviz.co/assets/ch-01-channels-for-cont-data-vertical.png" height="500px" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://socviz.co/assets/ch-01-channels-for-cont-data-vertical.png" width="90%" height="500px" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Channels and decoding information
 
-&lt;img src="https://socviz.co/assets/ch-01-channels-for-cat-data-vertical.png" height="500px" style="display: block; margin: auto;" /&gt;
+&lt;img src="https://socviz.co/assets/ch-01-channels-for-cat-data-vertical.png" width="90%" height="500px" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Bar chart vs. pie chart
 
-&lt;img src="01-intro-data-viz_files/figure-html/bar-pie-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+```
+## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = "none"` instead.
+## It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = "none"` instead.
+```
+
+&lt;img src="01-intro-data-viz_files/figure-html/bar-pie-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Choropleths
 
-&lt;img src="01-intro-data-viz_files/figure-html/maps-1.png" width="864" style="display: block; margin: auto;" /&gt;
+
+```
+## Warning: The `shift_geo` argument is deprecated and will be removed in a future release. We recommend using
+## `tigris::shift_geometry()` instead.
+```
+
+```
+## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = "none"` instead.
+## It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = "none"` instead.
+```
+
+&lt;img src="01-intro-data-viz_files/figure-html/maps-1.png" width="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -252,653 +271,36 @@ From *The Truthful Art*
 
 # What is the story?
 
-&lt;img src="/Users/soltoffbc/Projects/Data Visualization/data-mining-viz-notes/images/ta_piketty.jpeg" width="340px" height="500px" style="display: block; margin: auto;" /&gt;
+&lt;img src="/Users/soltoffbc/Projects/Data Visualization/course-notes/images/ta_piketty.jpeg" width="340px" height="500px" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Midday break
+## GitHub
 
+.center[.large[https://github.com/vizdata-f21]]
 
----
+&lt;br&gt;
 
-# Grammar
+- GitHub organization for the course
 
-&gt; The whole system and structure of a language or of languages in general, usually taken as consisting of syntax and morphology (including inflections) and sometimes also phonology and semantics.
+- All of your work and your membership (enrollment) in the organization is private
 
---
+- Each assignment is a private repo on GitHub, I distribute the assignments on GitHub and you submit them there
 
-## Grammar of graphics
+- Feedback on assignments is given as GitHub issues, only points recorded on Sakai gradebook
 
-* "The fundamental principles or rules of an art or science"
-* A grammar used to describe and create a wide range of statistical graphics
-* Layered grammar of graphics
-    * `ggplot2`
-
----
-
-# Layered grammar of graphics
-
-* Layer
-    * Data
-    * Mapping
-    * Statistical transformation (stat)
-    * Geometric object (geom)
-    * Position adjustment (position)
-* Scale
-* Coordinate system (coord)
-* Faceting (facet)
-* Defaults
-    * Data
-    * Mapping
-
----
-
-# Layer
-
-**Layers** are used to create the objects on a plot. They are defined by five basic parts:
-
-1. Data
-1. Mapping
-1. Statistical transformation (stat)
-1. Geometric object (geom)
-1. Position adjustment (position)
-
----
-
-# Layered graph
-
-&lt;img src="01-intro-data-viz_files/figure-html/layers-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Data and mapping
-
-* Defines the source of the information to be visualized
-* Independent from the other elements
-
----
-
-# `county_data`
-
-
-```
-## Rows: 3,141
-## Columns: 32
-## $ id               &lt;chr&gt; "01001", "01003", "01005", "01007", "01009", "01011"…
-## $ name             &lt;chr&gt; "Autauga County", "Baldwin County", "Barbour County"…
-## $ state            &lt;fct&gt; AL, AL, AL, AL, AL, AL, AL, AL, AL, AL, AL, AL, AL, …
-## $ census_region    &lt;fct&gt; South, South, South, South, South, South, South, Sou…
-## $ pop_dens         &lt;fct&gt; "[   50,  100)", "[  100,  500)", "[   10,   50)", "…
-## $ pop_dens4        &lt;fct&gt; "[ 45,  118)", "[118,71672]", "[ 17,   45)", "[ 17, …
-## $ pop_dens6        &lt;fct&gt; "[ 82,  215)", "[ 82,  215)", "[ 25,   45)", "[ 25, …
-## $ pct_black        &lt;fct&gt; "[15.0,25.0)", "[ 5.0,10.0)", "[25.0,50.0)", "[15.0,…
-## $ pop              &lt;int&gt; 55395, 200111, 26887, 22506, 57719, 10764, 20296, 11…
-## $ female           &lt;dbl&gt; 51.5, 51.2, 46.5, 46.0, 50.6, 45.2, 53.4, 51.7, 52.0…
-## $ white            &lt;dbl&gt; 78.1, 87.3, 50.2, 76.3, 96.0, 27.2, 54.3, 76.0, 58.8…
-## $ black            &lt;dbl&gt; 18.4, 9.5, 47.6, 22.1, 1.8, 69.9, 43.6, 20.9, 39.1, …
-## $ travel_time      &lt;dbl&gt; 26.2, 25.9, 24.6, 27.6, 33.9, 26.9, 24.0, 22.5, 24.6…
-## $ land_area        &lt;dbl&gt; 594.44, 1589.78, 884.88, 622.58, 644.78, 622.81, 776…
-## $ hh_income        &lt;int&gt; 53682, 50221, 32911, 36447, 44145, 32033, 29918, 399…
-## $ su_gun4          &lt;fct&gt; "[11,54]", "[11,54]", "[ 5, 8)", "[11,54]", "[11,54]…
-## $ su_gun6          &lt;fct&gt; "[10,12)", "[10,12)", "[ 7, 8)", "[10,12)", "[10,12)…
-## $ fips             &lt;dbl&gt; 1001, 1003, 1005, 1007, 1009, 1011, 1013, 1015, 1017…
-## $ votes_dem_2016   &lt;int&gt; 5908, 18409, 4848, 1874, 2150, 3530, 3716, 13197, 57…
-## $ votes_gop_2016   &lt;int&gt; 18110, 72780, 5431, 6733, 22808, 1139, 4891, 32803, …
-## $ total_votes_2016 &lt;int&gt; 24661, 94090, 10390, 8748, 25384, 4701, 8685, 47376,…
-## $ per_dem_2016     &lt;dbl&gt; 0.23956855, 0.19565310, 0.46660250, 0.21422039, 0.08…
-## $ per_gop_2016     &lt;dbl&gt; 0.7343579, 0.7735147, 0.5227141, 0.7696616, 0.898518…
-## $ diff_2016        &lt;int&gt; 12202, 54371, 583, 4859, 20658, 2391, 1175, 19606, 2…
-## $ per_dem_2012     &lt;dbl&gt; 0.2657577, 0.2156657, 0.5125229, 0.2621857, 0.123477…
-## $ per_gop_2012     &lt;dbl&gt; 0.7263374, 0.7738975, 0.4833755, 0.7306638, 0.864929…
-## $ diff_2012        &lt;int&gt; 11012, 47443, 334, 3931, 17780, 2808, 714, 14772, 74…
-## $ winner           &lt;chr&gt; "Trump", "Trump", "Trump", "Trump", "Trump", "Clinto…
-## $ partywinner16    &lt;chr&gt; "Republican", "Republican", "Republican", "Republica…
-## $ winner12         &lt;chr&gt; "Romney", "Romney", "Obama", "Romney", "Romney", "Ob…
-## $ partywinner12    &lt;chr&gt; "Republican", "Republican", "Democrat", "Republican"…
-## $ flipped          &lt;chr&gt; "No", "No", "Yes", "No", "No", "No", "No", "No", "No…
-```
-
----
-
-# Mapping
-
-* Defines how the variables are applied to the plot
-
---
-
-
-```r
-county_data %&gt;%
-  select(hh_income, per_dem_2016) %&gt;%
-  rename(
-    x = hh_income,
-    y = per_dem_2016
-  )
-```
-
-```
-## # A tibble: 3,141 x 2
-##        x      y
-##    &lt;int&gt;  &lt;dbl&gt;
-##  1 53682 0.240 
-##  2 50221 0.196 
-##  3 32911 0.467 
-##  4 36447 0.214 
-##  5 44145 0.0847
-##  6 32033 0.751 
-##  7 29918 0.428 
-##  8 39962 0.279 
-##  9 32402 0.418 
-## 10 34907 0.145 
-## # … with 3,131 more rows
-```
-
----
-
-# Statistical transformation
-
-* Transforms the data through some sort of summarization
-* Bar chart
-* Smoothing lines
-* `stat_*()`
-
---
-
-.pull-left[
-
-
-```r
-county_data %&gt;%
-  select(state)
-```
-
-```
-## # A tibble: 3,141 x 1
-##    state
-##    &lt;fct&gt;
-##  1 AL   
-##  2 AL   
-##  3 AL   
-##  4 AL   
-##  5 AL   
-##  6 AL   
-##  7 AL   
-##  8 AL   
-##  9 AL   
-## 10 AL   
-## # … with 3,131 more rows
-```
-
-]
-
-.pull-right[
-
-
-```r
-county_data %&gt;%
-  count(state)
-```
-
-```
-## # A tibble: 51 x 2
-##    state     n
-##    &lt;fct&gt; &lt;int&gt;
-##  1 AK       29
-##  2 AL       67
-##  3 AR       75
-##  4 AZ       15
-##  5 CA       58
-##  6 CO       64
-##  7 CT        8
-##  8 DC        1
-##  9 DE        3
-## 10 FL       67
-## # … with 41 more rows
-```
-
-]
-
----
-
-# Geometric objects
-
-* Control the type of plot you create
-
---
-
-
-* 0 dimensions - point, text
-* 1 dimension - path, line
-* 2 dimensions - polygon, interval
-
----
-
-# `geom_point()`
-
-.pull-left[
-
-
-```r
-ggplot(
-  data = county_data,
-  mapping = aes(
-    x = hh_income,
-    y = per_dem_2016,
-    color = flipped
-  )
-) +
-  geom_point() +
-  ggtitle("A point geom with position and color aesthetics")
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/geom-point-out-1.png" width="864" style="display: block; margin: auto;" /&gt;
-]
-
----
-
-# `geom_bar()`
-
-.pull-left[
-
-
-```r
-ggplot(data = county_data,
-       mapping = aes(x = pop_dens)) +
-  geom_bar() +
-  ggtitle("A bar geom with position and height aesthetics")
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/geom-bar-out-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
-]
-
-
----
-
-# Position adjustment
-
-.pull-left[
-
-
-```r
-count(x = county_data, su_gun4, pop_dens) %&gt;%
-  ggplot(mapping = aes(x = pop_dens,
-                       y = n,
-                       fill = su_gun4)) +
-  geom_bar(stat = "identity") +
-  ggtitle(label = "A stacked bar chart")
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/position-stack-out-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-# Position adjustment
-
-.pull-left[
-
-
-```r
-count(x = county_data, su_gun4, pop_dens) %&gt;%
-  ggplot(mapping = aes(x = pop_dens,
-                       y = n,
-                       fill = su_gun4)) +
-  geom_bar(stat = "identity",
-           position = "dodge") +
-  ggtitle(label = "A dodged bar chart")
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/position-dodge-out-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-# Jittering
-
-.pull-left[
-
-
-```r
-ggplot(
-  data = county_data,
-  mapping = aes(x = pop_dens,
-                y = per_dem_2016)
-) +
-  geom_point() +
-  ggtitle("A point geom with obscured data points")
-
-ggplot(
-  data = county_data,
-  mapping = aes(x = pop_dens,
-                y = per_dem_2016)
-) +
-  geom_jitter() +
-  ggtitle("A point geom with jittered data points")
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/position-out-1.png" width="864" style="display: block; margin: auto;" /&gt;&lt;img src="01-intro-data-viz_files/figure-html/position-out-2.png" width="864" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-# Scale
-
-* How data is mapped to aesthetic attributes
-
----
-
-# Scale
-
-.pull-left[
-
-
-```r
-ggplot(
-  data = county_data,
-  mapping = aes(
-    x = hh_income,
-    y = per_dem_2016,
-    color = pop_dens
-  )
-) +
-  geom_point()
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/scale-color-out-1.png" width="576" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-# Scale
-
-.pull-left[
-
-
-```r
-ggplot(
-  data = county_data,
-  mapping = aes(
-    x = hh_income,
-    y = per_dem_2016,
-    color = pop_dens
-  )
-) +
-  geom_point() +
-  scale_color_brewer(type = "seq")
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/scale-color-palette-out-1.png" width="576" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-# Coordinate system
-
-* Maps the position of objects onto the plane of the plot
-* Controls how the axes and grid lines are drawn
-* [Cartesian coordinate system](https://en.wikipedia.org/wiki/Cartesian_coordinate_system)
-
----
-
-# Coordinate system
-
-&lt;img src="01-intro-data-viz_files/figure-html/coord_cart-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Semi-log
-
-&lt;img src="01-intro-data-viz_files/figure-html/coord_semi_log-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Polar
-
-&lt;img src="01-intro-data-viz_files/figure-html/coord_polar-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Faceting
-
-* Multiple panels
-* Same graph, different subsets of observations
-* Avoids use of `for` loops
-
----
-
-# Faceting
-
-.pull-left[
-
-
-```r
-ggplot(
-  data = county_data,
-  mapping = aes(x = hh_income,
-                y = per_dem_2016)
-) +
-  geom_point() +
-  facet_wrap(~pop_dens)
-```
-
-]
-
-.pull-right[
-
-&lt;img src="01-intro-data-viz_files/figure-html/facet-out-1.png" width="576" style="display: block; margin: auto;" /&gt;
-
-]
-
----
-
-# Defaults
-
-
-```r
-ggplot() +
-  layer(
-    data = county_data, mapping = aes(x = hh_income, y = per_dem_2016),
-    geom = "point", stat = "identity", position = "identity"
-  ) +
-  scale_x_continuous() +
-  scale_y_continuous() +
-  coord_cartesian()
-```
-
----
-
-# Simplify
-
-
-```r
-ggplot() +
-  geom_point(
-    data = county_data,
-    mapping = aes(x = hh_income, y = per_dem_2016)
-  )
-```
-
----
-
-# Simplify
-
-
-```r
-ggplot(
-  data = county_data,
-  mapping = aes(x = hh_income, y = per_dem_2016)
-) +
-  geom_point()
-```
-
----
-
-# Simplify
-
-
-```r
-ggplot(county_data, aes(hh_income, per_dem_2016)) +
-  geom_point()
-```
-
----
-
-# Add additional layers
-
-
-```r
-ggplot(county_data, aes(hh_income, per_dem_2016)) +
-  geom_point() +
-  geom_smooth()
-```
-
-&lt;img src="01-intro-data-viz_files/figure-html/default5-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Add additional layers
-
-
-```r
-ggplot(county_data) +
-  geom_point(aes(hh_income, per_dem_2016)) +
-  geom_smooth()
-```
-
-```
-## Error: stat_smooth requires the following missing aesthetics: x and y
-```
-
-&lt;img src="01-intro-data-viz_files/figure-html/default6-1.png" width="864" style="display: block; margin: auto;" /&gt;
-
----
-
-# Building Minard's map in R
-
-
-
-.pull-left[
-
-## `troops`
-
-
-```
-## # A tibble: 51 x 5
-##     long   lat survivors direction group
-##    &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt;
-##  1  24    54.9    340000 A             1
-##  2  24.5  55      340000 A             1
-##  3  25.5  54.5    340000 A             1
-##  4  26    54.7    320000 A             1
-##  5  27    54.8    300000 A             1
-##  6  28    54.9    280000 A             1
-##  7  28.5  55      240000 A             1
-##  8  29    55.1    210000 A             1
-##  9  30    55.2    180000 A             1
-## 10  30.3  55.3    175000 A             1
-## # … with 41 more rows
-```
-
-]
-
-.pull-right[
-
-## `cities`
-
-
-```
-## # A tibble: 20 x 3
-##     long   lat city      
-##    &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;     
-##  1  24    55   Kowno     
-##  2  25.3  54.7 Wilna     
-##  3  26.4  54.4 Smorgoni  
-##  4  26.8  54.3 Moiodexno 
-##  5  27.7  55.2 Gloubokoe 
-##  6  27.6  53.9 Minsk     
-##  7  28.5  54.3 Studienska
-##  8  28.7  55.5 Polotzk   
-##  9  29.2  54.4 Bobr      
-## 10  30.2  55.3 Witebsk   
-## # … with 10 more rows
-```
-
-]
-
----
-
-# Minard's grammar
-
-.pull-left[
-
-* Troops
-    * Latitude
-    * Longitude
-    * Survivors
-    * Advance/retreat
-* Cities
-    * Latitude
-    * Longitude
-    * City name
-    
-]
-
-.pull-right[
-
-* Layer
-    * Data
-    * Mapping
-    * Statistical transformation (stat)
-    * Geometric object (geom)
-    * Position adjustment (position)
-* Scale
-* Coordinate system
-* Faceting
-
+.task[
+Fill out the *Getting to know you* survey for collection of your account names, later this week you will be invited to the course organization.
 ]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="https://cfss.uchicago.edu/slides/macros.js"></script>
-<script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
-"highlightLanguage": "r",
-"highlightStyle": "github",
+"slideNumberFormat": "%current%/%total%",
+"highlightStyle": "solarized-light",
+"highlightLanguage": ["r", "css", "yaml"],
 "highlightLines": true,
+"ratio": "16:9",
 "countIncrementalSlides": false
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
