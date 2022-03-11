@@ -26,7 +26,7 @@ style_duo_accent(
   header_font_google = google_font("Roboto Condensed"),
   text_font_google   = google_font("Roboto Condensed", "300", "300i"),
   code_font_google   = google_font("Source Code Pro"),
-  # base_font_size = "24px",
+  base_font_size = "24px",
   # title_slide_background_image = "https://github.com/uc-dataviz/course-notes/raw/main/images/hexsticker.svg",
   # title_slide_background_size = "contain",
   # title_slide_background_position = "top",
@@ -62,9 +62,9 @@ knitr::opts_chunk$set(
   message = FALSE,
   echo = FALSE,
   fig.width = 8, fig.asp = 0.618, fig.retina = 3, dpi = 300,
-  out.width = "90%",
+  fig.showtext = FALSE,
   fig.align = "center",
-  fig.showtext = TRUE
+  out.width = "90%"
   )
 
 set.seed(1234)
@@ -111,8 +111,7 @@ ggplot(data = anscombe_tidy,
   facet_wrap(~ set) +
   labs(title = "Anscombe's quartet",
        x = expression(X),
-       y = expression(Y)) +
-  theme_xaringan()
+       y = expression(Y))
 ```
 
 ---
