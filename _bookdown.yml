@@ -1,8 +1,8 @@
 book_filename: "lecture-notes"
+delete_merged_file: true
 language:
   ui:
-    chapter_name: "Day "
-delete_merged_file: true
+    chapter_name: "Chapter "
 new_session: yes
 before_chapter_script: "_common.R"
 output_dir: "docs"
