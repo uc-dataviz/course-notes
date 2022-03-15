@@ -5,7 +5,17 @@ prerequisites
 what-do-i-need-for-this-course
 textbooks
 how-will-i-be-evaluated
+teams
+support
+office-hours
+discussion-forum
 statement-on-disabilities
+policies
+collaboration-policy
+policy-on-sharing-and-reusing-code
+late-work-policy
+attendance-policy
+attendance-policy-related-to-covid-symptoms-exposure-or-infection
 acknowledgments
 instructional-staff
 instructor
