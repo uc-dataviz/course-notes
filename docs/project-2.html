@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Day 6 Project 2 | Data Visualization</title>
+<meta name="author" content="Benjamin Soltoff">
+<meta name="description" content="Your task for this project is to create something related to data visualization. This is intentionally vague – part of the challenge is to design a project that showcases best your interests and...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Day 6 Project 2 | Data Visualization">
+<meta property="og:type" content="book">
+<meta property="og:description" content="Your task for this project is to create something related to data visualization. This is intentionally vague – part of the challenge is to design a project that showcases best your interests and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Day 6 Project 2 | Data Visualization">
+<meta name="twitter:description" content="Your task for this project is to create something related to data visualization. This is intentionally vague – part of the challenge is to design a project that showcases best your interests and...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.11/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Data Visualization</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Data Visualization</a></li>
+<li class="book-part">Course information</li>
+<li><a class="" href="syllabus.html"><span class="header-section-number">1</span> Syllabus</a></li>
+<li><a class="" href="instructional-staff.html"><span class="header-section-number">2</span> Instructional staff</a></li>
+<li><a class="" href="schedule.html"><span class="header-section-number">3</span> Schedule</a></li>
+<li><a class="" href="useful-links.html"><span class="header-section-number">4</span> Useful links</a></li>
+<li class="book-part">Projects</li>
+<li><a class="" href="project-1.html"><span class="header-section-number">5</span> Project 1</a></li>
+<li><a class="active" href="project-2.html"><span class="header-section-number">6</span> Project 2</a></li>
+</ul>
+
+        <div class="book-extra">
+          
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="project-2" class="section level1" number="6">
+<h1>
+<span class="header-section-number">Day 6</span> Project 2<a class="anchor" aria-label="anchor" href="#project-2"><i class="fas fa-link"></i></a>
+</h1>
+<p>Your task for this project is to create <em>something</em> related to data visualization.</p>
+<p>This is intentionally vague – part of the challenge is to design a project that showcases best your interests and strengths.</p>
+<p>One requirement is that your project should feature some element that you had to learn on your own. This could be a package you use that we didn’t teach in class (e.g., a package for building 3D visualizations) or a workflow (e.g., making a package) or anything else.</p>
+<p>If you’re not sure if your “new” thing counts, just ask!</p>
+<div id="ideas" class="section level2" number="6.1">
+<h2>
+<span class="header-section-number">6.1</span> Ideas<a class="anchor" aria-label="anchor" href="#ideas"><i class="fas fa-link"></i></a>
+</h2>
+<p>Your first task is to come up with a goal for your project. Here are a few ideas to help you get started thinking:</p>
+<ul>
+<li>Build a Shiny app that that has an Instagram-like user interface for applying filters, except not filters but themes for ggplots.</li>
+<li>Create an R package that provides functionality for a set of ggplot2 themes and/or color palettes.<a href="project-2.html#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
+</li>
+<li>Build a generative art system.</li>
+<li>Do a deep dive into accessibility for data visualization and build a lesson plan for creating accessible visualizations with ggplot2, R Markdown, and generally within the R ecosystem.</li>
+<li>Create an interactive and/or animated spatio-temporal visualization on a topic of interest to you, e.g., redistricting, COVID-19, voter suppression, etc.</li>
+<li>Recreate art pieces with ggplot2.</li>
+<li>Make a data visualization telling a story and convert it to an illustration, presenting both the computational and artistic piece side by side.</li>
+<li>Build a dashboard.</li>
+</ul>
+<p>And, of course, your project can be a about visualizing a dataset of interest to you (similar to your first project). The only rule about this dataset is that it can’t be from TidyTuesday.
+Beyond that, it should be something truly of interest to your team, and a dataset that allows for a deep exploration.</p>
+<p>Most importantly, be prepared to brainstorm a bunch of ideas and discard them until you settle on a topic that everyone in the team is happy with and feels like a good choice for showcasing what you’ve learned in the class and how you can use that to learn something new and implement for your project.</p>
+</div>
+<div id="workflow-1" class="section level2" number="6.2">
+<h2>
+<span class="header-section-number">6.2</span> Workflow<a class="anchor" aria-label="anchor" href="#workflow-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>Week 1 of project (week of Mon, May 2): Pick a focus for your project.</p></li>
+<li><p>Week 2 of project (week of Mon, May 9): Finalize your project proposal and set up the structure for your repository.</p></li>
+<li><p>Week 3 of project (week of Mon, May 16): Conduct peer review on project proposals, and optionally, submit in an updated version of your proposal.</p></li>
+<li><p>Week 4 of project (week of Mon, May 23): Continue working on your project.</p></li>
+<li><p>Week 5 of project (week of Mon, May 30): Finish the project.</p></li>
+</ul>
+</div>
+<div id="due-dates-1" class="section level2" number="6.3">
+<h2>
+<span class="header-section-number">6.3</span> Due dates<a class="anchor" aria-label="anchor" href="#due-dates-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>Proposals for peer review: due Wed, May 11 at 11:59pm.</li>
+<li>Revised proposals for instructor review: due Wed, May 18 at 11:59pm.</li>
+<li>Project drafts for peer review: due Wed, May 25 at 11:59pm.</li>
+<li>Write-up and presentation: due TBD (beginning of exam period).</li>
+</ul>
+</div>
+<div id="deliverables-1" class="section level2" number="6.4">
+<h2>
+<span class="header-section-number">6.4</span> Deliverables<a class="anchor" aria-label="anchor" href="#deliverables-1"><i class="fas fa-link"></i></a>
+</h2>
+<div id="proposal-1" class="section level3" number="6.4.1">
+<h3>
+<span class="header-section-number">6.4.1</span> Proposal<a class="anchor" aria-label="anchor" href="#proposal-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Your proposal should include:</p>
+<ul>
+<li><p>A one sentence description of your high-level goal (such as the ones listed under <a href="project-2.html#ideas">Ideas</a> above.</p></li>
+<li>
+<p>A one to two paragraph description of your goals, including your motivation.
+Depending on the focus of your project, the following might go in here.</p>
+<ul>
+<li><p>If using particular dataset(s), a brief description of each dataset including the reason why you chose the particular dataset, its dataset, its dimensions and any other relevant metadata.
+(Make sure to load the data and use inline code for some of this information.)</p></li>
+<li><p>If answering a particular research question, the question itself and the reason why you chose this question.</p></li>
+</ul>
+</li>
+<li><p>A weekly “plan of attack” outlining your steps to complete your project and including the team member(s) assigned to that task.</p></li>
+<li><p>The final organization of your project repository.
+This means describing the project organization in your proposal as well as implementing that organization in your repo.
+Create any folders needed and place a <code>README.md</code> in each folder explaining what goes in there.</p></li>
+</ul>
+</div>
+<div id="peer-review-1" class="section level3" number="6.4.2">
+<h3>
+<span class="header-section-number">6.4.2</span> Peer review<a class="anchor" aria-label="anchor" href="#peer-review-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="reviewer-tasks-1" class="section level4" number="6.4.2.1">
+<h4>
+<span class="header-section-number">6.4.2.1</span> <strong>Reviewer tasks</strong><a class="anchor" aria-label="anchor" href="#reviewer-tasks-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Each team will review the proposals of two other teams twice during the project. The peer reviews will be completed on Fri, May 20 and Fri, May 27. On those days teams will have access to the project repos of the two teams whose work they’re reviewing.</p>
+<p>The peer review assignments are as follows:</p>
+<div class="inline-table"><table class="table table-sm">
+<thead><tr class="header">
+<th>Reviewee</th>
+<th>Reviewer</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td>TBD</td>
+<td>TBD</td>
+</tr></tbody>
+</table></div>
+<p>Teams will develop the review together, with discussion among all team members, but only one team member will submit it as an issue on the project repo. To do so, go to the <em>Issues</em> tab, click on the green <em>New issue</em> button on the top right, and then click on the green <em>Get started</em> button for the issue template titled <em>Peer review</em>.</p>
+<p>This will start a new issue with a peer review form that you can fill out. Make sure to update the introductory paragraph with your team name and the names of the team members participating in the review. Then, answer each of the questions in the spaces provided underneath them. You’re expected to be thorough in your review, but this doesn’t necessarily require lengthy responses.</p>
+<p>Remember, your goal is to help the team whose project you’re reviewing. The team will not lose points because of issues you point out, as long as they address them before I review their work. You should be critical, but respectful in your review. Also remember that you will be evaluated on the quality of your review. So that’s an additional incentive to do a good job.</p>
+</div>
+<div id="reviewee-tasks-1" class="section level4" number="6.4.2.2">
+<h4>
+<span class="header-section-number">6.4.2.2</span> <strong>Reviewee tasks</strong><a class="anchor" aria-label="anchor" href="#reviewee-tasks-1"><i class="fas fa-link"></i></a>
+</h4>
+<p>Once you receive feedback from your peers, you should address them. You should do this by directly updating your proposal or making any other updates to your repo as needed. You can do these updates all in one commit or you can spread it across multiple commits.</p>
+<p>Regardless, in the last commit that addresses the peer review comments, you should use a keyword in your commit message that will close the peer review issues. These words are close, closes, closed, fix, fixes, fixed, resolve, resolves, and resolved and they need to be followed by the issue number (which you can find next to the issue title). So, your commit message can say something like <em>“Finished updates based on peer review, fixes #1”</em>.</p>
+</div>
+</div>
+<div id="write-up-1" class="section level3" number="6.4.3">
+<h3>
+<span class="header-section-number">6.4.3</span> Write-up<a class="anchor" aria-label="anchor" href="#write-up-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Your have a lot more freedom in how you structure your write-up for this project compared to Project 1. This also comes with responsibility. You should make sure you have a clear introduction and a clear conclusion. You should also have other interim section headings that help the reader. Your write-up should be somewhere between 1000 and 2000 words. There is no expectation that you get close to the upper limit, anywhere in that range is fine as long as you have clearly explained yourself. The limits are provided to help you, not to set stressful expectations.</p>
+</div>
+<div id="presentation-1" class="section level3" number="6.4.4">
+<h3>
+<span class="header-section-number">6.4.4</span> Presentation<a class="anchor" aria-label="anchor" href="#presentation-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Your presentation should generally follow the same structure as your write-up. Each team will have 5 minutes for their presentation, and each team member must speak (roughly equally) during this time.</p>
+<p>You should create your presentation in a reproducible way, e.g., using xaringan, (the package you used for your first project) and not Google Slides. However you don’t have to use a package that is designed specifically for slides. If you prefer to build a dashboard or a Shiny app or a website, that’s fine too. The only rule is that it’s built in R Markdown.</p>
+<p>Your evaluation will be based on your content, professionalism (including sticking to time), and your performance during the Q&amp;A (question and answer). We don’t care how many slides you use to do this.</p>
+</div>
+<div id="website-1" class="section level3" number="6.4.5">
+<h3>
+<span class="header-section-number">6.4.5</span> Website<a class="anchor" aria-label="anchor" href="#website-1"><i class="fas fa-link"></i></a>
+</h3>
+<p>Each of your projects will have a website. You can use the same workflow as for your first project or create something different. For example, if your project is building a dashboard, you might consider making your write-up a tab on that dashboard. Or if it’s building a package, you might consider making your website using the <a href="https://pkgdown.r-lib.org/">pkgdown</a> package. Feel free to google your way around it or ask on the discussion forum or in office hours!</p>
+</div>
+</div>
+<div id="repo-organization-1" class="section level2" number="6.5">
+<h2>
+<span class="header-section-number">6.5</span> Repo organization<a class="anchor" aria-label="anchor" href="#repo-organization-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Since you have complete freedom on the focus of your project, you also have complete freedom on the organization of your repository. But… it should be organized in a logical way!</p>
+<p>At a minimum each project should have a <code>README</code>. This can be a <code>README.md</code> that you edit directly or a <code>README.Rmd</code> that you edit and knit to <code>README.md</code>. If your project is analyzing a dataset, you’ll probably want to structure your repo similar to your Project 1 repo. If you’re building a package, it should be structured like a package.</p>
+</div>
+<div id="grading-1" class="section level2" number="6.6">
+<h2>
+<span class="header-section-number">6.6</span> Grading<a class="anchor" aria-label="anchor" href="#grading-1"><i class="fas fa-link"></i></a>
+</h2>
+<div class="inline-table"><table class="table table-sm">
+<colgroup>
+<col width="52%">
+<col width="47%">
+</colgroup>
+<thead><tr class="header">
+<th>Total</th>
+<th>100 pts</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Proposal<a href="project-2.html#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+</td>
+<td>10 pts</td>
+</tr>
+<tr class="even">
+<td>Presentation<a href="project-2.html#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
+</td>
+<td>
+<p>30 pts</p>
+<p>(25 pts from teaching team, 5 pts from audience)</p>
+</td>
+</tr>
+<tr class="odd">
+<td>Write-up<a href="project-2.html#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
+</td>
+<td>30 pts</td>
+</tr>
+<tr class="even">
+<td>Reproducibility, style, and organization<a href="project-2.html#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
+</td>
+<td>10 pts</td>
+</tr>
+<tr class="odd">
+<td>Within team peer evaluation<a href="project-2.html#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>
+</td>
+<td>10 pts</td>
+</tr>
+<tr class="even">
+<td>Between team peer evaluation<a href="project-2.html#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
+</td>
+<td>10 pts</td>
+</tr>
+</tbody>
+</table></div>
+<p>Some of the components are further detailed below.</p>
+<p>Note that there will be points allocated to commits from each team member for the proposal, presentation, and write-up.</p>
+<div id="proposal-10-points-1" class="section level3" number="6.6.1">
+<h3>
+<span class="header-section-number">6.6.1</span> Proposal (10 points)<a class="anchor" aria-label="anchor" href="#proposal-10-points-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>High level goal</li>
+<li>Expanded description</li>
+<li>Plan</li>
+<li>Repo organization</li>
+<li>Workflow - Peer review issues closed via commits. (1 point)</li>
+<li>Teamwork - All team members must contribute to the repo via commits. (1 point)</li>
+</ul>
+</div>
+<div id="presentation-30-points-1" class="section level3" number="6.6.2">
+<h3>
+<span class="header-section-number">6.6.2</span> Presentation (30 points)<a class="anchor" aria-label="anchor" href="#presentation-30-points-1"><i class="fas fa-link"></i></a>
+</h3>
+<div id="teaching-team-25-points-1" class="section level4" number="6.6.2.1">
+<h4>
+<span class="header-section-number">6.6.2.1</span> Teaching team (25 points)<a class="anchor" aria-label="anchor" href="#teaching-team-25-points-1"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><p>Time management: Did the team divide the time well among themselves or got cut off going over time?
+(2 points)</p></li>
+<li><p>Professionalism: How well did the team present?
+Does the presentation appear to be well practiced?
+Did everyone get a chance to say something meaningful about the project?
+(2 points)</p></li>
+<li><p>Teamwork: Did the team present a unified story, or did it seem like independent pieces of work patched together?
+(3 points)</p></li>
+<li><p>Slides: Are the slides well organized, readable, not full of text, featuring figures with legible labels, legends, etc.?
+(3 points)</p></li>
+<li><p>Creativity / Critical Thought: Is the project carefully thought out?
+Does it appear that time and effort went into the planning and implementation of the project?
+(5 points)</p></li>
+<li>
+<p>Content: Including, but not limited to the following: (10 points)</p>
+<ul>
+<li>Is the question well articulated in the presentation?</li>
+<li>Can the question be answered with the data?</li>
+<li>Do(es) the data visualization(s) answer the question?</li>
+<li>Do(es) the data visualization(s) follow good visualization practices?</li>
+<li>Is/are the conclusion(s) made based on the visualization(s) justifiable?</li>
+<li>Are the limitations carefully considered and articulated?</li>
+</ul>
+</li>
+</ul>
+</div>
+<div id="peers-5-points-1" class="section level4" number="6.6.2.2">
+<h4>
+<span class="header-section-number">6.6.2.2</span> Peers (5 points)<a class="anchor" aria-label="anchor" href="#peers-5-points-1"><i class="fas fa-link"></i></a>
+</h4>
+<ul>
+<li><p>Content: Is the project well designed and is the data being used relevant to the focus of the project?
+(1 point)</p></li>
+<li><p>Content: Did the team use appropriate visualizations and did they interpret them accurately?
+(1 point)</p></li>
+<li><p>Creativity and Critical Thought: Is the project carefully thought out?
+Are the limitations carefully considered?
+Does it appear that time and effort went into the planning and implementation of the project?
+(1 point)</p></li>
+<li><p>Slides: Are the slides (or other presentation medium) well organized, readable, not full of text, featuring figures with legible labels, legends, etc.?
+(1 point)</p></li>
+<li><p>Professionalism: How well did the team present?
+Does the presentation appear to be well practiced?
+Are they reading off of a script?
+Did everyone get a chance to say something meaningful about the project?
+(1 point)</p></li>
+</ul>
+</div>
+</div>
+<div id="write-up-30-points-1" class="section level3" number="6.6.3">
+<h3>
+<span class="header-section-number">6.6.3</span> Write-up (30 points)<a class="anchor" aria-label="anchor" href="#write-up-30-points-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>Introduction: The introduction provides a clear explanation of the question and the dataset used to answer the question, including a description of all relevant variables in the dataset. (3 points)</li>
+<li>Justification of approach: The chosen approach and visualizations are clearly explained and justified. (3 points)</li>
+<li>Code: Code is correct, easy to read, properly formatted, and properly documented. (10 points)</li>
+<li>Visualization: The visualizations are appropriate, easy to read, and properly labeled. (10 points)</li>
+<li>Discussion: Discussion of results is clear and correct, and it has some depth without begin excessively long. (4 points)</li>
+</ul>
+</div>
+<div id="reproducibility-style-and-organization-10-points-1" class="section level3" number="6.6.4">
+<h3>
+<span class="header-section-number">6.6.4</span> Reproducibility, style, and organization (10 points)<a class="anchor" aria-label="anchor" href="#reproducibility-style-and-organization-10-points-1"><i class="fas fa-link"></i></a>
+</h3>
+<ul>
+<li>All required files are provided. R Markdown files knit without issues and reproduce the necessary outputs. If building a package, the checks pass. (3 points)</li>
+<li>If there’s a dataset, it’s provided in a data folder, a codebook is provided, and a local copy of the data file is used where needed. (3 points)</li>
+<li>Documents are well structured and easy to follow. No extraneous materials. (2 points)</li>
+<li>All issues are closed, mostly with specific commits addressing them. (2 points)</li>
+</ul>
+</div>
+</div>
+<div id="guidelines-1" class="section level2" number="6.7">
+<h2>
+<span class="header-section-number">6.7</span> Guidelines<a class="anchor" aria-label="anchor" href="#guidelines-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>Please use the project repository that has been created for your team to complete your project. Everything should be done reproducibly. This means that I should be able to clone your repo and reproduce everything you’ve submitted as part of your project.</p>
+<p>All results presented must have corresponding code. If you do calculations by hand instead of using R and then report the results from the calculations, you will not receive credit for those calculations. Any answers/results given without the corresponding R code that generated the result will not be considered. For example, if you’re reporting the number of observations in your dataset, don’t just write the number manually, use inline R code to calculate the number.</p>
+<p>All code reported in your final project document should work properly. Please do not include any extraneous code or code which produces error messages. Code which produces certain warnings and messages is acceptable, as long as you understand what the warnings mean. In such cases you can add <code>warning = FALSE</code> and <code>message = FALSE</code> in the relevant R chunks. Warnings that signal lifecycle changes (e.g., a function is deprecated and there’s a newer/better function out there) should generally be addressed by updating your code, not just by hiding the warning.</p>
+</div>
+<div id="tips-1" class="section level2" number="6.8">
+<h2>
+<span class="header-section-number">6.8</span> Tips<a class="anchor" aria-label="anchor" href="#tips-1"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li><p>We hope some of you will take the challenge to be adventurous and learn some new skills as part of this project.
+We’re happy to support you along the way, so don’t hesitate to ask as many questions as needed!</p></li>
+<li><p>You’re working in the same repo as your teammates now, so merge conflicts will happen, issues will arise, and that’s fine!
+Commit and push often, and ask questions when stuck.</p></li>
+<li><p>Review the marking guidelines below and ask questions if any of the expectations are unclear.</p></li>
+<li><p>Make sure each team member is contributing, both in terms of quality and quantity of contribution (we will be reviewing commits from different team members).</p></li>
+<li><p>Set aside time to work together and apart (physically).</p></li>
+<li>
+<p>Code:</p>
+<ul>
+<li><p>In your presentation your code should be hidden (<code>echo = FALSE</code>) so that your slides are neat and easy to read.
+However your document should include all your code such that if I re-knit your R Markdown file I should be able to obtain the results you presented.
+<strong>Exception:</strong> If you want to highlight something specific about a piece of code, you’re welcomed to show that portion.</p></li>
+<li><p>In your write-up your code should be visible.</p></li>
+</ul>
+</li>
+<li><p>Teamwork: You are to complete the assignment as a team.
+All team members are expected to contribute equally to the completion of this assignment and team evaluations will be given at its completion - anyone judged to not have sufficient contributed to the final product will have their grade penalized.
+While different teams members may have different backgrounds and abilities, it is the responsibility of every team member to understand how and why all code and approaches in the assignment works.</p></li>
+<li><p>When you’re done, review the documents on GitHub to make sure you’re happy with the final state of your work.
+Then go get some rest!</p></li>
+</ul>
+</div>
+</div>
+<div class="footnotes footnotes-end-of-document">
+<hr>
+<ol>
+<li id="fn1"><p>It is ok for you to repeat some information from the TidyTuesday repository but, but make sure appropriately attribute it here.<a href="project-1.html#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Your proposal score will also take into consideration how much you’ve improved your proposal based on peer feedback.<a href="project-1.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>A more detailed grading rubric for this component to be added.<a href="project-1.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>A more detailed grading rubric for this component to be added.<a href="project-1.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.<a href="project-1.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>This relates to your contribution to the teamwork and how your team members evaluate this contribution.
+Scores for each teammate will be different for this component of the project grade.<a href="project-1.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>This relates to the quality and quantity of the peer review you provide for other teams.<a href="project-1.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Never built an R package before?
+See <a href="https://r-pkgs.org/whole-game.html" class="uri">https://r-pkgs.org/whole-game.html</a> for a great introduction.<a href="project-2.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Your proposal score will also take into consideration how much you’ve improved your proposal based on peer feedback.<a href="project-2.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>A more detailed grading rubric for this component to be added.<a href="project-2.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>A more detailed grading rubric for this component to be added.<a href="project-2.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.<a href="project-2.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>This relates to your contribution to the teamwork and how your team members evaluate this contribution.
+Scores for each teammate will be different for this component of the project grade.<a href="project-2.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>This relates to the quality and quantity of the peer review you provide for other teams.<a href="project-2.html#fnref14" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="project-1.html"><span class="header-section-number">5</span> Project 1</a></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#project-2"><span class="header-section-number">6</span> Project 2</a></li>
+<li><a class="nav-link" href="#ideas"><span class="header-section-number">6.1</span> Ideas</a></li>
+<li><a class="nav-link" href="#workflow-1"><span class="header-section-number">6.2</span> Workflow</a></li>
+<li><a class="nav-link" href="#due-dates-1"><span class="header-section-number">6.3</span> Due dates</a></li>
+<li>
+<a class="nav-link" href="#deliverables-1"><span class="header-section-number">6.4</span> Deliverables</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#proposal-1"><span class="header-section-number">6.4.1</span> Proposal</a></li>
+<li><a class="nav-link" href="#peer-review-1"><span class="header-section-number">6.4.2</span> Peer review</a></li>
+<li><a class="nav-link" href="#write-up-1"><span class="header-section-number">6.4.3</span> Write-up</a></li>
+<li><a class="nav-link" href="#presentation-1"><span class="header-section-number">6.4.4</span> Presentation</a></li>
+<li><a class="nav-link" href="#website-1"><span class="header-section-number">6.4.5</span> Website</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#repo-organization-1"><span class="header-section-number">6.5</span> Repo organization</a></li>
+<li>
+<a class="nav-link" href="#grading-1"><span class="header-section-number">6.6</span> Grading</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#proposal-10-points-1"><span class="header-section-number">6.6.1</span> Proposal (10 points)</a></li>
+<li><a class="nav-link" href="#presentation-30-points-1"><span class="header-section-number">6.6.2</span> Presentation (30 points)</a></li>
+<li><a class="nav-link" href="#write-up-30-points-1"><span class="header-section-number">6.6.3</span> Write-up (30 points)</a></li>
+<li><a class="nav-link" href="#reproducibility-style-and-organization-10-points-1"><span class="header-section-number">6.6.4</span> Reproducibility, style, and organization (10 points)</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#guidelines-1"><span class="header-section-number">6.7</span> Guidelines</a></li>
+<li><a class="nav-link" href="#tips-1"><span class="header-section-number">6.8</span> Tips</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Data Visualization</strong>" was written by Benjamin Soltoff. It was last built on 2022-03-15.</p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

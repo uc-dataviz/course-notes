@@ -20,12 +20,12 @@ Each of the two questions you come up with should involve more than two variable
 
 ## Workflow
 
-- Week 1 of project (week of Tues, Apr 12): Choose a dataset and write up your proposal in `proposal.Rmd`.
+- Week 1 of project (week of Mon, Apr 11): Choose a dataset and write up your proposal in `proposal.Rmd`.
 
-- Week 2 of project (week of Tues, Apr 19): Provide peer review to two other teams in the form of issues in their GitHub repos, address the issues left on your team's project repo by closing them with explicit commits.
+- Week 2 of project (week of Mon, Apr 18): Provide peer review to two other teams in the form of issues in their GitHub repos, address the issues left on your team's project repo by closing them with explicit commits.
     Feel free to get started on your presentation as well.
 
-- Week 3 of project (week of Tues, Apr 26): Review feedback from me on your proposal and close any remaining issues.
+- Week 3 of project (week of Mon, Apr 25): Review feedback from me on your proposal and close any remaining issues.
     Work on your presentation in `presentation.Rmd` and write-up in `README.Rmd`.
     Finalize your write-up, presentation, and your project website.
     Present in class on the Friday of this week.
@@ -149,6 +149,8 @@ The following folders and files in your project repository:
 | Proposal[^project-1-2]                                 | 10 pts                                           |
 +--------------------------------------------------------+--------------------------------------------------+
 | Presentation[^project-1-3]                             | 30 pts                                           |
+|                                                        |                                                  |
+|                                                        | (25 pts from teaching team, 5 pts from audience) |
 +--------------------------------------------------------+--------------------------------------------------+
 | Write-up[^project-1-4]                                 | 30 pts                                           |
 +--------------------------------------------------------+--------------------------------------------------+
