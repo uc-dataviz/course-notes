@@ -2,7 +2,6 @@ syllabus
 course-description
 learning-objectives
 prerequisites
-course-schedule
 what-do-i-need-for-this-course
 textbooks
 how-will-i-be-evaluated
@@ -11,3 +10,5 @@ acknowledgments
 instructional-staff
 instructor
 teaching-assistant
+schedule
+useful-links
