@@ -4,7 +4,7 @@ site: bookdown::bookdown_site
 title: "Data Visualization"
 description: "Contains notes for the spring 2022 course."
 author: "Benjamin Soltoff"
-date: "2022-03-15"
+date: "2022-03-16"
 documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike

@@ -28,7 +28,7 @@ Each of the two questions you come up with should involve more than two variable
 - Week 3 of project (week of Mon, Apr 25): Review feedback from me on your proposal and close any remaining issues.
     Work on your presentation in `presentation.Rmd` and write-up in `README.Rmd`.
     Finalize your write-up, presentation, and your project website.
-    Present in class on the Friday of this week.
+    Present in class on the Thursday of this week.
 
 ## Due dates
 
