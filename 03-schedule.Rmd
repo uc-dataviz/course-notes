@@ -28,11 +28,10 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 
 ##### Required {.unnumbered}
 
-- [Healy, chapter 1](https://socviz.co/lookatdata.html)
+- *The Truthful Art* by Alberto Cairo, chapter 2 (on electronic course reserve in Canvas)
 
 ##### Recommended {.unnumbered}
 
-- *The Truthful Art* by Alberto Cairo, chapter 2 (on electronic course reserve in Canvas)
 
 ## Grammar of graphics 
 
@@ -43,9 +42,11 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 ##### Required {.unnumbered}
 
 - [Healy, chapter 1](https://socviz.co/lookatdata.html)
+- [Study: Charts change hearts and minds better than words do](https://www.washingtonpost.com/news/wonk/wp/2018/06/15/study-charts-change-hearts-and-minds-better-than-words-do/)
 
 ##### Recommended {.unnumbered}
 
+- Wilke [chapter 2](https://clauswilke.com/dataviz/aesthetic-mapping.html)
 
 ## Deep dive: geoms 
 

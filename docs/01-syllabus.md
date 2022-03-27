@@ -59,8 +59,8 @@ Additional readings will be assigned as necessary and will either be free electr
 
 Assessment for the course is comprised of two components: homework assignments and projects.
 
--   **Homework assignments** (5), due every other week (roughly), completed individually.
-    Each homework assignment is worth 10% of the course grade.
+-   **Homework assignments** (4), due every other week (roughly), completed individually.
+    Each homework assignment is worth 12.5% of the course grade.
 
     Homework assignments are due by 11am (beginning of class) on the indicated day on the [course schedule](./schedule.html).
 
