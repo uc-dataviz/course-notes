@@ -20,7 +20,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, May 12 | Visualizing text and network data?/Animation |  |
 | 8 | Tue, May 17 | Interactive reporting | HW4 |
 |  | Thu, May 19 | Interactive visualization |  |
-| 9 | Tue, May 24 | Tables | HW5 |
+| 9 | Tue, May 24 | Tables |  |
 |  | Thu, May 26 | Accessibility |  |
 | Exam | TBD | Project 2 presentations |  |
 
