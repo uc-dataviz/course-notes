@@ -5,7 +5,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 | **Week** | **Date** | **Topic** | **Due** |
 |---|---|---|---|
 | 1 | Tue, Mar 29 | Welcome to the course |  |
-|  | Thu, Mar 31 | Grammar of graphics |  |
+|  | Thu, Mar 31 | Grammar of graphics | Survey: [Collecting GitHub usernames](https://forms.gle/HkaVKm7wgUPRW1Zh7)  |
 | 2 | Tue, Apr 5 | Looking at data |  |
 |  | Thu, Apr 7 | Deep dive: geoms |  |
 | 3 | Tue, Apr 12 | Deep dive: stats + scales + guides | HW1 |
