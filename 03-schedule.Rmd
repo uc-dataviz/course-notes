@@ -6,10 +6,10 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |---|---|---|---|
 | 1 | Tue, Mar 29 | [Welcome to the course](https://uc-dataviz-slides.netlify.app/01-intro/) |  |
 |  | Thu, Mar 31 | [Grammar of graphics](https://uc-dataviz-slides.netlify.app/02-grammar-of-graphics/) | Survey: [Collecting GitHub usernames](https://forms.gle/HkaVKm7wgUPRW1Zh7)  |
-| 2 | Tue, Apr 5 | Looking at data |  |
-|  | Thu, Apr 7 | Deep dive: geoms |  |
-| 3 | Tue, Apr 12 | Deep dive: stats + scales + guides | HW1 |
-|  | Thu, Apr 14 | Deep dive: coordinate systems + faceting + themes |  |
+| 2 | Tue, Apr 5 | [Looking at data](https://uc-dataviz-slides.netlify.app/03-look-at-data/) |  |
+|  | Thu, Apr 7 | [Deep dive: geoms](https://uc-dataviz-slides.netlify.app/04-geoms/) |  |
+| 3 | Tue, Apr 12 | [Deep dive: stats + scales + guides](https://uc-dataviz-slides.netlify.app/05-stats-scales-guides/) | HW1 |
+|  | Thu, Apr 14 | [Deep dive: coordinate systems + faceting + themes](https://uc-dataviz-slides.netlify.app/06-coordinates-facets-themes/) |  |
 | 4 | Tue, Apr 19 | Optimizing color spaces? | HW2 |
 |  | Thu, Apr 21 | Deep dive: axes and annotation |  |
 | 5 | Tue, Apr 26 | Presentation ready plots |  |

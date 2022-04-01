@@ -7,17 +7,21 @@
 <title>Chapter 6 Project 2 | Data Visualization</title>
 <meta name="author" content="Benjamin Soltoff">
 <meta name="description" content="Your task for this project is to create something related to data visualization. This is intentionally vague – part of the challenge is to design a project that showcases best your interests and...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
 <meta property="og:title" content="Chapter 6 Project 2 | Data Visualization">
 <meta property="og:type" content="book">
 <meta property="og:description" content="Your task for this project is to create something related to data visualization. This is intentionally vague – part of the challenge is to design a project that showcases best your interests and...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 6 Project 2 | Data Visualization">
 <meta name="twitter:description" content="Your task for this project is to create something related to data visualization. This is intentionally vague – part of the challenge is to design a project that showcases best your interests and...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.13/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4.css">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -70,7 +74,8 @@
 <p>Your first task is to come up with a goal for your project. Here are a few ideas to help you get started thinking:</p>
 <ul>
 <li>Build a Shiny app that that has an Instagram-like user interface for applying filters, except not filters but themes for ggplots.</li>
-<li>Create an R package that provides functionality for a set of ggplot2 themes and/or color palettes.<a href="project-2.html#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
+<li>Create an R package that provides functionality for a set of ggplot2 themes and/or color palettes.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content='&lt;p&gt;Never built an R package before?
+See &lt;a href="https://r-pkgs.org/whole-game.html" class="uri"&gt;https://r-pkgs.org/whole-game.html&lt;/a&gt; for a great introduction.&lt;/p&gt;'><sup>8</sup></a>
 </li>
 <li>Build a generative art system.</li>
 <li>Do a deep dive into accessibility for data visualization and build a lesson plan for creating accessible visualizations with ggplot2, R Markdown, and generally within the R ecosystem.</li>
@@ -207,12 +212,12 @@ Create any folders needed and place a <code>README.md</code> in each folder expl
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>Proposal<a href="project-2.html#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+<td>Proposal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Your proposal score will also take into consideration how much you’ve improved your proposal based on peer feedback.&lt;/p&gt;"><sup>9</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
 <tr class="even">
-<td>Presentation<a href="project-2.html#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
+<td>Presentation<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A more detailed grading rubric for this component to be added.&lt;/p&gt;"><sup>10</sup></a>
 </td>
 <td>
 <p>30 pts</p>
@@ -220,22 +225,23 @@ Create any folders needed and place a <code>README.md</code> in each folder expl
 </td>
 </tr>
 <tr class="odd">
-<td>Write-up<a href="project-2.html#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
+<td>Write-up<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A more detailed grading rubric for this component to be added.&lt;/p&gt;"><sup>11</sup></a>
 </td>
 <td>30 pts</td>
 </tr>
 <tr class="even">
-<td>Reproducibility, style, and organization<a href="project-2.html#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
+<td>Reproducibility, style, and organization<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.&lt;/p&gt;"><sup>12</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
 <tr class="odd">
-<td>Within team peer evaluation<a href="project-2.html#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>
+<td>Within team peer evaluation<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This relates to your contribution to the teamwork and how your team members evaluate this contribution.
+Scores for each teammate will be different for this component of the project grade.&lt;/p&gt;"><sup>13</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
 <tr class="even">
-<td>Between team peer evaluation<a href="project-2.html#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
+<td>Between team peer evaluation<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This relates to the quality and quantity of the peer review you provide for other teams.&lt;/p&gt;"><sup>14</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
@@ -375,28 +381,29 @@ Then go get some rest!</p></li>
 </ul>
 </div>
 </div>
-<div class="footnotes footnotes-end-of-document">
-<hr>
-<ol>
-<li id="fn1"><p>It is ok for you to repeat some information from the TidyTuesday repository but, but make sure appropriately attribute it here.<a href="project-1.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>Your proposal score will also take into consideration how much you’ve improved your proposal based on peer feedback.<a href="project-1.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>A more detailed grading rubric for this component to be added.<a href="project-1.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>A more detailed grading rubric for this component to be added.<a href="project-1.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.<a href="project-1.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>This relates to your contribution to the teamwork and how your team members evaluate this contribution.
-Scores for each teammate will be different for this component of the project grade.<a href="project-1.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>This relates to the quality and quantity of the peer review you provide for other teams.<a href="project-1.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Never built an R package before?
-See <a href="https://r-pkgs.org/whole-game.html" class="uri">https://r-pkgs.org/whole-game.html</a> for a great introduction.<a href="project-2.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>Your proposal score will also take into consideration how much you’ve improved your proposal based on peer feedback.<a href="project-2.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>A more detailed grading rubric for this component to be added.<a href="project-2.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>A more detailed grading rubric for this component to be added.<a href="project-2.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.<a href="project-2.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>This relates to your contribution to the teamwork and how your team members evaluate this contribution.
-Scores for each teammate will be different for this component of the project grade.<a href="project-2.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>This relates to the quality and quantity of the peer review you provide for other teams.<a href="project-2.html#fnref14" class="footnote-back">↩︎</a></p></li>
-</ol>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   <div class="chapter-nav">
 <div class="prev"><a href="project-1.html"><span class="header-section-number">5</span> Project 1</a></div>
 <div class="empty"></div>
@@ -443,7 +450,7 @@ Scores for each teammate will be different for this component of the project gra
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Visualization</strong>" was written by Benjamin Soltoff. It was last built on 2022-03-29.</p>
+    <p>"<strong>Data Visualization</strong>" was written by Benjamin Soltoff. It was last built on 2022-04-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

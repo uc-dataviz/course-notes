@@ -7,17 +7,21 @@
 <title>Chapter 5 Project 1 | Data Visualization</title>
 <meta name="author" content="Benjamin Soltoff">
 <meta name="description" content="For this project, you will be using a dataset from the TidyTuesday project. You can choose any dataset published by TidyTuesday as part of this project. Your task for the project is to come up...">
-<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta name="generator" content="bookdown 0.25 with bs4_book()">
 <meta property="og:title" content="Chapter 5 Project 1 | Data Visualization">
 <meta property="og:type" content="book">
 <meta property="og:description" content="For this project, you will be using a dataset from the TidyTuesday project. You can choose any dataset published by TidyTuesday as part of this project. Your task for the project is to come up...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Chapter 5 Project 1 | Data Visualization">
 <meta name="twitter:description" content="For this project, you will be using a dataset from the TidyTuesday project. You can choose any dataset published by TidyTuesday as part of this project. Your task for the project is to come up...">
-<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/header-attrs-2.13/header-attrs.js"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
-<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><link rel="stylesheet" href="bs4.css">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="bs4.css">
 </head>
 <body data-spy="scroll" data-target="#toc">
 
@@ -204,7 +208,7 @@ And the title should relate to the question you’re answering.</p></li>
 <p><code>/data/*</code>: Your dataset</p>
 <ul>
 <li><p><code>/data/*.csv</code>: Your dataset in CSV format</p></li>
-<li><p><code>/data/README.md</code>: Metadata about your dataset including information on provenance, codebook, etc.<a href="project-2.html#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p></li>
+<li><p><code>/data/README.md</code>: Metadata about your dataset including information on provenance, codebook, etc.<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;It is ok for you to repeat some information from the TidyTuesday repository but, but make sure appropriately attribute it here.&lt;/p&gt;"><sup>1</sup></a></p></li>
 </ul>
 </li>
 <li>
@@ -238,12 +242,12 @@ And the title should relate to the question you’re answering.</p></li>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td>Proposal<a href="project-2.html#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+<td>Proposal<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Your proposal score will also take into consideration how much you’ve improved your proposal based on peer feedback.&lt;/p&gt;"><sup>2</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
 <tr class="even">
-<td>Presentation<a href="project-2.html#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+<td>Presentation<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A more detailed grading rubric for this component to be added.&lt;/p&gt;"><sup>3</sup></a>
 </td>
 <td>
 <p>30 pts</p>
@@ -251,22 +255,23 @@ And the title should relate to the question you’re answering.</p></li>
 </td>
 </tr>
 <tr class="odd">
-<td>Write-up<a href="project-2.html#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
+<td>Write-up<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;A more detailed grading rubric for this component to be added.&lt;/p&gt;"><sup>4</sup></a>
 </td>
 <td>30 pts</td>
 </tr>
 <tr class="even">
-<td>Reproducibility, style, and organization<a href="project-2.html#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>
+<td>Reproducibility, style, and organization<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Style and format does count for this assignment, so please take the time to make sure everything looks good and your data and code are properly formatted.&lt;/p&gt;"><sup>5</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
 <tr class="odd">
-<td>Within team peer evaluation<a href="project-2.html#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>
+<td>Within team peer evaluation<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This relates to your contribution to the teamwork and how your team members evaluate this contribution.
+Scores for each teammate will be different for this component of the project grade.&lt;/p&gt;"><sup>6</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
 <tr class="even">
-<td>Between team peer evaluation<a href="project-2.html#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>
+<td>Between team peer evaluation<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;This relates to the quality and quantity of the peer review you provide for other teams.&lt;/p&gt;"><sup>7</sup></a>
 </td>
 <td>10 pts</td>
 </tr>
@@ -396,6 +401,7 @@ Then go get some rest!</p></li>
 </ul>
 </div>
 </div>
+
   <div class="chapter-nav">
 <div class="prev"><a href="useful-links.html"><span class="header-section-number">4</span> Useful links</a></div>
 <div class="next"><a href="project-2.html"><span class="header-section-number">6</span> Project 2</a></div>
@@ -443,7 +449,7 @@ Then go get some rest!</p></li>
 <footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>Data Visualization</strong>" was written by Benjamin Soltoff. It was last built on 2022-03-29.</p>
+    <p>"<strong>Data Visualization</strong>" was written by Benjamin Soltoff. It was last built on 2022-04-01.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
