@@ -9,9 +9,9 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 | 2 | Tue, Apr 5 | [Looking at data](https://uc-dataviz-slides.netlify.app/03-look-at-data/) |  |
 |  | Thu, Apr 7 | [Deep dive: geoms](https://uc-dataviz-slides.netlify.app/04-geoms/) |  |
 | 3 | Tue, Apr 12 | [Deep dive: stats + scales + guides](https://uc-dataviz-slides.netlify.app/05-stats-scales-guides/) | HW1 |
-|  | Thu, Apr 14 | [Deep dive: coordinate systems + faceting + themes](https://uc-dataviz-slides.netlify.app/06-coordinates-facets-themes/) |  |
+|  | Thu, Apr 14 | [Deep dive: coordinate systems + faceting](https://uc-dataviz-slides.netlify.app/06-coordinates-facets/) |  |
 | 4 | Tue, Apr 19 | [Optimizing color spaces](https://uc-dataviz-slides.netlify.app/07-optimizing-color-spaces/) | HW2 |
-|  | Thu, Apr 21 | Deep dive: axes and annotation |  |
+|  | Thu, Apr 21 | Deep dive: themes + axes + annotation |  |
 | 5 | Tue, Apr 26 | Presentation ready plots |  |
 |  | Thu, Apr 28 | Project 1 presentations |  |
 | 6 | Tue, May 3 | Visualizing geospatial data I |  |
@@ -64,11 +64,11 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 
 ##### Recommended {.unnumbered}
 
-## Deep dive: coordinate systems + faceting + themes 
+## Deep dive: coordinate systems + faceting 
 
 ##### Required {.unnumbered}
 
-- Wickham et. al., [chapter 16](https://ggplot2-book.org/coord.html) + [chapter 17](https://ggplot2-book.org/facet.html) + [chapter 18](https://ggplot2-book.org/polishing.html)
+- Wickham et. al., [chapter 16](https://ggplot2-book.org/coord.html) + [chapter 17](https://ggplot2-book.org/facet.html)
 
 ##### Recommended {.unnumbered}
 
@@ -83,10 +83,11 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 - [How to create an organizational color palette](https://blog.datawrapper.de/colors-for-data-vis-style-guides/)
 - [Any blog posts by Lisa Charlotte Muth](https://blog.datawrapper.de/category/color-in-data-vis/) - excellent series of posts on using color in data visualization. None of the posts have direct examples in R but provide a detailed overview of considerations in selecting color palettes.
 
-## Deep dive: axes and annotation 
+## Deep dive: themes + axes + annotation 
 
 ##### Required {.unnumbered}
 
+- Wickham et. al., [chapter 18](https://ggplot2-book.org/polishing.html) + [chapter 8](https://ggplot2-book.org/annotations.html)
 
 ##### Recommended {.unnumbered}
 

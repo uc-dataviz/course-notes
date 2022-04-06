@@ -26,9 +26,9 @@ grammar-of-graphics
 looking-at-data
 deep-dive-geoms
 deep-dive-stats-scales-guides
-deep-dive-coordinate-systems-faceting-themes
+deep-dive-coordinate-systems-faceting
 optimizing-color-spaces
-deep-dive-axes-and-annotation
+deep-dive-themes-axes-annotation
 presentation-ready-plots
 project-1-presentations
 visualizing-geospatial-data-i
