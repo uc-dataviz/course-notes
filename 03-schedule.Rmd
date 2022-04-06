@@ -10,7 +10,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, Apr 7 | [Deep dive: geoms](https://uc-dataviz-slides.netlify.app/04-geoms/) |  |
 | 3 | Tue, Apr 12 | [Deep dive: stats + scales + guides](https://uc-dataviz-slides.netlify.app/05-stats-scales-guides/) | HW1 |
 |  | Thu, Apr 14 | [Deep dive: coordinate systems + faceting + themes](https://uc-dataviz-slides.netlify.app/06-coordinates-facets-themes/) |  |
-| 4 | Tue, Apr 19 | Optimizing color spaces? | HW2 |
+| 4 | Tue, Apr 19 | [Optimizing color spaces](https://uc-dataviz-slides.netlify.app/07-optimizing-color-spaces/) | HW2 |
 |  | Thu, Apr 21 | Deep dive: axes and annotation |  |
 | 5 | Tue, Apr 26 | Presentation ready plots |  |
 |  | Thu, Apr 28 | Project 1 presentations |  |
@@ -79,6 +79,9 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 - Wilke [chapter 4](https://clauswilke.com/dataviz/color-basics.html) + [chapter 19](https://clauswilke.com/dataviz/color-pitfalls.html)
 
 ##### Recommended {.unnumbered}
+
+- [How to create an organizational color palette](https://blog.datawrapper.de/colors-for-data-vis-style-guides/)
+- [Any blog posts by Lisa Charlotte Muth](https://blog.datawrapper.de/category/color-in-data-vis/) - excellent series of posts on using color in data visualization. None of the posts have direct examples in R but provide a detailed overview of considerations in selecting color palettes.
 
 ## Deep dive: axes and annotation 
 
