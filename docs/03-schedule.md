@@ -88,6 +88,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 ##### Required {.unnumbered}
 
 - Wickham et. al., [chapter 18](https://ggplot2-book.org/polishing.html) + [chapter 8](https://ggplot2-book.org/annotations.html)
+- Wilke [chapter 22](https://clauswilke.com/dataviz/figure-titles-captions.html)
 
 ##### Recommended {.unnumbered}
 
