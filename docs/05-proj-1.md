@@ -55,9 +55,18 @@ Each team will review the proposals of two other teams. The peer review will be 
 
 The peer review assignments are as follows:
 
-| Reviewer              | Reviewee                              |
-|-----------------------|---------------------------------------|
-| TBD       | TBD   |
+|Reviewer      |Reviewee                    |
+|:-------------|:---------------------------|
+|Calm Comet    |Undead Hen, Tan Egg         |
+|Chalky Piglet |Calm Comet, Undead Hen      |
+|Elated Anura  |Chalky Piglet, Calm Comet   |
+|Female Python |Elated Anura, Chalky Piglet |
+|Froggy Panda  |Female Python, Elated Anura |
+|Outer Baboon  |Froggy Panda, Female Python |
+|Sleepy Spider |Outer Baboon, Froggy Panda  |
+|Swampy Pygmy  |Sleepy Spider, Outer Baboon |
+|Tan Egg       |Swampy Pygmy, Sleepy Spider |
+|Undead Hen    |Tan Egg, Swampy Pygmy       |
 
 Teams will develop the review together, with discussion among all team members, but only one team member will submit it as an issue on the project repo. To do so, go to the *Issues* tab, click on the green *New issue* button on the top right, and then click on the green *Get started* button for the issue template titled *Peer review*.
 
