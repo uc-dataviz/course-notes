@@ -51,7 +51,7 @@ Your proposal should include:
 
 #### Reviewer tasks {.unnumbered}
 
-Each team will review the proposals of two other teams. The peer review will be completed by Mon, Apr 18. On that day teams will have access to the project repos of the two teams whose work they're reviewing.
+Each team will review the proposals of two other teams. The peer review will be completed by Tue, Apr 19.
 
 The peer review assignments are as follows:
 
