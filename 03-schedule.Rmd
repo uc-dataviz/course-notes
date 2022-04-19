@@ -88,11 +88,11 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 ##### Required {.unnumbered}
 
 - Wickham et. al., [chapter 18](https://ggplot2-book.org/polishing.html) + [chapter 8](https://ggplot2-book.org/annotations.html)
-- Wilke [chapter 22](https://clauswilke.com/dataviz/figure-titles-captions.html)
-- [Summary of CRAP graphic design principles](https://www.presentationzen.com/chapter6_spread.pdf) by Garr Reynolds, *Presentation Zen*
+- Wilke [chapter 22](https://clauswilke.com/dataviz/figure-titles-captions.html) + [chapter 23](https://clauswilke.com/dataviz/balance-data-context.html)
 
 ##### Recommended {.unnumbered}
 
+- [Summary of CRAP graphic design principles](https://www.presentationzen.com/chapter6_spread.pdf) by Garr Reynolds, *Presentation Zen*
 - Naomi Robbins, [Are Grid Lines Useful or Chartjunk?](https://www.forbes.com/sites/naomirobbins/2012/02/22/are-grid-lines-useful-or-chartjunk/?sh=49f36e624283)
 - Stephen Few, [Grid Lines in Graphs are Rarely Useful](http://www.perceptualedge.com/articles/dmreview/grid_lines.pdf)
 
