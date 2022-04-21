@@ -11,7 +11,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 | 3 | Tue, Apr 12 | [Deep dive: stats + scales + guides](https://uc-dataviz-slides.netlify.app/05-stats-scales-guides/) | HW1 |
 |  | Thu, Apr 14 | [Deep dive: coordinate systems + faceting](https://uc-dataviz-slides.netlify.app/06-coordinates-facets/) |  |
 | 4 | Tue, Apr 19 | [Optimizing color spaces](https://uc-dataviz-slides.netlify.app/07-optimizing-color-spaces/) | HW2 |
-|  | Thu, Apr 21 | Deep dive: themes + axes + annotation |  |
+|  | Thu, Apr 21 | [Deep dive: themes + axes + annotation](https://uc-dataviz-slides.netlify.app/08-themes-axes-annotations/) |  |
 | 5 | Tue, Apr 26 | Presentation ready plots |  |
 |  | Thu, Apr 28 | Project 1 presentations |  |
 | 6 | Tue, May 3 | Visualizing geospatial data I |  |
