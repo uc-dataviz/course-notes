@@ -75,9 +75,18 @@ Each team will review the proposals of two other teams twice during the project.
 
 The peer review assignments are as follows:
 
-| Reviewee         | Reviewer                        |
-|------------------|---------------------------------|
-| TBD | TBD |
+|Reviewer      |Reviewee                   |
+|:-------------|:--------------------------|
+|Curly Locust  |Superb Bilby, Smug Trout   |
+|Flayed Hoiho  |Curly Locust, Superb Bilby |
+|Furred Flies  |Flayed Hoiho, Curly Locust |
+|Nosy Mara     |Furred Flies, Flayed Hoiho |
+|Old Erne      |Nosy Mara, Furred Flies    |
+|Other Carp    |Old Erne, Nosy Mara        |
+|Peewee Marten |Other Carp, Old Erne       |
+|Rosy Eeve     |Peewee Marten, Other Carp  |
+|Smug Trout    |Rosy Eeve, Peewee Marten   |
+|Superb Bilby  |Smug Trout, Rosy Eeve      |
 
 Teams will develop the review together, with discussion among all team members, but only one team member will submit it as an issue on the project repo. To do so, go to the *Issues* tab, click on the green *New issue* button on the top right, and then click on the green *Get started* button for the issue template titled *Peer review*.
 
