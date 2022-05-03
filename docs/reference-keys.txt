@@ -31,8 +31,8 @@ optimizing-color-spaces
 deep-dive-themes-axes-annotation
 presentation-ready-plots
 project-1-presentations
-visualizing-geospatial-data-i
-visualizing-geospatial-data-ii
+visualizing-spatial-data-i
+visualizing-spatial-data-ii
 visualizing-time-series-data
 visualizing-text-and-network-dataanimation
 interactive-reporting

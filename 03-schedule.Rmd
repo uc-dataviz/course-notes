@@ -14,10 +14,10 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, Apr 21 | [Deep dive: themes + axes + annotation](https://uc-dataviz-slides.netlify.app/08-themes-axes-annotations/) |  |
 | 5 | Tue, Apr 26 | [Presentation ready plots](https://uc-dataviz-slides.netlify.app/09-presentation-ready-plots/) |  |
 |  | Thu, Apr 28 | Project 1 presentations |  |
-| 6 | Tue, May 3 | Visualizing geospatial data I |  |
-|  | Thu, May 5 | Visualizing geospatial data II |  |
+| 6 | Tue, May 3 | [Visualizing spatial data I](https://uc-dataviz-slides.netlify.app/11-visualize-spatial-i/) |  |
+|  | Thu, May 5 | [Visualizing spatial data II](https://uc-dataviz-slides.netlify.app/12-visualize-spatial-ii/) |  |
 | 7 | Tue, May 10 | Visualizing time series data | HW3 |
-|  | Thu, May 12 | Visualizing text and network data?/Animation |  |
+|  | Thu, May 12 | Animation |  |
 | 8 | Tue, May 17 | Interactive reporting | HW4 |
 |  | Thu, May 19 | Interactive visualization |  |
 | 9 | Tue, May 24 | Tables |  |
@@ -109,7 +109,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 ## Project 1 presentations 
 
 
-## Visualizing geospatial data I 
+## Visualizing spatial data I 
 
 ##### Required {.unnumbered}
 
@@ -117,7 +117,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 
 ##### Recommended {.unnumbered}
 
-## Visualizing geospatial data II 
+## Visualizing spatial data II 
 
 ##### Required {.unnumbered}
 
