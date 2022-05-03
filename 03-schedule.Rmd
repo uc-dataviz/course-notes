@@ -16,11 +16,11 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, Apr 28 | Project 1 presentations |  |
 | 6 | Tue, May 3 | [Visualizing spatial data I](https://uc-dataviz-slides.netlify.app/11-visualize-spatial-i/) |  |
 |  | Thu, May 5 | [Visualizing spatial data II](https://uc-dataviz-slides.netlify.app/12-visualize-spatial-ii/) |  |
-| 7 | Tue, May 10 | Visualizing time series data | HW3 |
+| 7 | Tue, May 10 | Visualizing time series data | |
 |  | Thu, May 12 | Animation |  |
-| 8 | Tue, May 17 | Interactive reporting | HW4 |
+| 8 | Tue, May 17 | Interactive reporting | HW3 |
 |  | Thu, May 19 | Interactive visualization |  |
-| 9 | Tue, May 24 | Tables |  |
+| 9 | Tue, May 24 | Tables | HW4 |
 |  | Thu, May 26 | Accessibility |  |
 | Exam | TBD | Project 2 presentations |  |
 
