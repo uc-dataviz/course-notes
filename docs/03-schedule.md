@@ -133,6 +133,8 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 
 ##### Recommended {.unnumbered}
 
+- [Practicing `tidytext` with Hamilton](https://cfss.uchicago.edu/notes/hamilton/)
+
 ## Animation 
 
 ##### Required {.unnumbered}
