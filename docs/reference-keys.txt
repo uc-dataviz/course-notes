@@ -33,8 +33,8 @@ presentation-ready-plots
 project-1-presentations
 visualizing-spatial-data-i
 visualizing-spatial-data-ii
-visualizing-time-series-data
-visualizing-text-and-network-dataanimation
+visualizing-text-network-data
+animation
 interactive-reporting
 interactive-visualization
 tables

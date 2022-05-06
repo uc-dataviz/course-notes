@@ -16,7 +16,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, Apr 28 | Project 1 presentations |  |
 | 6 | Tue, May 3 | [Visualizing spatial data I](https://uc-dataviz-slides.netlify.app/11-visualize-spatial-i/) |  |
 |  | Thu, May 5 | [Visualizing spatial data II](https://uc-dataviz-slides.netlify.app/12-visualize-spatial-ii/) |  |
-| 7 | Tue, May 10 | Visualizing time series data | |
+| 7 | Tue, May 10 | Visualizing text + network data | |
 |  | Thu, May 12 | Animation |  |
 | 8 | Tue, May 17 | Interactive reporting | HW3 |
 |  | Thu, May 19 | Interactive visualization |  |
@@ -124,19 +124,19 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 
 ##### Recommended {.unnumbered}
 
-## Visualizing time series data 
+## Visualizing text + network data 
 
 ##### Required {.unnumbered}
 
-- Wilke [chapter 13](https://clauswilke.com/dataviz/time-series.html) + [chapter 14](https://clauswilke.com/dataviz/visualizing-trends.html)
+- Silge and Robinson [chapter 1](https://www.tidytextmining.com/tidytext.html)
+- Wickham et. al., [chapter 7](https://ggplot2-book.org/networks.html)
 
 ##### Recommended {.unnumbered}
 
-## Visualizing text and network data?/Animation 
+## Animation 
 
 ##### Required {.unnumbered}
 
-- Wickham et. al., [chapter 7](https://ggplot2-book.org/networks.html)
 
 ##### Recommended {.unnumbered}
 
