@@ -16,8 +16,8 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, Apr 28 | Project 1 presentations |  |
 | 6 | Tue, May 3 | [Visualizing spatial data I](https://uc-dataviz-slides.netlify.app/11-visualize-spatial-i/) |  |
 |  | Thu, May 5 | [Visualizing spatial data II](https://uc-dataviz-slides.netlify.app/12-visualize-spatial-ii/) |  |
-| 7 | Tue, May 10 | Visualizing text + network data | |
-|  | Thu, May 12 | Animation |  |
+| 7 | Tue, May 10 | [Visualizing text + network data](https://uc-dataviz-slides.netlify.app/13-visualize-text-network/) | |
+|  | Thu, May 12 | [Animation](https://uc-dataviz-slides.netlify.app/14-animation/) |  |
 | 8 | Tue, May 17 | Interactive reporting | HW3 |
 |  | Thu, May 19 | Interactive visualization |  |
 | 9 | Tue, May 24 | Tables | HW4 |
