@@ -30,9 +30,9 @@ Most importantly, be prepared to brainstorm a bunch of ideas and discard them un
 
 -   Week 1 of project (week of Mon, May 2): Pick a focus for your project.
 
--   Week 2 of project (week of Mon, May 9): Finalize your project proposal and set up the structure for your repository.
+-   Week 2 of project (week of Mon, May 9): Finalize your project proposal, set up the structure for your repository, and conduct peer review on project proposals.
 
--   Week 3 of project (week of Mon, May 16): Conduct peer review on project proposals, and optionally, submit in an updated version of your proposal.
+-   Week 3 of project (week of Mon, May 16): Continue working on your project, and optionally, submit an updated version of your proposal.
 
 -   Week 4 of project (week of Mon, May 23): Continue working on your project.
 
@@ -71,7 +71,7 @@ Your proposal should include:
 
 #### **Reviewer tasks**
 
-Each team will review the proposals of two other teams twice during the project. The peer reviews will be completed on Fri, May 20 and Fri, May 27. On those days teams will have access to the project repos of the two teams whose work they're reviewing.
+Each team will review the proposals of two other teams twice during the project. The peer reviews will be completed on Fri, May 13 and Fri, May 27. On those days teams will have access to the project repos of the two teams whose work they're reviewing.
 
 The peer review assignments are as follows:
 
