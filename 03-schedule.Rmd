@@ -20,7 +20,7 @@ The list of topics is tentative and the pacing subject to change. Assigned readi
 |  | Thu, May 12 | [Animation](https://uc-dataviz-slides.netlify.app/14-animation/) |  |
 | 8 | Tue, May 17 | [Interactive reporting](https://uc-dataviz-slides.netlify.app/15-interactive-reporting/) | HW3 |
 |  | Thu, May 19 | [Interactive visualization](https://uc-dataviz-slides.netlify.app/16-interactive-visualization/) |  |
-| 9 | Tue, May 24 | Tables | HW4 |
+| 9 | Tue, May 24 | [Tables](https://uc-dataviz-slides.netlify.app/17-tables/) | HW4 |
 |  | Thu, May 26 | Accessibility |  |
 | Exam | TBD | Project 2 presentations |  |
 
